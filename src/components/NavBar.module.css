@@ -1,0 +1,20 @@
+/* element variables */
+:root {
+  --element-spacing: 1.5rem;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--element-spacing);
+}
+
+/* every direct descenday of class left*/
+.left > * {
+  margin-right: var(--element-spacing);
+}
+
+.right > * {
+  margin-left: var(--element-spacing);
+}
