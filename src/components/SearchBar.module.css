@@ -3,7 +3,7 @@
 }
 
 :global(.button).search-button {
-  background: blue;
+  background: #f7a8b8;
   border: none;
 }
 
