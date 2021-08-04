@@ -1,0 +1,7 @@
+.search-result {
+  display: flex;
+}
+
+.business-info {
+  min-width: 400px;
+}
