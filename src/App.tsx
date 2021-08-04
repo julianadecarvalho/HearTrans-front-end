@@ -1,8 +1,12 @@
 import React from "react";
-import { Home } from "./components/Home";
-<<<<<<< HEAD
+import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./components/SearchResults";
+import { AddReview } from "./pages/AddReview";
+import { AddLocation } from "./pages/AddLocation";
+import { AddProvider } from "./pages/AddProvider";
+import { Report } from "./pages/Report";
+import { Donate } from "./pages/Donate";
 
 function App() {
   return (
@@ -10,24 +14,13 @@ function App() {
       <Switch>
         <Route path="/search" component={SearchResults} />
         <Route path="/" component={Home} />
+        <Route path="/addreview" component={AddReview} />
+        <Route path="/addlocation" component={AddLocation} />
+        <Route path="/addprovider" component={AddProvider} />
+        <Route path="/report" component={Report} />
+        <Route path="/donate" component={Donate} />
       </Switch>
     </Router>
-=======
-import { NavBar } from "./components/NavBar";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-function App() {
-  return (
-    <>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/' component={} />
-        </Switch>
-      </Router>
-    </>
->>>>>>> main
   );
 }
 

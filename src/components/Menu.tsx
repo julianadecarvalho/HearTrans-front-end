@@ -10,4 +10,35 @@ export const Menu = [
         icon: FcIcons.FcHome,
         name: 'menu-text',
     },
+    {
+        title: 'Add Review',
+        path: '/addreview',
+        icon: FcIcons.FcHome,
+        name: 'menu-text',
+    },
+    {
+        title: 'Add Location',
+        path: '/addlocation',
+        icon: FcIcons.FcHome,
+        name: 'menu-text',
+    },
+    {
+        title: 'Add Provider',
+        path: '/addprovider',
+        icon: FcIcons.FcHome,
+        name: 'menu-text',
+    },
+    {
+        title: 'Report',
+        path: '/report',
+        icon: FcIcons.FcHome,
+        name: 'menu-text',
+    },
+    {
+        title: 'Donate',
+        path: '/donate',
+        icon: FcIcons.FcHome,
+        name: 'menu-text',
+    },
+    
 ]
