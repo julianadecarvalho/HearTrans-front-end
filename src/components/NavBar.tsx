@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./NavBar.module.css";
 import { SearchBar } from "./SearchBar";
 
+
 export function NavBar() {
   return (
     <div className={styles["nav-bar"]}>
@@ -12,7 +13,7 @@ export function NavBar() {
         <SearchBar />
       </section>
       <section className={styles.right}>
-        <span> Hamburger menu here</span>
+        
       </section>
     </div>
   );
