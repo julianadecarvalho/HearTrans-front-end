@@ -1,7 +1,7 @@
 import React from "react";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { SearchResults } from "./components/SearchResults";
+import { SearchResults } from "./pages/SearchResults";
 import { AddReview } from "./pages/AddReview";
 import { AddLocation } from "./pages/AddLocation";
 import { AddProvider } from "./pages/AddProvider";
