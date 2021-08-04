@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 import { SearchBar } from "./SearchBar";
-
+import { SideBar } from "./SideBar";
 
 export function NavBar() {
   return (
@@ -13,7 +13,7 @@ export function NavBar() {
         <SearchBar />
       </section>
       <section className={styles.right}>
-        
+        <SideBar />
       </section>
     </div>
   );
