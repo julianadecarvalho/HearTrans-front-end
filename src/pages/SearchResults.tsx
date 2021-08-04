@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "./NavBar";
-import { SearchResultsList } from "./SearchResultsList";
+import { NavBar } from "../components/NavBar";
+import { SearchResultsList } from "../components/SearchResultsList";
 
 export function SearchResults() {
   return (
