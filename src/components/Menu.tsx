@@ -1,43 +1,44 @@
-import React, { useState} from "react";
+import React from "react";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import * as FcIcons from 'react-icons/fc';
+import * as GoIcons from 'react-icons/go';
+import * as BiIcons from 'react-icons/bi';
 
 export const Menu = [
     {
         title: 'Home',
         path: '/',
-        icon: FcIcons.FcHome,
+        icon: <FaIcons.FaHome />,
         name: 'menu-text',
     },
     {
         title: 'Add Review',
         path: '/addreview',
-        icon: FcIcons.FcHome,
+        icon: <AiIcons.AiFillStar />,
         name: 'menu-text',
     },
     {
         title: 'Add Location',
         path: '/addlocation',
-        icon: FcIcons.FcHome,
+        icon: <GoIcons.GoLocation />,
         name: 'menu-text',
     },
     {
         title: 'Add Provider',
         path: '/addprovider',
-        icon: FcIcons.FcHome,
+        icon: <FaIcons.FaUserNurse />,
         name: 'menu-text',
     },
     {
         title: 'Report',
         path: '/report',
-        icon: FcIcons.FcHome,
+        icon: <GoIcons.GoReport />,
         name: 'menu-text',
     },
     {
         title: 'Donate',
         path: '/donate',
-        icon: FcIcons.FcHome,
+        icon: <BiIcons.BiDonateHeart />,
         name: 'menu-text',
     },
     

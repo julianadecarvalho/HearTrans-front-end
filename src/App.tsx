@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./pages/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
+
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
 // import { AddProvider } from "./pages/AddProvider";
