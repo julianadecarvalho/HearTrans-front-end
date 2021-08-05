@@ -1,4 +1,5 @@
 import React from "react";
+import { AvgRating } from "./AvgRating";
 import styles from "./SearchResultCard.module.css";
 
 export function SearchResultCard() {
@@ -6,7 +7,7 @@ export function SearchResultCard() {
     <div className={styles["search-result"]}>
       <section className={styles["business-info"]}>
         <h2 className="subtitle">Location</h2>
-        <p> Insert Rating Component Here</p>
+        <AvgRating />
         <span className="tag">Some filter tag</span>{" "}
         <span className="tag">Some filter tag</span>
       </section>

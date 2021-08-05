@@ -1,5 +1,8 @@
 import React from "react";
+import { AssocProvidersList } from "../components/AssocProvidersList";
+import { AvgRating } from "../components/AvgRating";
 import { NavBar } from "../components/NavBar";
+import { ReviewsList } from "../components/ReviewsList";
 
 export function LocationProfile() {
   return (
@@ -7,7 +10,7 @@ export function LocationProfile() {
       <NavBar />
       <section>
         <h1>Title </h1>
-        <p> avg reviews component </p>
+        <AvgRating />
         <ul> specialties </ul>
         <span>
           <li> specialty</li>
@@ -19,11 +22,11 @@ export function LocationProfile() {
       </section>
       <section>
         <h2> Providers </h2>
-        <div> list of providers associated component </div>
+        <AssocProvidersList />
       </section>
       <section>
         <h2> Reviews </h2>
-        <div> list of reviews component </div>
+        <ReviewsList />
       </section>
     </div>
   );
