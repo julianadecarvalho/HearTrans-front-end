@@ -6,7 +6,7 @@ export function SearchResults() {
   return (
     <div>
       <NavBar />
-      {/* add search summary results */}
+      {/* add search summary results component */}
       {/* cards component list */}
       <SearchResultsList />
       {/* map component */}
