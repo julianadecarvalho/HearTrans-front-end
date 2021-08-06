@@ -47,7 +47,7 @@ export function SearchResults() {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       {/* add search summary results component */}
       {/* cards component list */}
       <SearchResultsList results={results} />
