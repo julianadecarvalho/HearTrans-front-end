@@ -16,9 +16,9 @@ function App() {
     <Router>
       <Switch>
         <Route path="/search" component={SearchResults} />
+        <Route path="/provider/:id" component={ProviderProfile} />
+        <Route path="/location/:id" component={LocationProfile} />
         <Route path="/" component={Home} />
-        <Route path="/provider" component={ProviderProfile} />
-        <Route path="/location" component={LocationProfile} />
         {/* <Route path="/addreview" component={AddReview} />
         <Route path="/addlocation" component={AddLocation} />
         <Route path="/addprovider" component={AddProvider} />

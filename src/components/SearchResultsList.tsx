@@ -13,6 +13,7 @@ export const SearchResultsList: React.FC<IProps> = ({ results }) => {
       return (
         <li className="searchResultsList">
           <SearchResultCard
+            // {...result}
             name={result.name}
             avgReview={result.avgReview}
             specialty={result.specialty}
