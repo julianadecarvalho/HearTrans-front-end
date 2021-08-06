@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
+// save search term in useState
 
 export function SearchBar() {
+  const [searchTerm, setSearchTerm] = useState("");
+  console.log({ searchTerm });
   return (
     <div>
       <div className="field has-addons">
@@ -13,6 +16,10 @@ export function SearchBar() {
             className={`input is-medium ${styles["input-control"]}`}
             type="text"
             placeholder="doctors, clinics, specialities..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
           />
         </p>
         <p className="control">
