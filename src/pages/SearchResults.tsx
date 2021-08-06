@@ -19,30 +19,35 @@ export interface Info {
 // }
 
 export function SearchResults() {
-  const [results, setResults] = useState<Info[]>([
-    {
-      name: "Dr. Drew",
-      avgReview: "5",
-      specialty: "psychiatry",
-      id: 1,
-    },
-    {
-      name: "Dr. Hannah",
-      avgReview: "5",
-      specialty: "gastrointerology",
-      id: 2,
-    },
-    {
-      name: "Baker's Clinic",
-      avgReview: "5",
-      specialty: "vet",
-      id: 3,
-    },
-  ]);
+  const [results, setResults] = useState<Info[]>([]);
+  //   {
+  //     name: "Dr. Drew",
+  //     avgReview: "5",
+  //     specialty: "psychiatry",
+  //     id: 1,
+  //   },
+  //   {
+  //     name: "Dr. Hannah",
+  //     avgReview: "5",
+  //     specialty: "gastrointerology",
+  //     id: 2,
+  //   },
+  //   {
+  //     name: "Baker's Clinic",
+  //     avgReview: "5",
+  //     specialty: "vet",
+  //     id: 3,
+  //   },
+  // ]);
+
+  const onSearch = (searchTerm: string) => {
+    // api request with the seachterm
+    // setResults(/*result of the api request*/)
+  };
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       {/* add search summary results component */}
       {/* cards component list */}
       <SearchResultsList results={results} />

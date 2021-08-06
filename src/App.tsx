@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./pages/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
+import { NavBar } from "./components/NavBar";
 
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
@@ -14,6 +15,7 @@ import { LocationProfile } from "./pages/LocationProfile";
 function App() {
   return (
     <Router>
+      <NavBar />
       <Switch>
         <Route path="/search" component={SearchResults} />
         <Route path="/provider/:id" component={ProviderProfile} />
