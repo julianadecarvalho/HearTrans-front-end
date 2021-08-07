@@ -40,10 +40,10 @@ export function SearchResults() {
   //   },
   // ]);
 
-  const onSearch = (searchTerm: string) => {
-    // api request with the seachterm
-    // setResults(/*result of the api request*/)
-  };
+  // const onSearch = (searchTerm: string) => {
+  //   // api request with the seachterm
+  //   // setResults(/*result of the api request*/)
+  // };
 
   return (
     <div>

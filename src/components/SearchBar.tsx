@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./SearchBar.module.css";
+import { SearchContext } from "./SearchContext";
+import { Link } from "react-router-dom";
 // save search term in useState
 
+//copied from search results
+const onSearch = (searchTerm: string) => {
+  // api request with the seachterm
+  // setResults(/*result of the api request*/)
+};
+
 export function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState("");
-  console.log({ searchTerm });
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  //new handlers for the search results
+  const searchContext = useContext(SearchContext);
+  const searchQueryHandler = () => {
+    searchContext.searchHandler(searchQuery);
+    //onClick (searchresults) for api call for get request
+    //update the searchResults with searchContext.setSearchResults
+    
+  console.log({ searchQuery });
   return (
     <div>
       <div className="field has-addons">
@@ -16,9 +32,9 @@ export function SearchBar() {
             className={`input is-medium ${styles["input-control"]}`}
             type="text"
             placeholder="doctors, clinics, specialities..."
-            value={searchTerm}
+            value={searchQuery}
             onChange={(e) => {
-              setSearchTerm(e.target.value);
+              setSearchQuery(e.target.value);
             }}
           />
         </p>
@@ -33,9 +49,11 @@ export function SearchBar() {
           />
         </p>
         <button className={`button is-medium ${styles["search-button"]}`}>
+          <Link to="/search" onClick={searchQueryHandler}>
           <span className="icon is-small">
             <i className="fas fa-search-location"></i>
           </span>
+          </Link>
         </button>
       </div>
     </div>
