@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SearchResultCard } from "./SearchResultCard";
 import styles from "./SearchResultsList.module.css";
 import { Info } from "../pages/SearchResults";
+import SearchContext from "./SearchContext";
 
 interface IProps {
   results: Info[];
 }
+
+//const searchResults = useContext(SearchContext);
 
 export const SearchResultsList: React.FC<IProps> = ({ results }) => {
   const renderList = (): JSX.Element[] => {
