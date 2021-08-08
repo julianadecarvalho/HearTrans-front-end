@@ -7,12 +7,12 @@ import SearchContext from "./SearchContext";
 interface IProps {
   results: Info[];
 }
-
+// this is the api data sent back
 //const searchResults = useContext(SearchContext);
 
-export const SearchResultsList: React.FC<IProps> = ({ results }) => {
+export const SearchResultsList: React.FC<IProps> = ({ searchResults }) => {
   const renderList = (): JSX.Element[] => {
-    return results.map((result) => {
+    return searchResults.map((result) => {
       return (
         <li className="searchResultsList">
           <SearchResultCard
