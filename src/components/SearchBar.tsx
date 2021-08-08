@@ -12,14 +12,14 @@ const onSearch = (searchTerm: string) => {
 
 export function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   //new handlers for the search results
   const searchContext = useContext(SearchContext);
-  const searchQueryHandler = () => {
-    searchContext.searchHandler(searchQuery);
+  const searchResultsHandler = () => {
     //onClick (searchresults) for api call for get request
     //update the searchResults with searchContext.setSearchResults
-    
+  };
+
   console.log({ searchQuery });
   return (
     <div>
@@ -49,10 +49,10 @@ export function SearchBar() {
           />
         </p>
         <button className={`button is-medium ${styles["search-button"]}`}>
-          <Link to="/search" onClick={searchQueryHandler}>
-          <span className="icon is-small">
-            <i className="fas fa-search-location"></i>
-          </span>
+          <Link to="/search" onClick={searchResultsHandler}>
+            <span className="icon is-small">
+              <i className="fas fa-search-location"></i>
+            </span>
           </Link>
         </button>
       </div>
