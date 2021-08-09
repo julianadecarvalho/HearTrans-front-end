@@ -1,6 +1,6 @@
 import React from "react";
 import { AssocLocationsList } from "../components/AssocLocationsList";
-import { AvgRating } from "../components/AvgRating";
+import { AvgRating } from "../AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./ProviderProfile.module.css";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { AvgRating } from "./AvgRating";
+import { AvgRating } from "../AvgRating";
 import styles from "./SearchResultCard.module.css";
 
 interface IProps {
