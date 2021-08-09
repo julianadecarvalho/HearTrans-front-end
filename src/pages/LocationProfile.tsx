@@ -2,30 +2,41 @@ import React from "react";
 import { AssocProvidersList } from "../components/AssocProvidersList";
 import { AvgRating } from "../components/AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
+import styles from "./LocationProfile.module.css";
 
 export function LocationProfile() {
   return (
-    <div>
-      <section>
-        <h1>Title </h1>
-        <AvgRating />
-        <ul> specialties </ul>
-        <span>
-          <li> specialty</li>
-        </span>
+    <body>
+      <section className="section is-small">
+        <h1 className="title">Title</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <AvgRating />
+          <span className="tag">some speciality</span>{" "}
+          <span className="tag">some speciality</span>{" "}
+        </h2>
       </section>
-      <section>
-        <p> Address data </p>
-        <div> Google maps box </div>
+      <section className="section is-small">
+        <h1 className="title">Address data</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <p>Google map box with marker</p>
+        </h2>
       </section>
-      <section>
-        <h2> Providers </h2>
-        <AssocProvidersList />
+      <section className="section is-small">
+        <h1 className="title">Providers</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <AssocProvidersList />
+        </h2>
       </section>
-      <section>
-        <h2> Reviews </h2>
-        <ReviewsList />
+      <section className="section is-small">
+        <h1 className="title">Reviews</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <ReviewsList />
+        </h2>
       </section>
-    </div>
+    </body>
   );
 }
