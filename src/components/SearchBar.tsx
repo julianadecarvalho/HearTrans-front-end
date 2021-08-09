@@ -13,7 +13,7 @@ export function SearchBar() {
           <input
             className={`input is-medium ${styles["input-control"]}`}
             type="text"
-            placeholder="doctors, clinics, specialities..."
+            placeholder="doctors, clinics, specialties..."
           />
         </p>
         <p className="control">
