@@ -6,6 +6,7 @@ import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
 import { NavBar } from "./components/NavBar";
 import { SearchContextProvider } from "./components/SearchContext";
+import { AddProvider } from "./pages/AddProvider";
 
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/search" component={SearchResults} />
           <Route path="/provider/:id" component={ProviderProfile} />
           <Route path="/location/:id" component={LocationProfile} />
+          <Route path="/addprovider" component={AddProvider} />
           <Route path="/" component={Home} />
           {/* <Route path="/addreview" component={AddReview} />
           <Route path="/addlocation" component={AddLocation} />
