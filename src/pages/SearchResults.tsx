@@ -50,7 +50,9 @@ export function SearchResults() {
       {/* <NavBar /> */}
       {/* add search summary results component */}
       {/* cards component list */}
-      <SearchResultsList results={results} />
+      {/* commented line below, uncomment when done with css */}
+      {/* <SearchResultsList results={results} /> */}
+      <SearchResultsList />
       {/* map component */}
     </div>
   );

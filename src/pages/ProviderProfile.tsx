@@ -1,36 +1,45 @@
 import React from "react";
 import { AssocLocationsList } from "../components/AssocLocationsList";
 import { AvgRating } from "../components/AvgRating";
-import { NavBar } from "../components/NavBar";
 import { ReviewsList } from "../components/ReviewsList";
+import styles from "./ProviderProfile.module.css";
 
 export function ProviderProfile() {
   return (
-    <div>
-      <NavBar />
-      <section>
-        <h1>Title </h1>
-        <AvgRating />
-        <ul> specialties </ul>
-        <span>
-          <li> specialty</li>
-        </span>
+    <body>
+      <section className="section is-small">
+        <h1 className="title">Title</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <AvgRating />
+          <span className="tag">some speciality</span>{" "}
+          <span className="tag">some speciality</span>{" "}
+        </h2>
       </section>
-      <section>
-        <h2> Locations </h2>
-        <AssocLocationsList />
+      <section className="section is-small">
+        <h1 className="title">Locations</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <AssocLocationsList />
+        </h2>
       </section>
-      <section>
-        <h2> Languages </h2>
-        <ul>
-          <li> English </li>
-          <li> Spanish </li>
-        </ul>
+      <section className="section is-small">
+        <h1 className="title">Languages</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <ul>
+            <li> English </li>
+            <li> Spanish </li>
+          </ul>
+        </h2>
       </section>
-      <section>
-        <h2> Reviews </h2>
-        <ReviewsList />
+      <section className="section is-small">
+        <h1 className="title">Reviews</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <ReviewsList />
+        </h2>
       </section>
-    </div>
+    </body>
   );
 }
