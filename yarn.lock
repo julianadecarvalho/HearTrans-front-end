@@ -1777,6 +1777,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google-map-react@^2.1.2":
+  "integrity" "sha512-m3TmOW2GuTxTx+7DZ8gi2mYS1vDZLehqS+hY3/PWtW2lwZFIGwmsovMZjH+P7SyrFTekoKGWp5KkWF8nnwEA7w=="
+  "resolved" "https://registry.npmjs.org/@types/google-map-react/-/google-map-react-2.1.2.tgz"
+  "version" "2.1.2"
+  dependencies:
+    "@types/react" "*"
+
 "@types/google.maps@^3.44.1":
   "integrity" "sha512-BzGzxs8UXFxeP8uN/0nRgGbsbpYQxSCKsv/7S8OitU7wwhfFcqQSm5aAcL1nbwueMiJ/VVmIZKPq69s0kX5W+Q=="
   "resolved" "https://registry.npmjs.org/@types/google.maps/-/google.maps-3.45.6.tgz"

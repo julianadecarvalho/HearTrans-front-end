@@ -9,6 +9,10 @@ import { SearchContextProvider } from "./components/SearchContext";
 import { AddProvider } from "./pages/AddProvider";
 import { AddLocation } from "./pages/AddLocation";
 import { AddReview } from "./pages/AddReview";
+
+// import { AddReview } from "./pages/AddReview";
+// import { AddLocation } from "./pages/AddLocation";
+// import { AddProvider } from "./pages/AddProvider";
 // import { Report } from "./pages/Report";
 // import { Donate } from "./pages/Donate";
 

@@ -6,11 +6,15 @@ import { SideBar } from "./SideBar";
 export function NavBar() {
   return (
     <div className={styles["nav-bar"]}>
-      <section className={styles.left}>
-        <span>Logo here</span>
-      </section>
-      <section>
+      <div className="navbar-brand">
+        <a className="navbar-item" href="/">
+          <span>Logo here</span>
+        </a>
+      </div>
+      <section className="navbar-menu">
+        <div className="navbar-item">
         <SearchBar />
+        </div>
       </section>
       <section className={styles.right}>
         <SideBar />
