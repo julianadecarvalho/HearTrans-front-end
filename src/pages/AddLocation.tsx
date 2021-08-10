@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./AddLocation.module.css";
 
 export function AddLocation() {
   const [input, setInput] = useState({
@@ -18,35 +19,47 @@ export function AddLocation() {
   const handleClick = (): void => {};
 
   return (
-    <div className="AddLocation">
-      <label>Location Name</label>
-      <input
-        type="text"
-        placeholder="Location Name"
-        className="AddLocation-input"
-        value={input.locationName}
-        onChange={handleChange}
-        name="locationName"
-      />
-      <label>Address</label>
-      <input
-        type="text"
-        placeholder="Address"
-        className="AddLocation-input"
-        value={input.address}
-        onChange={handleChange}
-        name="address"
-      />
-      <label>Phone</label>
-      <input
-        type="text"
-        placeholder="Phone"
-        className="AddLocation-input"
-        value={input.phone}
-        onChange={handleChange}
-        name="phone"
-      />
-      <button className="AddLocation-btn" onClick={handleClick}>
+    <div className={styles["add-provider"]}>
+      <div className="field">
+        <label className="label is-large">Location Name</label>
+        <div className="control">
+          <input
+            type="text"
+            placeholder="Location Name"
+            className="input"
+            value={input.locationName}
+            onChange={handleChange}
+            name="locationName"
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label is-large">Address</label>
+        <div className="control">
+          <input
+            type="text"
+            placeholder="Address"
+            className="input"
+            value={input.address}
+            onChange={handleChange}
+            name="address"
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label is-large">Phone</label>
+        <div className="control">
+          <input
+            type="text"
+            placeholder="Phone"
+            className="input"
+            value={input.phone}
+            onChange={handleChange}
+            name="phone"
+          />
+        </div>
+      </div>
+      <button className="button" onClick={handleClick}>
         Add Location
       </button>
     </div>
