@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { NavBar } from "../components/NavBar";
 import { SearchContext } from "../components/SearchContext";
 import { SearchResultsList } from "../components/SearchResultsList";
 
