@@ -6,14 +6,15 @@ import styles from "./LocationProfile.module.css";
 
 export function LocationProfile() {
   return (
-    <div>
-      <section>
-        <h1>Title </h1>
-        <AvgRating />
-        <ul> specialties </ul>
-        <span>
-          <li> specialty</li>
-        </span>
+    <body>
+      <section className="section is-small">
+        <h1 className="title">Title</h1>
+        <h2 className="subtitle">
+          <hr></hr>
+          <AvgRating />
+          <span className="tag">some speciality</span>{" "}
+          <span className="tag">some speciality</span>{" "}
+        </h2>
       </section>
       <section className="section is-small">
         <h1 className="title">Address data</h1>
@@ -36,6 +37,6 @@ export function LocationProfile() {
           <ReviewsList />
         </h2>
       </section>
-    </div>
+    </body>
   );
 }

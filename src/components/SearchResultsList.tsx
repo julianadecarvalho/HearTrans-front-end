@@ -28,18 +28,18 @@ export const SearchResultsList: React.FC = () => {
     });
   };
 
-  //   return (
-  //     <article className={styles["search-results-list"]}>
-  //       <ul className={styles["search-results-list"]}>{renderList()}</ul>
-  //     </article>
-  //   );
-  // };
-
   return (
     <article className={styles["search-results-list"]}>
-      <ul className={styles["search-results-list"]}></ul>
+      <ul className={styles["search-results-list"]}>{renderList()}</ul>
     </article>
   );
 };
+
+//   return (
+//     <article className={styles["search-results-list"]}>
+//       <ul className={styles["search-results-list"]}></ul>
+//     </article>
+//   );
+// };
 
 export default SearchResultsList;
