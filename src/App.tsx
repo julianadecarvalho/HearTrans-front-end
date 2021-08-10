@@ -5,7 +5,7 @@ import { SearchResults } from "./pages/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
 import { NavBar } from "./components/NavBar";
-import SearchContextProvider from "./components/SearchContext";
+import { SearchContextProvider } from "./components/SearchContext";
 
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
