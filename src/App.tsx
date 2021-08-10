@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./pages/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
+import { NavBar } from "./components/NavBar";
+import { SearchContextProvider } from "./components/SearchContext";
 
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
@@ -13,19 +15,22 @@ import { LocationProfile } from "./pages/LocationProfile";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/search" component={SearchResults} />
-        <Route path="/" component={Home} />
-        <Route path="/provider" component={ProviderProfile} />
-        <Route path="/location" component={LocationProfile} />
-        {/* <Route path="/addreview" component={AddReview} />
-        <Route path="/addlocation" component={AddLocation} />
-        <Route path="/addprovider" component={AddProvider} />
-        <Route path="/report" component={Report} />
-        <Route path="/donate" component={Donate} /> */}
-      </Switch>
-    </Router>
+    <SearchContextProvider>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/search" component={SearchResults} />
+          <Route path="/provider/:id" component={ProviderProfile} />
+          <Route path="/location/:id" component={LocationProfile} />
+          <Route path="/" component={Home} />
+          {/* <Route path="/addreview" component={AddReview} />
+          <Route path="/addlocation" component={AddLocation} />
+          <Route path="/addprovider" component={AddProvider} />
+          <Route path="/report" component={Report} />
+          <Route path="/donate" component={Donate} /> */}
+        </Switch>
+      </Router>
+    </SearchContextProvider>
   );
 }
 
