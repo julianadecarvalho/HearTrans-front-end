@@ -1,7 +1,7 @@
 import React from "react";
 import { AssocProvidersList } from "../components/AssocProvidersList";
 import { AvgRating } from "../components/AvgRating";
-import { NavBar } from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import { ReviewsList } from "../components/ReviewsList";
 
 export function LocationProfile() {
