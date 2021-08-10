@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React from "react";
-import NavBar from "../components/NavBar";
-=======
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../components/SearchContext";
->>>>>>> ff632609f1dd10126c80f107760226ba957fc3e3
 import { SearchResultsList } from "../components/SearchResultsList";
 import SimpleMap from "../components/Map";
 
@@ -52,17 +47,12 @@ export function SearchResults() {
   // };
 
   return (
-<<<<<<< HEAD
-    <div style={{ height: '100%', width: '100%' }}>
-      <NavBar />
-=======
     <div>
       {/* <NavBar /> */}
->>>>>>> ff632609f1dd10126c80f107760226ba957fc3e3
       {/* add search summary results component */}
       {/* cards component list */}
       <SearchResultsList />
-      <SimpleMap/>
+      <SimpleMap />
     </div>
   );
 }
