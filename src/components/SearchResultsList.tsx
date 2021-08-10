@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 import { SearchResultCard } from "./SearchResultCard";
 import styles from "./SearchResultsList.module.css";
-import { Info } from "../pages/SearchResults";
-import SearchContext from "./SearchContext";
+import { SearchContext } from "./SearchContext";
 
-interface IProps {
-  results: Info[];
-}
+// interface IProps {
+//   results: Info[];
+// }
 // this is the api data sent back
 //const searchResults = useContext(SearchContext);
 
-export const SearchResultsList: React.FC<IProps> = ({ searchResults }) => {
+export const SearchResultsList: React.FC = () => {
+  const { searchResults } = useContext(SearchContext);
+
   const renderList = (): JSX.Element[] => {
     return searchResults.map((result) => {
       return (
