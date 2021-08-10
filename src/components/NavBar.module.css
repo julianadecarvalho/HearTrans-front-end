@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: var(--element-spacing);
+  /* margin: var(--element-spacing); */
   background: #55cdfc;
 }
 
@@ -19,4 +19,3 @@
 .right > * {
   margin-left: var(--element-spacing);
 }
-

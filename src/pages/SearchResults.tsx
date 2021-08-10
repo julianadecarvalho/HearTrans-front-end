@@ -1,5 +1,3 @@
-
-import { NavBar } from "../components/NavBar";
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../components/SearchContext";
 import { SearchResultsList } from "../components/SearchResultsList";
@@ -54,7 +52,7 @@ export function SearchResults() {
       {/* add search summary results component */}
       {/* cards component list */}
       <SearchResultsList />
-      <SimpleMap/>
+      <SimpleMap />
     </div>
   );
 }

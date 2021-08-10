@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import styles from "./SearchBar.module.css";
-import LocationAutocomplete  from "../components/LocationAutocomplete"
+import LocationAutocomplete from "../components/LocationAutocomplete";
 import { SearchContext } from "./SearchContext";
 import { Link } from "react-router-dom";
+
 // save search term in useState
 
 //copied from search results
@@ -33,7 +34,11 @@ export function SearchBar() {
           <input
             className={`input is-medium ${styles["input-control"]}`}
             type="text"
-            placeholder="doctors, clinics, specialties..."
+            placeholder="doctors, clinics, specialities..."
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+            }}
           />
         </p>
         <p className="control">
