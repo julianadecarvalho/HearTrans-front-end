@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+
+// export interface Coordinates {
+//   lat: number;
+//   lng: number;
+//   text: string;
+// }
+// const AnyReactComponent: React.FC = ({ text }) => <div>{ text }</div>;
+
+const AnyReactComponent = (props: {text: string}) =>  (
+    <div>{props.text}</div>
+)
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -21,12 +32,13 @@ class SimpleMap extends Component {
           bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE as string}}
           defaultCenter={SimpleMap.defaultProps.center}
           defaultZoom={SimpleMap.defaultProps.zoom}
+          yesIWantToUseGoogleMapApiInternals
         >
-          {/* <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
+          <AnyReactComponent
+            // lat={59.955413}
+            // lng={30.337844}
             text="My Marker"
-          /> */}
+          />
         </GoogleMapReact>
       </div>
     );
