@@ -3,7 +3,6 @@ import React from "react";
 import NavBar from "../components/NavBar";
 =======
 import React, { useContext, useState } from "react";
-import { NavBar } from "../components/NavBar";
 import { SearchContext } from "../components/SearchContext";
 >>>>>>> ff632609f1dd10126c80f107760226ba957fc3e3
 import { SearchResultsList } from "../components/SearchResultsList";
