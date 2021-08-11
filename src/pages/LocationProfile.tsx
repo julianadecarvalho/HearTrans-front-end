@@ -3,6 +3,7 @@ import { AssocProvidersList } from "../components/AssocProvidersList";
 import { AvgRating } from "../AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./LocationProfile.module.css";
+import { Link } from "react-router-dom";
 
 export function LocationProfile() {
   return (
@@ -27,6 +28,7 @@ export function LocationProfile() {
         <h1 className="title">Providers</h1>
         <h2 className="subtitle">
           <hr></hr>
+          {/* or could just map out list here */}
           <AssocProvidersList />
         </h2>
       </section>
@@ -34,6 +36,9 @@ export function LocationProfile() {
         <h1 className="title">Reviews</h1>
         <h2 className="subtitle">
           <hr></hr>
+          <Link to="/addlocationreview/:id">
+            <button className="button is-medium">Add Review</button>
+          </Link>
           <ReviewsList />
         </h2>
       </section>
