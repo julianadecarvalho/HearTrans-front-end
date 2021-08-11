@@ -3,6 +3,7 @@ import { AssocLocationsList } from "../components/AssocLocationsList";
 import { AvgRating } from "../AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./ProviderProfile.module.css";
+import { Link } from "react-router-dom";
 
 export function ProviderProfile() {
   return (
@@ -37,6 +38,9 @@ export function ProviderProfile() {
         <h1 className="title">Reviews</h1>
         <h2 className="subtitle">
           <hr></hr>
+          <Link to="/addproviderreview/:id">
+            <button className="button is-medium">Add Review</button>
+          </Link>
           <ReviewsList />
         </h2>
       </section>
