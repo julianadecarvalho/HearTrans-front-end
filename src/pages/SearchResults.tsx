@@ -51,10 +51,10 @@ export function SearchResults() {
       {/* <NavBar /> */}
       {/* add search summary results component */}
       {/* cards component list */}
-      <div className="column">
+      <div className="column is-narrow is-offset-1">
         <SearchResultsList />
       </div>
-      <div className="column">
+      <div className="column is-flexible">
         <SimpleMap />
       </div>
     </div>
