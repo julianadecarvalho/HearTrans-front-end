@@ -19,7 +19,7 @@ export function AddLocation() {
   const handleClick = (): void => {};
 
   return (
-    <div className={styles["add-provider"]}>
+    <div className={styles["add-location"]}>
       <div className="field">
         <label className="label is-large">Location Name</label>
         <div className="control">
