@@ -47,12 +47,16 @@ export function SearchResults() {
   // };
 
   return (
-    <div>
+    <div className="columns">
       {/* <NavBar /> */}
       {/* add search summary results component */}
       {/* cards component list */}
-      <SearchResultsList />
-      <SimpleMap />
+      <div className="column is-narrow is-offset-1">
+        <SearchResultsList />
+      </div>
+      <div className="column is-flexible">
+        <SimpleMap />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import styles from "./AddReview.module.css";
 
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location
-export function AddReview() {
+export function AddLocationReview() {
   const [input, setInput] = useState({
     contentWarning: "",
     date: "",
