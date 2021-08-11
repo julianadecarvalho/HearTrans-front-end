@@ -1,5 +1,6 @@
 import React from "react";
-import LocationAutocomplete from "../components/LocationAutocomplete";
+import styles from "./Home.module.css"
+
 export function Home() {
   return (
     <div>
