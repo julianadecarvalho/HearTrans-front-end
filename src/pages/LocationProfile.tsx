@@ -28,6 +28,7 @@ export function LocationProfile() {
         <h1 className="title">Providers</h1>
         <h2 className="subtitle">
           <hr></hr>
+          {/* or could just map out list here */}
           <AssocProvidersList />
         </h2>
       </section>
