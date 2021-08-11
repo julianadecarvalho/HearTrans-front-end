@@ -23,7 +23,7 @@
     transition: 1000ms;
 }
 
-.nav-menu.active {
+.nav-menu .active {
     right: 0;
     transition: 800ms;
 }

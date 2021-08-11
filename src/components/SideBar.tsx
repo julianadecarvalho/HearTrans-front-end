@@ -17,8 +17,7 @@ export function SideBar() {
             <Link to="#" className={styles["menu-bars"]}>
             <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            {/* <nav className={`${styles["nav-menu"]} ${sidebar ? " active" : ""}`}> */}
-            <div className='navbar-menu is-active'>
+            <nav className={`${sidebar ? "nav-menu active" : "nav-menu"}`}>
             <ul className={styles["nav-menu-items"]} onClick={showSidebar}>
                 <li className={styles["navbar-toggle"]}>
                 <Link to="#" className={styles["menu-bars"]}>
@@ -36,8 +35,7 @@ export function SideBar() {
                 );
                 })}
             </ul>
-            </div>
-            {/* </nav> */}
+            </nav>
         </div>
         </IconContext.Provider>
         </>
