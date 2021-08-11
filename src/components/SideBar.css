@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #55cdfc;
+    background-color: #55cdfc !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
     transition: 1000ms;
 }
 
-.nav-menu .active {
+.nav-menu.active {
     right: 0;
     transition: 800ms;
 }
