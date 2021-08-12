@@ -18,8 +18,8 @@ class SimpleMap extends Component {
   static defaultProps = {
 
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 47.608013,
+      lng: -122.335167
     },
     zoom: 11
   };
@@ -35,8 +35,8 @@ class SimpleMap extends Component {
           yesIWantToUseGoogleMapApiInternals
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
+            lat={47.608013}
+            lng={-122.335167}
             text="My Marker"
           />
         </GoogleMapReact>
