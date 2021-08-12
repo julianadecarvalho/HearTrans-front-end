@@ -3,13 +3,15 @@ import styles from "./AddProvider.module.css";
 
 export function AddProvider() {
   const [input, setInput] = useState({
-    providerName: "",
-    specialty: "",
-    location: "",
+    fullName: "",
+    otherNames: "",
+    titles: "",
+    specialties: "",
     languages: "",
     services: "",
     remoteVisits: "",
     slidingScalePay: "",
+    id: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -24,46 +26,60 @@ export function AddProvider() {
   return (
     <div className={styles["add-provider"]}>
       <div className="field">
-        <label className="label is-large">Provider Name</label>
+        <label className="label is-large">Provider Full Name</label>
         <div className="control">
           <input
             className="input"
             type="text"
-            placeholder="Provider Name"
-            value={input.providerName}
+            placeholder="Provider Full Name"
+            value={input.fullName}
             onChange={handleChange}
-            name="providerName"
+            name="fullName"
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label is-large">Other Names</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="Other Names"
+            value={input.otherNames}
+            onChange={handleChange}
+            name="otherNames"
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label is-large">Titles</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="Titles"
+            value={input.titles}
+            onChange={handleChange}
+            name="titles"
           />
         </div>
       </div>
 
       {/* look for type that is add tags for speciality/location/languages?*/}
       <div className="field">
-        <label className="label is-large">Specialty</label>
+        <label className="label is-large">Specialties</label>
         <div className="control">
           <input
             type="text"
-            placeholder="Specialty"
+            placeholder="Specialties"
             className="input"
-            value={input.specialty}
+            value={input.specialties}
             onChange={handleChange}
-            name="specialty"
+            name="specialties"
           />
         </div>
       </div>
-      <div className="field">
-        <label className="label is-large">Location</label>
-        <div className="control">
-          <input
-            type="text"
-            placeholder="Location"
-            className="input"
-            value={input.location}
-            onChange={handleChange}
-            name="location"
-          />
-        </div>
-      </div>
+
       <div className="field">
         <label className="label is-large">Languages</label>
         <div className="control">
