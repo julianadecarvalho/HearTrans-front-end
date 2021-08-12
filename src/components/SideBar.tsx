@@ -3,7 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Menu } from "./Menu";
 import { Link } from "react-router-dom";
-import styles from "./SideBar.module.css";
+import "./SideBar.css";
 import { IconContext } from "react-icons";
 
 
@@ -13,14 +13,14 @@ export function SideBar() {
     return (
         <>
         <IconContext.Provider value={{ color: "light blue"}}>
-        <div className={styles["navbar"]}>
-            <Link to="#" className={styles["menu-bars"]}>
+        <div className="navbar">
+            <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <nav className={`${sidebar ? "nav-menu active" : "nav-menu"}`}>
-            <ul className={styles["nav-menu-items"]} onClick={showSidebar}>
-                <li className={styles["navbar-toggle"]}>
-                <Link to="#" className={styles["menu-bars"]}>
+            <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+            <ul className="nav-menu-items" onClick={showSidebar}>
+                <li className="navbar-toggle">
+                <Link to="#" className="menu-bars">
                     <AiIcons.AiOutlineClose />
                 </Link>
                 </li>
