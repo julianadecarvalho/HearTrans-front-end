@@ -1,11 +1,14 @@
 import React from "react";
 import { AssocLocationsList } from "../components/AssocLocationsList";
-import { AvgRating } from "../AvgRating";
+import { AvgRating } from "../components/AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./ProviderProfile.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export function ProviderProfile() {
+  const { id } = useParams<{ id: string }>();
+  // api call here to get provider by id data
+  // axios.get('link'). then
   return (
     <body>
       <section className="section is-small">

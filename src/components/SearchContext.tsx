@@ -2,10 +2,22 @@ import React, { createContext, useState } from "react";
 
 // edit to take shape of api request data
 export interface Info {
-  name: string;
-  avgReview: string;
-  specialty: string;
+  fullName: string;
+  otherNames: string[];
+  titles: string[];
+  specialties: string[];
+  languages: string[];
+  services: string[];
+  remoteVisits: boolean;
+  slidingScalePay: boolean;
+  reviews: unknown[];
+  locations: unknown[];
+  avgReview: number;
   id: number;
+  // name: string;
+  // avgReview: string;
+  // specialty: string;
+  // id: number;
 }
 // query is the state
 // SearchHandler is a function for changing the state.
@@ -29,23 +41,37 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const performSearch = async (searchTerm: string) => {
     // do the api call in here
     const results = [
+      // {
+      //   name: "Dr. Drew",
+      //   avgReview: "5",
+      //   specialty: "psychiatry",
+      //   id: 1,
+      // },
+      // {
+      //   name: "Dr. Hannah",
+      //   avgReview: "5",
+      //   specialty: "gastrointerology",
+      //   id: 2,
+      // },
+      // {
+      //   name: "Baker's Clinic",
+      //   avgReview: "5",
+      //   specialty: "vet",
+      //   id: 3,
+      // },
       {
-        name: "Dr. Drew",
-        avgReview: "5",
-        specialty: "psychiatry",
+        fullName: "dr. drew",
+        otherNames: ["drew", "hannah"],
+        titles: ["MD", "NP"],
+        specialties: ["specialities", "specialities"],
+        languages: ["english", "spanish"],
+        services: ["STI", "XRAY"],
+        remoteVisits: true,
+        slidingScalePay: true,
+        reviews: ["hello"],
+        locations: ["seattle"],
+        avgReview: 5,
         id: 1,
-      },
-      {
-        name: "Dr. Hannah",
-        avgReview: "5",
-        specialty: "gastrointerology",
-        id: 2,
-      },
-      {
-        name: "Baker's Clinic",
-        avgReview: "5",
-        specialty: "vet",
-        id: 3,
       },
     ];
     const promise = new Promise<void>((resolve) => {

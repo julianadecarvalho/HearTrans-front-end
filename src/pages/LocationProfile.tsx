@@ -1,6 +1,6 @@
 import React from "react";
 import { AssocProvidersList } from "../components/AssocProvidersList";
-import { AvgRating } from "../AvgRating";
+import { AvgRating } from "../components/AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./LocationProfile.module.css";
 import { Link } from "react-router-dom";
