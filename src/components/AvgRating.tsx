@@ -6,7 +6,6 @@ export interface IProps {
 export const AvgRating: React.FC<IProps> = ({ rating }: IProps) => {
   return (
     <div className="field">
-      <label className="label is-large">Rating</label>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
