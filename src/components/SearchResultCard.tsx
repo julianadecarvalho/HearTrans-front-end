@@ -17,10 +17,7 @@ export const SearchResultCard: React.FC<IProps> = ({ result }) => {
             <div className={styles["search-result"]}>
               <section className={styles["business-info"]}>
                 <h2 className="subtitle">{result.fullName}</h2>
-
-                {/* <AvgRating /> */}
-                {/* will need to pass down the avg review variable as prop into AvgRating component? */}
-                <p>{result.avgReview}</p>
+                <AvgRating rating={result.avgReview} />
                 <div className="tags is-grouped-multiline">
                   {result.specialties.map((speciality) => {
                     return <span className="tag">{speciality}</span>;
