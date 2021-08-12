@@ -16,7 +16,8 @@ export function ProviderProfile() {
         <h2 className="subtitle">
           My other names
           <hr></hr>
-          <AvgRating />
+          {/* rating number will come from fresh api call data, pass it in as props*/}
+          <AvgRating rating={4} />
           <span className="tag">some speciality</span>{" "}
           <span className="tag">some speciality</span>{" "}
         </h2>

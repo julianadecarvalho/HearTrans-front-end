@@ -46,7 +46,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         reviews: ["hello"],
         // what shape are the lat/lon coordinates in object? array?
         locations: [{ latitude: "59.95", longitude: "30.33" }],
-        avgReview: 5,
+        avgReview: 4,
         id: 1,
       },
       {
@@ -61,7 +61,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         reviews: ["hello"],
         // what shape are the lat/lon coordinates in object? array?
         locations: [{ latitude: "59.95", longitude: "30.33" }],
-        avgReview: 5,
+        avgReview: 3.5,
         id: 2,
       },
       {
