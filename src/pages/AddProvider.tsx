@@ -132,6 +132,18 @@ export function AddProvider() {
           />
         </div>
       </div>
+      <div className="field">
+        <label className="checkbox">
+          <input type="checkbox" />
+          Remote Visits?
+        </label>
+      </div>
+      <div>
+        <label className="checkbox">
+          <input type="checkbox" />
+          Sliding Scale Pay?
+        </label>
+      </div>
       <button className="button" onClick={handleClick}>
         Add Provider
       </button>
