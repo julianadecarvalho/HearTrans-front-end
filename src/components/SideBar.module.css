@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #f7a8b8;
+    background-color: #55cdfc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +23,12 @@
     transition: 1000ms;
 }
 
-.nav-menu.active {
+.nav-menu .active {
     right: 0;
     transition: 800ms;
 }
 
-.nav-text {
+.menu-text {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -37,7 +37,7 @@
     height: 60px;
 }
 
-.nav-text a {
+.menu-text a {
     text-decoration: none;
     font-size: 18px;
     width: 95%;
@@ -48,8 +48,8 @@
     border-radius: 4px;
 }
 
-.nav-text a:hover {
-    background-color: #f7a8b8;
+.menu-text a:hover {
+    background-color: #55cdfc;
 }
 
 .nav-menu-items {
@@ -57,12 +57,12 @@
 }
 
 .navbar-toggle {
-    background-color: aliceblue;
+    background-color: none;
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
 }
 
 span {
