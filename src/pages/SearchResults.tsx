@@ -19,7 +19,11 @@ import SimpleMap from "../components/Map";
 //   }[];
 // }
 
-export function SearchResults() {
+export function SearchResults(props: any) {
+  props.center = {
+    lat: 47.608013,
+    lng: -122.335167
+  }
   // const [results, setResults] = useState<Info[]>([]);
   // {
   //   name: "Dr. Drew",
@@ -55,7 +59,7 @@ export function SearchResults() {
         <SearchResultsList />
       </div>
       <div className="column is-flexible">
-        <SimpleMap />
+        <SimpleMap center={props.center}/>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const onSearch = (searchTerm: string) => {
   // setResults(/*result of the api request*/)
 };
 
-export function SearchBar() {
+export function SearchBar(props: any) {
   const [searchQuery, setSearchQuery] = useState("");
 
   //new handlers for the search results
@@ -23,7 +23,6 @@ export function SearchBar() {
   //   performSearch(searchQuery)
   // };
 
-  console.log({ searchQuery });
   return (
     <div>
       <div className="field has-addons">
@@ -44,7 +43,7 @@ export function SearchBar() {
         <p className="control">
           <button className="button is-static is-medium">Near</button>
         </p>
-        <LocationAutocomplete />
+        <LocationAutocomplete setCenter={props.setCenter}/>
         <button className={`button is-medium ${styles["search-button"]}`}>
           <Link to="/search" onClick={() => performSearch(searchQuery)}>
             <span className="icon is-small">

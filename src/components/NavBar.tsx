@@ -3,7 +3,8 @@ import styles from "./NavBar.module.css";
 import { SearchBar } from "./SearchBar";
 import { SideBar } from "./SideBar";
 
-export function NavBar() {
+export function NavBar(props: any) {
+
   return (
     <div className={styles["nav-bar"]}>
       <div className="navbar-brand">
@@ -13,7 +14,7 @@ export function NavBar() {
       </div>
       <section className="navbar-menu">
         <div className="navbar-item">
-        <SearchBar />
+        <SearchBar setCenter={props.setCenter}/>
         </div>
       </section>
       <section className={styles.right}>

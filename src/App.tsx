@@ -17,13 +17,25 @@ import { AddLocationReview } from "./pages/AddLocationReview";
 // import { Report } from "./pages/Report";
 // import { Donate } from "./pages/Donate";
 
+export interface Coords {
+  lat: number;
+  lng: number;
+}
+
 function App() {
+  const [center, setState] = useState<Coords>({
+    lat: 47.608013,
+    lng: -122.335167
+  });
+  const setCenter = (coords: any) => {
+    setState({...center, lat: coords.lat, lng: coords.lng})
+  }
   return (
     <SearchContextProvider>
       <Router>
-        <NavBar />
+        <NavBar setCenter={setCenter}/>
         <Switch>
-          <Route path="/search" component={SearchResults} />
+          <Route path="/search" component={() => <SearchResults center = {center} />} />
           <Route path="/provider/:id" component={ProviderProfile} />
           <Route path="/location/:id" component={LocationProfile} />
           <Route path="/addprovider" component={AddProvider} />

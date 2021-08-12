@@ -3,8 +3,17 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import styles from "./SearchBar.module.css";
 
 
-const LocationAutocomplete = () => {
+const LocationAutocomplete = (props: any) => {
   const [value, setValue] = useState(null);
+  // props.setCenter
+
+  // const setTheCenter = (val: any) => {
+  //   console.log(val)
+  //   setValue({
+  //     ...value,
+  //     ...val
+  //   })
+  // }
   return (
     // Added the custom style references 
     <p className={`${styles["css-yk16xz-control"]} ${styles["input-control"]} control`}> 
