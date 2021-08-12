@@ -2,17 +2,22 @@ import React, { createContext, useState } from "react";
 
 // edit to take shape of api request data
 export interface Info {
-  name: string;
-  avgReview: string;
-  specialty: string;
+  fullName: string;
+  otherNames: string[];
+  titles: string[];
+  specialties: string[];
+  languages: string[];
+  services: string[];
+  remoteVisits: boolean;
+  slidingScalePay: boolean;
+  reviews: unknown[];
+  locations: unknown[];
+  avgReview: number;
   id: number;
 }
-// query is the state
-// SearchHandler is a function for changing the state.
-// export const SearchContext = React.createContext({
-//     query: "",
-//     searchHandler: () => {},
-// });
+// searchResults is the state
+// performSearch is a function for changing the state.
+
 export type SearchContextType = {
   searchResults: Info[];
   performSearch: (searchTerm: string) => Promise<void>;
@@ -30,22 +35,64 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     // do the api call in here
     const results = [
       {
-        name: "Dr. Drew",
-        avgReview: "5",
-        specialty: "psychiatry",
+        fullName: "dr. drew",
+        otherNames: ["drew", "hannah"],
+        titles: ["MD", "NP"],
+        specialties: ["Primary Care", "Family Health"],
+        languages: ["english", "spanish"],
+        services: ["STI", "XRAY"],
+        remoteVisits: true,
+        slidingScalePay: true,
+        reviews: ["hello"],
+        // what shape are the lat/lon coordinates in object? array?
+        locations: [{ latitude: "59.95", longitude: "30.33" }],
+        avgReview: 5,
         id: 1,
       },
       {
-        name: "Dr. Hannah",
-        avgReview: "5",
-        specialty: "gastrointerology",
+        fullName: "dr. drew",
+        otherNames: ["drew", "hannah"],
+        titles: ["MD", "NP"],
+        specialties: ["Primary Care", "Family Health"],
+        languages: ["english", "spanish"],
+        services: ["STI", "XRAY"],
+        remoteVisits: true,
+        slidingScalePay: true,
+        reviews: ["hello"],
+        // what shape are the lat/lon coordinates in object? array?
+        locations: [{ latitude: "59.95", longitude: "30.33" }],
+        avgReview: 5,
         id: 2,
       },
       {
-        name: "Baker's Clinic",
-        avgReview: "5",
-        specialty: "vet",
+        fullName: "dr. drew",
+        otherNames: ["drew", "hannah"],
+        titles: ["MD", "NP"],
+        specialties: ["Primary Care", "Family Health"],
+        languages: ["english", "spanish"],
+        services: ["STI", "XRAY"],
+        remoteVisits: true,
+        slidingScalePay: true,
+        reviews: ["hello"],
+        // what shape are the lat/lon coordinates in object? array?
+        locations: [{ latitude: "59.95", longitude: "30.33" }],
+        avgReview: 5,
         id: 3,
+      },
+      {
+        fullName: "dr. drew",
+        otherNames: ["drew", "hannah"],
+        titles: ["MD", "NP"],
+        specialties: ["Primary Care", "Family Health"],
+        languages: ["english", "spanish"],
+        services: ["STI", "XRAY"],
+        remoteVisits: true,
+        slidingScalePay: true,
+        reviews: ["hello"],
+        // what shape are the lat/lon coordinates in object? array?
+        locations: [{ latitude: "59.95", longitude: "30.33" }],
+        avgReview: 5,
+        id: 4,
       },
     ];
     const promise = new Promise<void>((resolve) => {

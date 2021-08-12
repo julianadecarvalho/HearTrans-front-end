@@ -17,11 +17,12 @@ export const SearchResultsList: React.FC = () => {
       return (
         <li className="searchResultsList">
           <SearchResultCard
+            result={result}
             // {...result}
-            name={result.name}
-            avgReview={result.avgReview}
-            specialty={result.specialty}
-            id={result.id}
+            // fullName={result.fullName}
+            // avgReview={result.avgReview}
+            // specialty={result.specialty}
+            // id={result.id}
           />
         </li>
       );
