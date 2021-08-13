@@ -12,18 +12,26 @@ export class Props extends React.Component {
     };
   }
 }
-
+export interface Provider {
+  fullName: string;
+  otherNames: string;
+  titles: string;
+  specialties: string;
+  languages: string;
+  services: string;
+  remoteVisits: boolean | null;
+  slidingScalePay: boolean | null;
+}
 export function AddProvider(this: any) {
-  const [input, setInput] = useState({
+  const [input, setInput] = useState<Provider>({
     fullName: "",
     otherNames: "",
     titles: "",
     specialties: "",
     languages: "",
     services: "",
-    remoteVisits: undefined,
-    slidingScalePay: undefined,
-    id: "",
+    remoteVisits: null,
+    slidingScalePay: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -200,7 +208,8 @@ export function AddProvider(this: any) {
           name="remoteVisits"
           checked={isCheckedA}
           onChange={handleChangeA}
-          value={input.remoteVisits}
+          // value={input.remoteVisits}
+          value="remoteVisits"
         />
       </div>
       <div>
@@ -210,7 +219,8 @@ export function AddProvider(this: any) {
           name="slidingScalePay"
           checked={isCheckedB}
           onChange={handleChangeB}
-          value={input.slidingScalePay}
+          // value={input.slidingScalePay}
+          value="remoteVisits"
         />
       </div>
       <button className="button" onClick={handleClick}>
