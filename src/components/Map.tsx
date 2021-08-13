@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+
 import { SearchContext } from "./SearchContext";
 import { useContext } from "react";
 
 const Marker: React.FC<any> = ({ text }) => (
+
+const AnyReactComponent: React.FC<any> = ({ text }) => (
+
   <div
     style={{
       color: "white",
@@ -20,6 +24,7 @@ const Marker: React.FC<any> = ({ text }) => (
     {text}
   </div>
 );
+
 
 const SimpleMap = () => {
   const { searchResults } = useContext(SearchContext);
@@ -39,12 +44,17 @@ const SimpleMap = () => {
     });
   };
   const defaultProps = {
+
+class SimpleMap extends Component {
+  static defaultProps = {
+
     center: {
       lat: 47.6062,
       lng: -122.332,
     },
     zoom: 11,
   };
+
 
   return (
     // Important! Always set the container height explicitly
@@ -66,5 +76,24 @@ const SimpleMap = () => {
     </div>
   );
 };
+
+  render() {
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: "100%", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{
+            key: process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE as string,
+          }}
+          defaultCenter={SimpleMap.defaultProps.center}
+          defaultZoom={SimpleMap.defaultProps.zoom}
+        >
+          <AnyReactComponent lat={47.6062} lng={-122.332} text="My Marker" />
+          <AnyReactComponent lat={47.6205} lng={-122.3493} text="My Marker" />
+        </GoogleMapReact>
+      </div>
+    );
+  }
+}
 
 export default SimpleMap;

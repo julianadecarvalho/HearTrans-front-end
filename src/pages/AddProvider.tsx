@@ -1,17 +1,37 @@
 import React, { useState } from "react";
 import styles from "./AddProvider.module.css";
 
-export function AddProvider() {
-  const [input, setInput] = useState({
+export class Props extends React.Component {
+  constructor(props: {} | Readonly<{}>) {
+    super(props);
+    this.state = {
+      information: {
+        remoteVisits: false,
+        slidingScalePay: false,
+      },
+    };
+  }
+}
+export interface Provider {
+  fullName: string;
+  otherNames: string;
+  titles: string;
+  specialties: string;
+  languages: string;
+  services: string;
+  remoteVisits: boolean | null;
+  slidingScalePay: boolean | null;
+}
+export function AddProvider(this: any) {
+  const [input, setInput] = useState<Provider>({
     fullName: "",
     otherNames: "",
     titles: "",
     specialties: "",
     languages: "",
     services: "",
-    remoteVisits: "",
-    slidingScalePay: "",
-    id: "",
+    remoteVisits: null,
+    slidingScalePay: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -19,8 +39,36 @@ export function AddProvider() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    console.log(input);
   };
 
+  // const handleCheckbox = (e: { target: { value: string | number; checked: any; }; }) => {
+  //   let state = this.state;
+  //   state.information[e.target.value] = e.target.checked;
+  //   this.setState(state);
+  //   console.log(this.state.information)
+  // }
+
+  const [isCheckedA, setIsCheckedA] = useState(false);
+  const handleChangeA = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedA(e.target.checked);
+    setInput({
+      ...input,
+      remoteVisits: e.target.checked,
+    });
+    console.log(input);
+    console.log(isCheckedA);
+  };
+
+  const [isCheckedB, setIsCheckedB] = useState(false);
+  const handleChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedB(e.target.checked);
+    setInput({
+      ...input,
+      slidingScalePay: e.target.checked,
+    });
+    console.log(isCheckedB);
+  };
   // needs to add to database when click add location
   const handleClick = (): void => {};
   return (
@@ -106,7 +154,7 @@ export function AddProvider() {
           />
         </div>
       </div>
-      <div className="field">
+      {/* <div className="field">
         <label className="label is-large">Remote Visits</label>
         <div className="control">
           <input
@@ -131,18 +179,58 @@ export function AddProvider() {
             name="slidingScalePay"
           />
         </div>
-      </div>
-      <div className="field">
+      </div> */}
+      {/* <div className="field">
         <label className="checkbox">
-          <input type="checkbox" />
-          Remote Visits?
+          Remote Visits? <input onChange={handleCheckbox} type="checkbox"
+          name="information" 
+          value="remoteVisits" 
+          checked={this.state.information.remoteVisits} />
+
+          
+          Sliding Scale Pay? <input onChange={handleCheckbox} type="checkbox" 
+          name="information" 
+          value="slidingScalePay" 
+          checked={this.state.information.slidingScalePay} />
         </label>
+      </div> */}
+      {/* <div className="field">
+      <div>
+        <Checkbox
+          handleChange={handleChangeA}
+          isChecked={isCheckedA}
+          label="A"
+        />
       </div>
       <div>
-        <label className="checkbox">
-          <input type="checkbox" />
-          Sliding Scale Pay?
-        </label>
+        <Checkbox
+          handleChange={handleChangeB}
+          isChecked={isCheckedB}
+          label="B"
+        />
+      </div> */}
+
+      <div>
+        <label>Remote Visits?</label>
+        <input
+          type="checkbox"
+          name="remoteVisits"
+          checked={isCheckedA}
+          onChange={handleChangeA}
+          // value={input.remoteVisits}
+          value="remoteVisits"
+        />
+      </div>
+      <div>
+        <label>Sliding Scale Pay?</label>
+        <input
+          type="checkbox"
+          name="slidingScalePay"
+          checked={isCheckedB}
+          onChange={handleChangeB}
+          // value={input.slidingScalePay}
+          value="slidingScalePay"
+        />
       </div>
       <button className="button" onClick={handleClick}>
         Add Provider
