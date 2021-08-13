@@ -52,12 +52,21 @@ export function AddProvider(this: any) {
   const [isCheckedA, setIsCheckedA] = useState(false);
   const handleChangeA = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsCheckedA(e.target.checked);
+    setInput({
+      ...input,
+      remoteVisits: e.target.checked,
+    });
+    console.log(input);
     console.log(isCheckedA);
   };
 
   const [isCheckedB, setIsCheckedB] = useState(false);
   const handleChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsCheckedB(e.target.checked);
+    setInput({
+      ...input,
+      slidingScalePay: e.target.checked,
+    });
     console.log(isCheckedB);
   };
   // needs to add to database when click add location
@@ -220,7 +229,7 @@ export function AddProvider(this: any) {
           checked={isCheckedB}
           onChange={handleChangeB}
           // value={input.slidingScalePay}
-          value="remoteVisits"
+          value="slidingScalePay"
         />
       </div>
       <button className="button" onClick={handleClick}>
