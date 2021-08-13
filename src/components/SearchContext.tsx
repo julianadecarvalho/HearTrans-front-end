@@ -45,7 +45,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         slidingScalePay: true,
         reviews: ["hello"],
         // what shape are the lat/lon coordinates in object? array?
-        locations: [{ latitude: "59.95", longitude: "30.33" }],
+        locations: [{ latitude: 47.6097, longitude: -122.3422 }],
         avgReview: 4,
         id: 1,
       },
