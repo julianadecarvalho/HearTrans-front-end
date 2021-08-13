@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import styles from "./AddProvider.module.css";
 
 export class Props extends React.Component {
-
   constructor(props: {} | Readonly<{}>) {
     super(props);
     this.state = {
       information: {
         remoteVisits: false,
         slidingScalePay: false,
-      }
-    }  
+      },
+    };
   }
-};
+}
 
 export function AddProvider(this: any) {
   const [input, setInput] = useState({
@@ -22,8 +21,8 @@ export function AddProvider(this: any) {
     specialties: "",
     languages: "",
     services: "",
-    remoteVisits: "",
-    slidingScalePay: "",
+    remoteVisits: undefined,
+    slidingScalePay: undefined,
     id: "",
   });
 
@@ -32,15 +31,27 @@ export function AddProvider(this: any) {
       ...input,
       [e.target.name]: e.target.value,
     });
+    console.log(input);
   };
-  
-  const handleCheckbox = (e: { target: { value: string | number; checked: any; }; }) => {
-    let state = this.state;
-    state.information[e.target.value] = e.target.checked;
-    this.setState(state);
-    console.log(this.state.information)
-  }
 
+  // const handleCheckbox = (e: { target: { value: string | number; checked: any; }; }) => {
+  //   let state = this.state;
+  //   state.information[e.target.value] = e.target.checked;
+  //   this.setState(state);
+  //   console.log(this.state.information)
+  // }
+
+  const [isCheckedA, setIsCheckedA] = useState(false);
+  const handleChangeA = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedA(e.target.checked);
+    console.log(isCheckedA);
+  };
+
+  const [isCheckedB, setIsCheckedB] = useState(false);
+  const handleChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedB(e.target.checked);
+    console.log(isCheckedB);
+  };
   // needs to add to database when click add location
   const handleClick = (): void => {};
   return (
@@ -126,7 +137,7 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-      <div className="field">
+      {/* <div className="field">
         <label className="label is-large">Remote Visits</label>
         <div className="control">
           <input
@@ -151,8 +162,8 @@ export function AddProvider(this: any) {
             name="slidingScalePay"
           />
         </div>
-      </div>
-      <div className="field">
+      </div> */}
+      {/* <div className="field">
         <label className="checkbox">
           Remote Visits? <input onChange={handleCheckbox} type="checkbox"
           name="information" 
@@ -165,6 +176,42 @@ export function AddProvider(this: any) {
           value="slidingScalePay" 
           checked={this.state.information.slidingScalePay} />
         </label>
+      </div> */}
+      {/* <div className="field">
+      <div>
+        <Checkbox
+          handleChange={handleChangeA}
+          isChecked={isCheckedA}
+          label="A"
+        />
+      </div>
+      <div>
+        <Checkbox
+          handleChange={handleChangeB}
+          isChecked={isCheckedB}
+          label="B"
+        />
+      </div> */}
+
+      <div>
+        <label>Remote Visits?</label>
+        <input
+          type="checkbox"
+          name="remoteVisits"
+          checked={isCheckedA}
+          onChange={handleChangeA}
+          value={input.remoteVisits}
+        />
+      </div>
+      <div>
+        <label>Sliding Scale Pay?</label>
+        <input
+          type="checkbox"
+          name="slidingScalePay"
+          checked={isCheckedB}
+          onChange={handleChangeB}
+          value={input.slidingScalePay}
+        />
       </div>
       <button className="button" onClick={handleClick}>
         Add Provider
