@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import { SearchContext } from "./SearchContext";
 import { useContext } from "react";
 
-const AnyReactComponent: React.FC<any> = ({ text }) => (
+const Marker: React.FC<any> = ({ text }) => (
   <div
     style={{
       color: "white",
@@ -20,29 +20,25 @@ const AnyReactComponent: React.FC<any> = ({ text }) => (
     {text}
   </div>
 );
-const AnotherReactComponent: any = () => {
+
+const SimpleMap = () => {
   const { searchResults } = useContext(SearchContext);
   const renderList = () => {
     return searchResults.map((result) => {
       return result.locations.map((location: any) => {
-        // return <AnyReactComponent marker={location} />;
+        // return <Marker marker={location} />;
         // console.log(location.latitude);
         return (
-          <li>
-            {" "}
-            <AnyReactComponent
-              lat={location.latitude}
-              lng={location.longitude}
-            />
-          </li>
+          <Marker
+            lat={location.latitude}
+            lng={location.longitude}
+            text={result.fullName}
+          />
         );
       });
     });
   };
-};
-
-class SimpleMap extends Component {
-  static defaultProps = {
+  const defaultProps = {
     center: {
       lat: 47.6062,
       lng: -122.332,
@@ -50,44 +46,25 @@ class SimpleMap extends Component {
     zoom: 11,
   };
 
-  render() {
-    // const SearchResultsMarkers = () => {
-    // const { searchResults } = useContext(SearchContext);
-    // const renderList = () => {
-    //   return searchResults.map((result) => {
-    //     return result.locations.map((location: any) => {
-    //       // return <AnyReactComponent marker={location} />;
-    //       // console.log(location.latitude);
-    //       <li>
-    //         {" "}
-    //         <AnyReactComponent
-    //           lat={location.latitude}
-    //           lng={location.longitude}
-    //         />
-    //       </li>;
-    //     });
-    //   });
-    // };
-    // };
-    return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: "100%", width: "100%" }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE as string,
-          }}
-          defaultCenter={SimpleMap.defaultProps.center}
-          defaultZoom={SimpleMap.defaultProps.zoom}
-        >
-          <AnyReactComponent lat={47.6062} lng={-122.332} text="My Marker" />
-          {/* <AnyReactComponent lat={47.6205} lng={-122.3493} text="My Marker" /> */}
+  return (
+    // Important! Always set the container height explicitly
+    <div style={{ height: "100%", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{
+          key: process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE as string,
+        }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        <Marker lat={47.6062} lng={-122.332} text="My Marker" />
+        {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
 
-          <div>{AnotherReactComponent}</div>
-          {/* <AnotherReactComponent /> */}
-        </GoogleMapReact>
-      </div>
-    );
-  }
-}
+        {/* <div>{AnotherReactComponent}</div> */}
+
+        {renderList()}
+      </GoogleMapReact>
+    </div>
+  );
+};
 
 export default SimpleMap;
