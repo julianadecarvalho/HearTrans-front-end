@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import { TagsInput } from "../components/TagsInput";
 import styles from "./AddProvider.module.css";
 
-export class Props extends React.Component {
-  constructor(props: {} | Readonly<{}>) {
-    super(props);
-    this.state = {
-      information: {
-        remoteVisits: false,
-        slidingScalePay: false,
-      },
-    };
-  }
-}
+// export class Props extends React.Component {
+//   constructor(props: {} | Readonly<{}>) {
+//     super(props);
+//     this.state = {
+//       information: {
+//         remoteVisits: false,
+//         slidingScalePay: false,
+//       },
+//     };
+//   }
+// }
 export interface Provider {
   fullName: string;
-  otherNames: string;
-  titles: string;
+  otherNames: string[];
+  titles: string[];
   specialties: string;
   languages: string;
   services: string;
@@ -25,8 +26,8 @@ export interface Provider {
 export function AddProvider(this: any) {
   const [input, setInput] = useState<Provider>({
     fullName: "",
-    otherNames: "",
-    titles: "",
+    otherNames: [],
+    titles: [],
     specialties: "",
     languages: "",
     services: "",
@@ -48,7 +49,7 @@ export function AddProvider(this: any) {
   //   this.setState(state);
   //   console.log(this.state.information)
   // }
-
+  // handling remote visits
   const [isCheckedA, setIsCheckedA] = useState(false);
   const handleChangeA = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsCheckedA(e.target.checked);
@@ -59,7 +60,7 @@ export function AddProvider(this: any) {
     console.log(input);
     console.log(isCheckedA);
   };
-
+  // Handling sliding scale pay
   const [isCheckedB, setIsCheckedB] = useState(false);
   const handleChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsCheckedB(e.target.checked);
@@ -69,6 +70,17 @@ export function AddProvider(this: any) {
     });
     console.log(isCheckedB);
   };
+
+  // handling tags input for props?
+  const selectedTags = (tags: any, e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(tags);
+    console.log(e);
+    setInput({
+      ...input,
+      [e.target.name]: tags,
+    });
+  };
+
   // needs to add to database when click add location
   const handleClick = (): void => {};
   return (
@@ -86,7 +98,7 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-      <div className="field">
+      {/* <div className="field">
         <label className="label is-large">Other Names</label>
         <div className="control">
           <input
@@ -98,8 +110,8 @@ export function AddProvider(this: any) {
             name="otherNames"
           />
         </div>
-      </div>
-      <div className="field">
+      </div> */}
+      {/* <div className="field">
         <label className="label is-large">Titles</label>
         <div className="control">
           <input
@@ -111,7 +123,7 @@ export function AddProvider(this: any) {
             name="titles"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* look for type that is add tags for speciality/location/languages?*/}
       <div className="field">
@@ -155,32 +167,6 @@ export function AddProvider(this: any) {
         </div>
       </div>
       {/* <div className="field">
-        <label className="label is-large">Remote Visits</label>
-        <div className="control">
-          <input
-            type="text"
-            placeholder="Remote Visits"
-            className="input"
-            value={input.remoteVisits}
-            onChange={handleChange}
-            name="remoteVisits"
-          />
-        </div>
-      </div>
-      <div className="field">
-        <label className="label is-large">Sliding Scale Pay?</label>
-        <div className="control">
-          <input
-            type="text"
-            placeholder="Do they offer sliding scale pay?"
-            className="input"
-            value={input.slidingScalePay}
-            onChange={handleChange}
-            name="slidingScalePay"
-          />
-        </div>
-      </div> */}
-      {/* <div className="field">
         <label className="checkbox">
           Remote Visits? <input onChange={handleCheckbox} type="checkbox"
           name="information" 
@@ -217,7 +203,6 @@ export function AddProvider(this: any) {
           name="remoteVisits"
           checked={isCheckedA}
           onChange={handleChangeA}
-          // value={input.remoteVisits}
           value="remoteVisits"
         />
       </div>
@@ -228,10 +213,32 @@ export function AddProvider(this: any) {
           name="slidingScalePay"
           checked={isCheckedB}
           onChange={handleChangeB}
-          // value={input.slidingScalePay}
           value="slidingScalePay"
         />
       </div>
+
+      <div className="field">
+        <label className="label is-large">Other Names</label>
+        <div className="control">
+          <TagsInput
+            selectedTags={selectedTags}
+            tags={input.otherNames}
+            name="otherNames"
+          />
+        </div>
+      </div>
+
+      <div className="field">
+        <label className="label is-large">Titles</label>
+        <div className="control">
+          <TagsInput
+            selectedTags={selectedTags}
+            tags={input.titles}
+            name="titles"
+          />
+        </div>
+      </div>
+
       <button className="button" onClick={handleClick}>
         Add Provider
       </button>
