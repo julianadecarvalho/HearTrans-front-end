@@ -1,7 +1,20 @@
 import React, { useState } from "react";
 import styles from "./AddProvider.module.css";
 
-export function AddProvider() {
+export class Props extends React.Component {
+
+  constructor(props: {} | Readonly<{}>) {
+    super(props);
+    this.state = {
+      information: {
+        remoteVisits: false,
+        slidingScalePay: false,
+      }
+    }  
+  }
+};
+
+export function AddProvider(this: any) {
   const [input, setInput] = useState({
     fullName: "",
     otherNames: "",
@@ -20,6 +33,13 @@ export function AddProvider() {
       [e.target.name]: e.target.value,
     });
   };
+  
+  const handleCheckbox = (e: { target: { value: string | number; checked: any; }; }) => {
+    let state = this.state;
+    state.information[e.target.value] = e.target.checked;
+    this.setState(state);
+    console.log(this.state.information)
+  }
 
   // needs to add to database when click add location
   const handleClick = (): void => {};
@@ -134,14 +154,16 @@ export function AddProvider() {
       </div>
       <div className="field">
         <label className="checkbox">
-          <input type="checkbox" />
-          Remote Visits?
-        </label>
-      </div>
-      <div>
-        <label className="checkbox">
-          <input type="checkbox" />
-          Sliding Scale Pay?
+          Remote Visits? <input onChange={handleCheckbox} type="checkbox"
+          name="information" 
+          value="remoteVisits" 
+          checked={this.state.information.remoteVisits} />
+
+          
+          Sliding Scale Pay? <input onChange={handleCheckbox} type="checkbox" 
+          name="information" 
+          value="slidingScalePay" 
+          checked={this.state.information.slidingScalePay} />
         </label>
       </div>
       <button className="button" onClick={handleClick}>
