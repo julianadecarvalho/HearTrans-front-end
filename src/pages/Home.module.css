@@ -1,0 +1,11 @@
+.section{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.text{
+    font-size: medium;
+}
