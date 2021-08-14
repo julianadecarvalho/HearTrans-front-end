@@ -14,7 +14,7 @@ export function ProviderProfile() {
       <section className="section is-small">
         <h1 className="title">FullName, MD,NP,PA-C</h1>
         <h2 className="subtitle">
-          My other names
+          My other names Pronouns here
           <hr></hr>
           {/* rating number will come from fresh api call data, pass it in as props*/}
           <AvgRating rating={4} />
