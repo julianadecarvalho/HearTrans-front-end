@@ -4,6 +4,7 @@ import styles from "./AddProvider.module.css";
 
 export interface Provider {
   fullName: string;
+  pronouns: string;
   otherNames: string[];
   titles: string[];
   specialties: string[];
@@ -15,6 +16,7 @@ export interface Provider {
 export function AddProvider(this: any) {
   const [input, setInput] = useState<Provider>({
     fullName: "",
+    pronouns: "",
     otherNames: [],
     titles: [],
     specialties: [],
@@ -89,7 +91,19 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-
+      <div className="field">
+        <label className="label is-large">Provider's Pronouns</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="Provider's Pronouns"
+            value={input.pronouns}
+            onChange={handleChange}
+            name="pronouns"
+          />
+        </div>
+      </div>
       <div className="field">
         <label className="label is-large">Titles</label>
         <div className="control">
