@@ -4,6 +4,7 @@ import React, { createContext, useState } from "react";
 export interface Info {
   fullName: string;
   otherNames: string[];
+  pronouns: string;
   titles: string[];
   specialties: string[];
   languages: string[];
@@ -37,6 +38,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       {
         fullName: "dr. drew",
         otherNames: ["drew", "hannah"],
+        pronouns: "she/her",
         titles: ["MD", "NP"],
         specialties: ["Primary Care", "Family Health"],
         languages: ["english", "spanish"],
@@ -52,6 +54,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       {
         fullName: "dr. drew",
         otherNames: ["drew", "hannah"],
+        pronouns: "she/her",
         titles: ["MD", "NP"],
         specialties: ["Primary Care", "Family Health"],
         languages: ["english", "spanish"],
@@ -67,6 +70,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       {
         fullName: "dr. drew",
         otherNames: ["drew", "hannah"],
+        pronouns: "she/her",
         titles: ["MD", "NP"],
         specialties: ["Primary Care", "Family Health"],
         languages: ["english", "spanish"],
@@ -82,6 +86,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       {
         fullName: "dr. drew",
         otherNames: ["drew", "hannah"],
+        pronouns: "she/her",
         titles: ["MD", "NP"],
         specialties: ["Primary Care", "Family Health"],
         languages: ["english", "spanish"],

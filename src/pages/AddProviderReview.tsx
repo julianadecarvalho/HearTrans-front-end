@@ -1,17 +1,30 @@
 import React, { useState } from "react";
+import { TagsInput } from "../components/TagsInput";
 import styles from "./AddReview.module.css";
 import { FaStar } from "react-icons/fa";
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location
+export interface Review {
+  contentWarnings: string[];
+  rating: number;
+  review: string;
+}
 export function AddProviderReview() {
-  const [input, setInput] = useState({
-    contentWarnings: "",
-    rating: "",
+  const [input, setInput] = useState<Review>({
+    contentWarnings: [],
+    rating: 0,
     review: "",
   });
 
-  const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
+  // handling tags input for content warnings
+  const selectedTags = (tags: any, e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(tags);
+    console.log(e);
+    setInput({
+      ...input,
+      [e.target.name]: tags,
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,6 +35,10 @@ export function AddProviderReview() {
     });
   };
 
+  // state for rating
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
   // needs to add to database when click add location
   const handleClick = (): void => {};
   return (
@@ -29,12 +46,9 @@ export function AddProviderReview() {
       <div className="field">
         <label className="label is-large">Content Warnings</label>
         <div className="control">
-          <input
-            type="text"
-            placeholder="Content Warnings"
-            className="input"
-            value={input.contentWarnings}
-            onChange={handleChange}
+          <TagsInput
+            selectedTags={selectedTags}
+            tags={input.contentWarnings}
             name="contentWarnings"
           />
         </div>
@@ -51,6 +65,7 @@ export function AddProviderReview() {
                 name="rating"
                 value={ratingValue}
                 onClick={() => setRating(ratingValue)}
+                onChange={handleChange}
               />
               <FaStar
                 size={30}
@@ -61,7 +76,6 @@ export function AddProviderReview() {
             </label>
           );
         })}
-        <p>rating input is called with this variable {rating}</p>
       </div>
 
       <div className="field">
