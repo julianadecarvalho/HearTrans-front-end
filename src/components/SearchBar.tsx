@@ -42,7 +42,7 @@ export function SearchBar() {
           />
         </p>
         <p className="control">
-          <button className="button is-static is-medium">Near</button>
+          <div className="button is-static is-medium">Near</div>
         </p>
         <LocationAutocomplete />
         <button className={`button is-medium ${styles["search-button"]}`}>
