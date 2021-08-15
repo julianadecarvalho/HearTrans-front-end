@@ -1,6 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
 import styles from "./AddProvider.module.css";
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
 export interface Provider {
   fullName: string;
@@ -65,7 +67,17 @@ export function AddProvider(this: any) {
   };
 
   // needs to add to database when click add location
-  const handleClick = (): void => {};
+  const handleClick = () => {
+    return axios
+    .post(`${BACKEND_URL}/addprovider`, {input})
+    .then(async (response) => {
+    console.log(response);
+    })
+    .catch((error) => {
+      console.log("Error:", error);
+      alert("Did you fill out the form completely?")
+    });
+  };
   return (
     <div className={styles["add-provider"]}>
       <div className="field">

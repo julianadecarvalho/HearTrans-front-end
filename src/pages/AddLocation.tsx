@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from "./AddLocation.module.css";
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
 export function AddLocation() {
   const [input, setInput] = useState({
@@ -16,7 +18,17 @@ export function AddLocation() {
   };
 
   // needs to add to database when click add location
-  const handleClick = (): void => {};
+  const handleClick = () => {
+    return axios
+    .post(`${BACKEND_URL}/addlocation`, {input})
+    .then(async (response) => {
+    console.log(response);
+    })
+    .catch((error) => {
+      console.log("Error:", error);
+      alert("Did you fill out the form completely?")
+    });
+  };
 
   return (
     <div className={styles["add-location"]}>
