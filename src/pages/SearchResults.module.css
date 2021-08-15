@@ -1,0 +1,8 @@
+.search-results-list > * {
+  margin-top: 1rem;
+}
+
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+}

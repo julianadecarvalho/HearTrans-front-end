@@ -13,7 +13,7 @@ export function LocationProfile() {
         <h2 className="subtitle">
           <hr></hr>
           {/* rating number will come from fresh api call data, pass it in as props*/}
-          <AvgRating rating={"3"} />
+          <AvgRating rating={"3"} len={3} />
           <span className="tag">some speciality</span>{" "}
           <span className="tag">some speciality</span>{" "}
         </h2>
