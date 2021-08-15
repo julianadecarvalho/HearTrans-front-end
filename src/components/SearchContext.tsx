@@ -4,10 +4,11 @@ import ProviderResponse from "../models/provider-response";
 
 // searchResults is the state
 // performSearch is a function for changing the state.
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
 export type SearchContextType = {
   searchResults: ProviderResponse[];
-  performSearch: (searchTerm: string) => Promise<void | ProviderResponse[]>;
+  performSearch: (searchTerm: string) => Promise<ProviderResponse[]>;
 };
 
 export const SearchContext = createContext({} as SearchContextType);
@@ -18,9 +19,8 @@ export const SearchContextProvider: React.FC = ({ children }) => {
 
   const performSearch = async (searchTerm: string) => {
     // do the api call in
-
     return axios
-      .get(`${process.env.BACKEND_URL}/providers`)
+      .get(`${BACKEND_URL}/providers`)
       .then(async (response) => {
         const data: ProviderResponse[] = await response.data.providersResponses;
         setSearchResults(data);
@@ -29,6 +29,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       .catch((error) => {
         console.log("Error:", error);
         alert("ooopsie Daisy, couldn't get locations on our map!! 😖 ");
+        return [];
       });
   };
 

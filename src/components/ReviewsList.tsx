@@ -11,7 +11,7 @@ export function ReviewsList() {
     <div className="card">
       <div className="card-content">
         <div className="content">
-          <AvgRating rating={4} />
+          <AvgRating rating={"4"} />
           Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros.
           Donec id elit non mi porta gravida at eget metus. Cum sociis natoque
           penatibus et magnis dis parturient montes, nascetur ridiculus mus.

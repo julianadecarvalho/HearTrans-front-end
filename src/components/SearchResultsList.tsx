@@ -14,6 +14,7 @@ export const SearchResultsList: React.FC = () => {
 
   const renderList = (): JSX.Element[] => {
     return searchResults.map((result) => {
+      // searchResults.reduce((accumulator, currentProvider) => accumulator + currentProvider.locations.length(), 0);
       return (
         <li className="searchResultsList">
           <SearchResultCard

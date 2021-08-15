@@ -17,12 +17,13 @@ export const SearchResultCard: React.FC<IProps> = ({ result }) => {
             <div className={styles["search-result"]}>
               <section className={styles["business-info"]}>
                 <h2 className="subtitle">{result.fullName}</h2>
-                <AvgRating rating={result.avgReview} />
+                <AvgRating rating={result.avgRating} />
                 <div className="tags is-grouped-multiline">
                   {result.specialties.map((speciality) => {
                     return <span className="tag">{speciality}</span>;
                   })}
                 </div>
+                {/* <p>{locationIndex}</p> */}
               </section>
               {/* might delete the phone, address section */}
               <section>

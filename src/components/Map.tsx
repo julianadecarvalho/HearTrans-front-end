@@ -26,14 +26,15 @@ const SimpleMap = () => {
   const { searchResults } = useContext(SearchContext);
   const renderList = () => {
     return searchResults.map((result: ProviderResponse) => {
-      return result.locations.map((location: any) => {
+      return result.locations.map((location: any, index) => {
         // return <Marker marker={location} />;
         // console.log(location.latitude);
+        const locationIndex = index + 1;
         return (
           <Marker
             lat={location.latitude}
             lng={location.longitude}
-            text={result.fullName}
+            text={locationIndex}
           />
         );
       });
@@ -57,7 +58,7 @@ const SimpleMap = () => {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <Marker lat={47.6062} lng={-122.332} text="My Marker" />
+        {/* <Marker lat={47.6062} lng={-122.332} text="My Marker" /> */}
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
 
         {/* <div>{AnotherReactComponent}</div> */}

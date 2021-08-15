@@ -12,7 +12,7 @@ export function SideBar() {
     const showSidebar = () => setSidebar(!sidebar);
     return (
         <>
-        <IconContext.Provider value={{ color: "light blue"}}>
+        <IconContext.Provider value={{ color: "white"}}>
         <div className="navbar">
             <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />

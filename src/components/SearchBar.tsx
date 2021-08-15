@@ -14,7 +14,7 @@ const onSearch = (searchTerm: string) => {
 
 export function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [locationQuery, setLocation] = useState("");
   //new handlers for the search results
   const { performSearch } = useContext(SearchContext);
 

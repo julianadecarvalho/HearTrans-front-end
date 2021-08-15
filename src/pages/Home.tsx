@@ -3,7 +3,7 @@ import styles from "./Home.module.css"
 
 export function Home() {
   return (
-    <div>
+    <div className={styles["div"]}>
       <section className={styles["section"]}>
         <h1 className="title">Mission</h1>
         <p className={styles["text"]}>Our mission is to help transgender people find medical providers 
@@ -27,7 +27,7 @@ export function Home() {
       </section>
       <section className={styles["section"]}>
         <h1 className="title">Important!</h1>
-        <p className={styles["text"]}>We don't collect user data so there is no issues about it being leaked.</p>
+        <p className={styles["text"]}>We don't collect user data so there are no issues about it being leaked.</p>
       </section>
     </div>
   );
