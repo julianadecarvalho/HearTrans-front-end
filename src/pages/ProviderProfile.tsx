@@ -42,8 +42,8 @@ const emptyProvider: ProviderResponse = {
           console.log("Error:", error);
           console.log(provider);
           alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
-        });}
-        
+        });},
+        []
       );
   return (
     <body>
