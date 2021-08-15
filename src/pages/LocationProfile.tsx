@@ -53,36 +53,32 @@ export function LocationProfile() {
   
   return ( 
     <body>
+    <section className="section is-small">
+      <h1 className="title">
+        {location.locationName}
+      </h1>
+      <hr></hr>
+      <h2 className="subtitle">
+      </h2>
+      </section>
       <section className="section is-small">
-        <h1 className="title">{provider.fullName}</h1>
-        <h2 className="subtitle">
-          My other names Pronouns here
+        <h1 className="title">Address</h1>
+        <h2 className="subtitle">{location.address}
           <hr></hr>
         </h2>
       </section>
       <section className="section is-small">
-        <h1 className="title">{location.address}</h1>
-        <h2 className="subtitle">
+        <h1 className="title">Phone Number</h1>
+        <h2 className="subtitle">{location.phone}
           <hr></hr>
-          <p>Google map box with marker</p>
         </h2>
       </section>
+      
       <section className="section is-small">
-        <h1 className="title">Providers</h1>
+        <h1 className="title">List of Providers in this Location</h1>
         <h2 className="subtitle">
           <hr></hr>
           {/* or could just map out list here */}
-          <AssocProvidersList />
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Reviews</h1>
-        <h2 className="subtitle">
-          <hr></hr>
-          <Link to="/addlocationreview/:id">
-            <button className="button is-medium">Add Review</button>
-          </Link>
-          {/* <ReviewsList /> */}
         </h2>
       </section>
     </body>

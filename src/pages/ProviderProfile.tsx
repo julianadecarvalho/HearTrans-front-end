@@ -34,21 +34,6 @@ export function ProviderProfile() {
   //maybe if statement to see if it's defined
   const [provider, setProvider] = useState<ProviderResponse>(emptyProvider);
 
-<<<<<<< HEAD
-  useEffect(() => {axios
-        .get(`${BACKEND_URL}/providers/${id}`)
-        .then(async (response) => {
-          const data: ProviderResponse = await response.data.providerDict;
-          setProvider(data);
-        })
-        .catch((error) => {
-          console.log("Error:", error);
-          console.log(provider);
-          alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
-        });},
-        []
-      );
-=======
   useEffect(() => {
     axios
       .get(`${BACKEND_URL}/providers/${id}`)
@@ -62,7 +47,6 @@ export function ProviderProfile() {
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
   });
->>>>>>> 30387dc46e5cdd4af7ed70207ecaf7fa4ce85d7f
   return (
     <body>
       <section className="section is-small">
