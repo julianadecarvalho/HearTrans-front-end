@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 export interface IProps {
   rating: string;
+  len: number;
 }
-export const AvgRating: React.FC<IProps> = ({ rating }: IProps) => {
+export const AvgRating: React.FC<IProps> = ({ rating, len }: IProps) => {
   return (
     <div className="field">
       {[...Array(5)].map((star, i) => {
@@ -17,6 +18,7 @@ export const AvgRating: React.FC<IProps> = ({ rating }: IProps) => {
           </label>
         );
       })}
+      <span>{len}</span>
     </div>
   );
 };

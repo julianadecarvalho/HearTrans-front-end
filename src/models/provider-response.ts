@@ -14,5 +14,5 @@ export default interface ProviderResponse {
   readonly slidingScalePay?: boolean;
   avgRating: string;
   readonly locations: LocationResponse[];
-  reviews?: ReviewResponse[];
+  readonly reviews: ReviewResponse[];
 }

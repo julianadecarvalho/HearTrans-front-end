@@ -34,7 +34,7 @@ const SimpleMap = () => {
           <Marker
             lat={location.latitude}
             lng={location.longitude}
-            text={locationIndex}
+            text={result.id}
           />
         );
       });
