@@ -24,7 +24,7 @@ import ProviderResponse from "../models/provider-response";
 
 export type SearchContextType = {
   searchResults: ProviderResponse[];
-  performSearch: (searchTerm: string) => ProviderResponse[];
+  performSearch: (searchTerm: string) => Promise<ProviderResponse[]>;
 };
 
 export const SearchContext = createContext({} as SearchContextType);
@@ -39,13 +39,14 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     return axios
       .get(`${process.env.BACKEND_URL}/providers`)
       .then(async (response) => {
-        const data = await response.data.providersResponses;
+        const data: ProviderResponse[] = await response.data.providersResponses;
         setSearchResults(data);
         return data;
       })
       .catch((error) => {
         console.log("Error:", error);
         alert("ooopsie Daisy, couldn't get locations on our map!! 😖 ");
+        return [];
       });
   };
 
