@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
 import styles from "./AddReview.module.css";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location
 export interface Review {
@@ -40,7 +42,17 @@ export function AddProviderReview() {
   const [hover, setHover] = useState(0);
 
   // needs to add to database when click add location
-  const handleClick = (): void => {};
+  const handleClick = () => {
+    return axios
+    .post(`${BACKEND_URL}/addprovider`, {input})
+    .then(async (response) => {
+    console.log(response);
+    })
+    .catch((error) => {
+      console.log("Error:", error);
+      alert("Did you fill out the form completely?")
+    });
+  };
   return (
     <div className={styles["add-review"]}>
       <div className="field">
