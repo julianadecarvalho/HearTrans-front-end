@@ -8,23 +8,35 @@ import { SearchContext } from "./SearchContext";
 // }
 // this is the api data sent back
 //const searchResults = useContext(SearchContext);
+function* generator() {
+  var i = 1;
+
+  while (true) {
+    yield i;
+    i ++;
+  }
+}
 
 export const SearchResultsList: React.FC = () => {
   const { searchResults } = useContext(SearchContext);
 
   const renderList = (): JSX.Element[] => {
+    var gen = generator();
     return searchResults.map((result) => {
-      // searchResults.reduce((accumulator, currentProvider) => accumulator + currentProvider.locations.length(), 0);
+      const count = gen.next().value;
       return (
         <li className="searchResultsList">
           <SearchResultCard
             result={result}
+
+
             // {...result}
             // fullName={result.fullName}
             // avgReview={result.avgReview}
             // specialty={result.specialty}
             // id={result.id}
           />
+
         </li>
       );
     });
