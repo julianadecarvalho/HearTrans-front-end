@@ -1,11 +1,11 @@
 import React from "react";
 import { AvgRating } from "./AvgRating";
-import { Info } from "./SearchContext";
 import styles from "./SearchResultCard.module.css";
 import { Link } from "react-router-dom";
+import ProviderResponse from "../models/provider-response";
 
 interface IProps {
-  result: Info;
+  result: ProviderResponse;
 }
 
 export const SearchResultCard: React.FC<IProps> = ({ result }) => {

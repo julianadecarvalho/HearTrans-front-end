@@ -2,29 +2,12 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
 
-// edit to take shape of api request data
-// export interface Info {
-//   fullName: string;
-//   otherNames: string[];
-//   pronouns: string;
-//   titles: string[];
-//   specialties: string[];
-//   languages: string[];
-//   services: string[];
-//   remoteVisits: boolean;
-//   slidingScalePay: boolean;
-//   reviews: unknown[];
-//   locations: unknown[];
-//   avgReview: number;
-//   id: number;
-// }
-
 // searchResults is the state
 // performSearch is a function for changing the state.
 
 export type SearchContextType = {
   searchResults: ProviderResponse[];
-  performSearch: (searchTerm: string) => ProviderResponse[];
+  performSearch: (searchTerm: string) => Promise<void | ProviderResponse[]>;
 };
 
 export const SearchContext = createContext({} as SearchContextType);
@@ -39,7 +22,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     return axios
       .get(`${process.env.BACKEND_URL}/providers`)
       .then(async (response) => {
-        const data = await response.data.providersResponses;
+        const data: ProviderResponse[] = await response.data.providersResponses;
         setSearchResults(data);
         return data;
       })

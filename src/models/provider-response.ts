@@ -13,6 +13,6 @@ export default interface ProviderResponse {
   readonly remoteVisits?: boolean;
   readonly slidingScalePay?: boolean;
   avgRating: string;
-  locations?: LocationResponse[];
+  readonly locations: LocationResponse[];
   reviews?: ReviewResponse[];
 }
