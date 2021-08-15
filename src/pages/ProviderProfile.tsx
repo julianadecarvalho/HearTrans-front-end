@@ -1,24 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AssocLocationsList } from "../components/AssocLocationsList";
 import { AvgRating } from "../components/AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import ProviderResponse from "../models/provider-response";
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+
 
 export function ProviderProfile() {
+const emptyProvider: ProviderResponse = {
+    id: 0,
+    fullName: "",
+    pronouns: "",
+    otherNames: [],
+    titles: [],
+    specialties: [],
+    languages: [],
+    services: [],
+    avgRating: "",
+    locations: [],
+    reviews: [],
+  };
+  const emptyProviderPromise: Promise<ProviderResponse> = new Promise(function(resolve, reject) {
+    resolve(emptyProvider);});
   const { id } = useParams<{ id: string }>();
   // api call here to get provider by id data
   // axios.get('link'). then
+  // put everything in useEffect
+  //maybe if statement to see if it's defined
+  const [provider, setProvider] = useState<ProviderResponse>(emptyProvider);
+
+  useEffect(() => {axios
+        .get(`${BACKEND_URL}/providers/${id}`)
+        .then(async (response) => {
+          const data: ProviderResponse = await response.data.providerDict;
+          setProvider(data);
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+          console.log(provider);
+          alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
+        });}
+        
+      );
   return (
     <body>
       <section className="section is-small">
-        <h1 className="title">FullName, MD,NP,PA-C</h1>
+        <h1 className="title">{provider.fullName}</h1>
         <h2 className="subtitle">
           My other names Pronouns here
           <hr></hr>
           {/* rating number will come from fresh api call data, pass it in as props*/}
-          <AvgRating rating={"4"} len={5} />
-          <span className="tag">some speciality</span>{" "}
+          <AvgRating rating={provider.avgRating} len={provider.reviews.length} />
+          <span className="tag">{provider.specialties}</span>{" "}
           <span className="tag">some speciality</span>{" "}
         </h2>
       </section>
