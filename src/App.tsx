@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./pages/SearchResults";
+// import { SearchResults } from "./components/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
 import { NavBar } from "./components/NavBar";

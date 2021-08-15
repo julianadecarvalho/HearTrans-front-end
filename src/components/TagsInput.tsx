@@ -27,11 +27,12 @@ export const TagsInput = (props: any) => {
       />
       <ul id="tags">
         {tags.map((tag, index) => (
-          <li key={index} className="tag">
+          <li key={index} className="tag is-success">
             <span className="tag-title">{tag}</span>
-            <span className="tag-close-icon" onClick={() => removeTags(index)}>
-              ⊗
-            </span>
+            <button
+              className="delete is-small"
+              onClick={() => removeTags(index)}
+            ></button>
           </li>
         ))}
       </ul>

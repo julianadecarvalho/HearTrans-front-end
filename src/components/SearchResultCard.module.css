@@ -5,3 +5,8 @@
 .business-info {
   min-width: 400px;
 }
+
+:global(.tag).speciality-tag {
+  background: #f7a8b8;
+  border: none;
+}

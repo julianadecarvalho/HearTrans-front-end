@@ -1,58 +1,46 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { SearchResultCard } from "../components/SearchResultCard";
+import styles from "./SearchResults.module.css";
 import { SearchContext } from "../components/SearchContext";
-import { SearchResultsList } from "../components/SearchResultsList";
 import SimpleMap from "../components/Map";
 
-// export interface Info {
-//   name: string;
-//   avgReview: string;
-//   specialty: string;
-//   id: number;
+// interface IProps {
+//   results: Info[];
 // }
+// this is the api data sent back
+//const searchResults = useContext(SearchContext);
+function* generator() {
+  var i = 1;
 
-// export interface IState {
-//   resultsInfo: {
-//     name: string;
-//     avgReview: string;
-//     specialty: string;
-//     id: number;
-//   }[];
-// }
+  while (true) {
+    yield i;
+    i++;
+  }
+}
 
 export function SearchResults() {
-  // const [results, setResults] = useState<Info[]>([]);
-  // {
-  //   name: "Dr. Drew",
-  //   avgReview: "5",
-  //   specialty: "psychiatry",
-  //   id: 1,
-  // },
-  // {
-  //   name: "Dr. Hannah",
-  //   avgReview: "5",
-  //   specialty: "gastrointerology",
-  //   id: 2,
-  // },
-  // {
-  //   name: "Baker's Clinic",
-  //   avgReview: "5",
-  //   specialty: "vet",
-  //   id: 3,
-  // },
-  // ]);
+  const { searchResults } = useContext(SearchContext);
 
-  // const onSearch = (searchTerm: string) => {
-  //   // api request with the seachterm
-  //   // setResults(/*result of the api request*/)
-  // };
+  const renderList = (): JSX.Element[] => {
+    var gen = generator();
+    return searchResults.map((result) => {
+      const count = gen.next().value;
+      console.log(count);
+      return (
+        <li className="searchResultsList">
+          <SearchResultCard result={result} count={count} />
+        </li>
+      );
+    });
+  };
 
   return (
     <div className="columns">
-      {/* <NavBar /> */}
       {/* add search summary results component */}
-      {/* cards component list */}
-      <div className="column is-narrow is-offset-1">
-        <SearchResultsList />
+      <div className="column is-two-fifths is-offset-1">
+        <article className={styles["search-results-list"]}>
+          <ul className={styles["search-results-list"]}>{renderList()}</ul>
+        </article>
       </div>
       <div className="column is-flexible">
         <SimpleMap />

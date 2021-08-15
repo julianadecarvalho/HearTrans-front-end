@@ -17,7 +17,7 @@ export function ProviderProfile() {
           My other names Pronouns here
           <hr></hr>
           {/* rating number will come from fresh api call data, pass it in as props*/}
-          <AvgRating rating={"4"} />
+          <AvgRating rating={"4"} len={5} />
           <span className="tag">some speciality</span>{" "}
           <span className="tag">some speciality</span>{" "}
         </h2>
