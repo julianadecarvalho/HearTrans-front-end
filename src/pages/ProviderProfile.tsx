@@ -4,11 +4,28 @@ import { AvgRating } from "../components/AvgRating";
 import { ReviewsList } from "../components/ReviewsList";
 import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import ProviderResponse from "../models/provider-response";
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
 export function ProviderProfile() {
   const { id } = useParams<{ id: string }>();
   // api call here to get provider by id data
   // axios.get('link'). then
+  
+  const getProviderPage = (id: number) => {
+    return axios
+        .get(`${BACKEND_URL}/providers/${id}`)
+        .then((response) => {
+          const data: ProviderResponse = response.data.providersResponses;
+          return data;
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+          alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
+          return [];
+        });}
+
   return (
     <body>
       <section className="section is-small">
