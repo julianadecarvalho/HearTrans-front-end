@@ -2,25 +2,9 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
 
-// edit to take shape of api request data
-// export interface Info {
-//   fullName: string;
-//   otherNames: string[];
-//   pronouns: string;
-//   titles: string[];
-//   specialties: string[];
-//   languages: string[];
-//   services: string[];
-//   remoteVisits: boolean;
-//   slidingScalePay: boolean;
-//   reviews: unknown[];
-//   locations: unknown[];
-//   avgReview: number;
-//   id: number;
-// }
-
 // searchResults is the state
 // performSearch is a function for changing the state.
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
 export type SearchContextType = {
   searchResults: ProviderResponse[];
@@ -35,9 +19,8 @@ export const SearchContextProvider: React.FC = ({ children }) => {
 
   const performSearch = async (searchTerm: string) => {
     // do the api call in
-
     return axios
-      .get(`${process.env.BACKEND_URL}/providers`)
+      .get(`${BACKEND_URL}/providers`)
       .then(async (response) => {
         const data: ProviderResponse[] = await response.data.providersResponses;
         setSearchResults(data);

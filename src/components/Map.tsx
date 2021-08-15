@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import { SearchContext } from "./SearchContext";
 import { useContext } from "react";
+import ProviderResponse from "../models/provider-response";
 
 const Marker: React.FC<any> = ({ text }) => (
   <div
@@ -24,15 +25,16 @@ const Marker: React.FC<any> = ({ text }) => (
 const SimpleMap = () => {
   const { searchResults } = useContext(SearchContext);
   const renderList = () => {
-    return searchResults.map((result) => {
-      return result.locations.map((location: any) => {
+    return searchResults.map((result: ProviderResponse) => {
+      return result.locations.map((location: any, index) => {
         // return <Marker marker={location} />;
         // console.log(location.latitude);
+        const locationIndex = index + 1;
         return (
           <Marker
             lat={location.latitude}
             lng={location.longitude}
-            text={result.fullName}
+            text={locationIndex}
           />
         );
       });
@@ -56,7 +58,7 @@ const SimpleMap = () => {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <Marker lat={47.6062} lng={-122.332} text="My Marker" />
+        {/* <Marker lat={47.6062} lng={-122.332} text="My Marker" /> */}
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
 
         {/* <div>{AnotherReactComponent}</div> */}
