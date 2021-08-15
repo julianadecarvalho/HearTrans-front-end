@@ -82,7 +82,7 @@ export function LocationProfile() {
           <Link to="/addlocationreview/:id">
             <button className="button is-medium">Add Review</button>
           </Link>
-          <ReviewsList />
+          {/* <ReviewsList /> */}
         </h2>
       </section>
     </body>

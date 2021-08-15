@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 export interface IProps {
-  rating: string;
-  len: number;
+  rating: number | string;
+  len: number | string;
 }
 export const AvgRating: React.FC<IProps> = ({ rating, len }: IProps) => {
   return (
@@ -13,7 +13,7 @@ export const AvgRating: React.FC<IProps> = ({ rating, len }: IProps) => {
           <label>
             <FaStar
               size={30}
-              color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"}
+              color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
             />
           </label>
         );

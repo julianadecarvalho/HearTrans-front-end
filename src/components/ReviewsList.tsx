@@ -1,25 +1,37 @@
 import React from "react";
+import ReviewResponse from "../models/review-response";
 import { AvgRating } from "./AvgRating";
-
-export function ReviewsList() {
-  return (
-    // <div>
-    //   <ul>
-    //     <li>review component? or can we just map out the reviews here</li>
-    //   </ul>
-    // </div>
-    <div className="card">
-      <div className="card-content">
-        <div className="content">
-          <AvgRating rating={"4"} len={2} />
-          Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros.
-          Donec id elit non mi porta gravida at eget metus. Cum sociis natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          Cras mattis consectetur purus sit amet fermentum.
-          <br></br>
-          <time>11:09 PM - 1 Jan 2016</time>
-        </div>
-      </div>
-    </div>
-  );
+export interface IProps {
+  reviews: ReviewResponse[];
 }
+export const ReviewsList = ({ reviews }: IProps) => {
+  const renderList = (): JSX.Element[] => {
+    return reviews.map((review) => {
+      return (
+        <li className="card">
+          <div className="card-content">
+            <div className="content">
+              <div className="tags is-grouped-multiline">
+                {review.contentWarnings.map((contentWarning) => {
+                  return (
+                    <span className="tag is-small is-rounded is-danger">
+                      {contentWarning}
+                    </span>
+                  );
+                })}
+              </div>
+              <AvgRating rating={review.rating} len={""} />
+              {review.reviewBody}
+            </div>
+          </div>
+        </li>
+      );
+    });
+  };
+
+  return (
+    <article>
+      <ul>{renderList()}</ul>
+    </article>
+  );
+};
