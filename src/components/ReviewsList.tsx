@@ -11,6 +11,15 @@ export const ReviewsList = ({ reviews }: IProps) => {
         <li className="card">
           <div className="card-content">
             <div className="content">
+              <div className="tags is-grouped-multiline">
+                {review.contentWarnings.map((contentWarning) => {
+                  return (
+                    <span className="tag is-small is-rounded is-danger">
+                      {contentWarning}
+                    </span>
+                  );
+                })}
+              </div>
               <AvgRating rating={review.rating} len={""} />
               {review.reviewBody}
             </div>
