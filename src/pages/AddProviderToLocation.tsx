@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./AddLocation.module.css";
 
 require("dotenv").config();
-const REACT_APP_BACKEND_URL = process.env.KEY;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export function AddProviderToLocation() {
   const [input, setInput] = useState({

@@ -4,7 +4,7 @@ import { TagsInput } from "../components/TagsInput";
 import styles from "./AddProvider.module.css";
 
 require("dotenv").config();
-const REACT_APP_BACKEND_URL = process.env.KEY;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export interface Provider {
   fullName: string;

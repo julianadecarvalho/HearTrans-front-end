@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./AddLocation.module.css";
 
 require("dotenv").config();
-const REACT_APP_BACKEND_URL = process.env.KEY;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export function AddLocation() {
   const [input, setInput] = useState({

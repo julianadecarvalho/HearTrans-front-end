@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import ReviewResponse from "../models/review-response";
 
 require("dotenv").config();
-const REACT_APP_BACKEND_URL = process.env.KEY;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location

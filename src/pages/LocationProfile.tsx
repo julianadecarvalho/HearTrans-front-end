@@ -11,7 +11,7 @@ import ProviderResponse from "../models/provider-response";
 import { ProviderProfile } from "./ProviderProfile";
 
 require("dotenv").config();
-const REACT_APP_BACKEND_URL = process.env.KEY;
+const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export function LocationProfile() {
   const emptyLocation: LocationResponse = {
