@@ -13,7 +13,7 @@ export const ReviewsList = ({ reviews }: IProps) => {
             <div className="content">
               <div className="tags is-grouped-multiline">
                 {/* how to only show content warnings label when there are content warnings */}
-                <p>{review.contentWarnings === [] ? "" : "CONTENT WARNINGS"}</p>
+                <p>{review.contentWarnings.length ? "CONTENT WARNINGS" : ""}</p>
                 {review.contentWarnings.map((contentWarning) => {
                   return (
                     <span className="tag is-small is-rounded is-danger">
