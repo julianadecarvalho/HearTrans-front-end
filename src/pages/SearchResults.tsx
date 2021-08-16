@@ -27,7 +27,7 @@ export function SearchResults() {
       const count = gen.next().value;
       console.log(count);
       return (
-        <li className="searchResultsList">
+        <li key={result.id} className="searchResultsList">
           <SearchResultCard result={result} count={count} />
         </li>
       );

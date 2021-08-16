@@ -8,7 +8,7 @@ export const ReviewsList = ({ reviews }: IProps) => {
   const renderList = (): JSX.Element[] => {
     return reviews.map((review) => {
       return (
-        <li className="card">
+        <li key={review.id} className="card">
           <div className="card-content">
             <div className="content">
               <div className="tags is-grouped-multiline">
