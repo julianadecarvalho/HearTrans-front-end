@@ -79,6 +79,9 @@ export function LocationProfile() {
             })}
           </div>
         </h2>
+        <Link to={`/addprovidertolocation/${id}`}>
+          <button className="button is-medium">Add Provider</button>
+        </Link>
       </section>
     </body>
   );

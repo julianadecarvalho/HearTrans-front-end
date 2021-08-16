@@ -12,6 +12,7 @@ import { AddLocation } from "./pages/AddLocation";
 import { AddProviderReview } from "./pages/AddProviderReview";
 import { AddLocationReview } from "./pages/AddLocationReview";
 import { AddLocationToProvider } from "./pages/AddLocationToProvider";
+import { AddProviderToLocation } from "./pages/AddProviderToLocation";
 
 // import { AddReview } from "./pages/AddReview";
 // import { AddLocation } from "./pages/AddLocation";
@@ -35,6 +36,10 @@ function App() {
           <Route
             path="/addlocationtoprovider/:id"
             component={AddLocationToProvider}
+          />
+          <Route
+            path="/addprovidertolocation/:id"
+            component={AddProviderToLocation}
           />
           <Route path="/" component={Home} />
           {/* 
