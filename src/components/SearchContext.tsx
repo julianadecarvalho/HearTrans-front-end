@@ -33,7 +33,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         return [];
       });
   };
-
+  // comment
   return (
     <SearchContext.Provider value={{ searchResults, performSearch }}>
       {children}
