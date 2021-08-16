@@ -62,6 +62,7 @@ export function ProviderProfile() {
         alert("LOLOL Couldn't Delete the Card, something went wrong!! 😖");
       });
   };
+
   return (
     <body>
       <section className="section is-small">
