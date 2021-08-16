@@ -12,13 +12,13 @@ const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 export interface Review {
   contentWarnings: string[];
   rating: number;
-  review: string;
+  reviewBody: string;
 }
 export function AddProviderReview() {
   const [input, setInput] = useState<Review>({
     contentWarnings: [],
     rating: 0,
-    review: "",
+    reviewBody: "",
   });
 
   // handling tags input for content warnings
@@ -40,27 +40,27 @@ export function AddProviderReview() {
     });
   };
 
+  const stringyInput = JSON.stringify(input);
   // state for rating
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const { id } = useParams<{ id: string }>();
   // needs to add to database when click add location
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement| MouseEvent>) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement | MouseEvent>
+  ) => {
     event.preventDefault();
-    axios.post(`${BACKEND_URL}/provider/reviews/${id}`, {
-      contentWarnings: input.contentWarnings,
-      rating: input.rating,
-      review: input.review
-    })
-    .then(async (response) => {
-    // const reviewData = [...review];
-    // reviewData.push(response.data.review);
-    console.log(response);
-    })
-    .catch((error) => {
-      console.log("Error:", error);
-      alert("Did you fill out the form completely?")
-    });
+    axios
+      .post(`${BACKEND_URL}/provider/reviews/${id}`, input)
+      .then(async (response) => {
+        // const reviewData = [...review];
+        // reviewData.push(response.data.review);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        alert("Did you fill out the form completely");
+      });
   };
   return (
     <div className={styles["add-review"]}>
@@ -105,7 +105,7 @@ export function AddProviderReview() {
           <textarea
             className="textarea"
             placeholder="My experience with..."
-            value={input.review}
+            value={input.reviewBody}
             onChange={handleChange}
             name="review"
           ></textarea>
