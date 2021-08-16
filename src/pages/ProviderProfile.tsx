@@ -46,7 +46,7 @@ export function ProviderProfile() {
         console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  });
+  }, []);
 
   // delete this provider
   const deleteProvider = (
@@ -55,11 +55,13 @@ export function ProviderProfile() {
     axios
       .delete(`${BACKEND_URL}/providers/${id}`)
       .then((response) => {
-        alert(`Successfully deleted the provider: ${provider.id}`);
+        alert(
+          `Successfully deleted the provider: ${provider.fullName} id:${provider.id}`
+        );
       })
       .catch((error) => {
         console.log("Error: ", error);
-        alert("LOLOL Couldn't Delete the Card, something went wrong!! 😖");
+        alert("LOLOL Couldn't Delete the Provider, something went wrong!! 😖");
       });
   };
 

@@ -54,6 +54,22 @@ export function LocationProfile() {
       });
   }, []);
 
+  // delete this provider
+  const deleteLocation = (
+    e: React.MouseEvent<HTMLButtonElement | MouseEvent>
+  ) => {
+    axios
+      .delete(`${BACKEND_URL}/locations/${id}`)
+      .then((response) => {
+        alert(
+          `Successfully deleted the location:${location.locationName} id:${location.id}`
+        );
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+        alert("LOLOL Couldn't Delete the Location, something went wrong!! 😖");
+      });
+  };
   return (
     <body>
       <section className="section is-small">
@@ -83,6 +99,11 @@ export function LocationProfile() {
           <button className="button is-medium">Add Provider</button>
         </Link>
       </section>
+      <footer>
+        <button className="button is-small" onClick={deleteLocation}>
+          Delete this location
+        </button>
+      </footer>
     </body>
   );
 }
