@@ -10,7 +10,8 @@ import LocationResponse from "../models/location-response";
 import ProviderResponse from "../models/provider-response";
 import { ProviderProfile } from "./ProviderProfile";
 
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
 
 export function LocationProfile() {
   const emptyLocation: LocationResponse = {
@@ -43,7 +44,7 @@ export function LocationProfile() {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/locations/${id}`)
+      .get(`${REACT_APP_BACKEND_URL}/locations/${id}`)
       .then(async (response) => {
         const data: LocationResponse = await response.data.locationResponse;
         setLocation(data);
@@ -59,7 +60,7 @@ export function LocationProfile() {
     e: React.MouseEvent<HTMLButtonElement | MouseEvent>
   ) => {
     axios
-      .delete(`${BACKEND_URL}/locations/${id}`)
+      .delete(`${REACT_APP_BACKEND_URL}/locations/${id}`)
       .then((response) => {
         alert(
           `Successfully deleted the location:${location.locationName} id:${location.id}`

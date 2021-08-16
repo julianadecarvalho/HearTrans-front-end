@@ -5,7 +5,9 @@ import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
 
 export function ProviderProfile() {
   const emptyProvider: ProviderResponse = {
@@ -36,7 +38,7 @@ export function ProviderProfile() {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/providers/${id}`)
+      .get(`${REACT_APP_BACKEND_URL}/providers/${id}`)
       .then(async (response) => {
         const data: ProviderResponse = await response.data.providerDict;
         setProvider(data);
@@ -53,7 +55,7 @@ export function ProviderProfile() {
     e: React.MouseEvent<HTMLButtonElement | MouseEvent>
   ) => {
     axios
-      .delete(`${BACKEND_URL}/providers/${id}`)
+      .delete(`${REACT_APP_BACKEND_URL}/providers/${id}`)
       .then((response) => {
         alert(
           `Successfully deleted the provider: ${provider.fullName} id:${provider.id}`

@@ -2,9 +2,8 @@ import React, { createContext, useState } from "react";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
 
-// searchResults is the state
-// performSearch is a function for changing the state.
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
 
 export type SearchContextType = {
   searchResults: ProviderResponse[];
@@ -20,7 +19,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const performSearch = async (searchTerm: string) => {
     // do the api call in
     return axios
-      .get(`${BACKEND_URL}/providers`)
+      .get(`${REACT_APP_BACKEND_URL}/providers`)
       .then(async (response) => {
         const data: ProviderResponse[] = await response.data.providersResponses;
         setSearchResults(data);

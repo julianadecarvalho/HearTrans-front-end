@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import styles from "./AddLocation.module.css";
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
 
 export function AddLocation() {
   const [input, setInput] = useState({
@@ -22,8 +24,8 @@ export function AddLocation() {
     const params = "".concat(...Object.values(input));
     axios
       // either work for params, when dont do replaceAll it separates by  %20
-      // .post(`${BACKEND_URL}/locations/new/${params.replaceAll(" ", "+")}`)
-      .post(`${BACKEND_URL}/locations/new/${params}`)
+      // .post(`${REACT_APP_BACKEND_URL}/locations/new/${params.replaceAll(" ", "+")}`)
+      .post(`${REACT_APP_BACKEND_URL}/locations/new/${params}`)
       .then(async (response) => {
         alert("Location successfully added. Thank you!");
         console.log(response);

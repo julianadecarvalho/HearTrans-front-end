@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Home } from "./pages/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SearchResults } from "./pages/SearchResults";
-// import { SearchResults } from "./components/SearchResults";
 import { ProviderProfile } from "./pages/ProviderProfile";
 import { LocationProfile } from "./pages/LocationProfile";
 import { NavBar } from "./components/NavBar";
@@ -14,9 +13,7 @@ import { AddLocationReview } from "./pages/AddLocationReview";
 import { AddLocationToProvider } from "./pages/AddLocationToProvider";
 import { AddProviderToLocation } from "./pages/AddProviderToLocation";
 
-// import { AddReview } from "./pages/AddReview";
-// import { AddLocation } from "./pages/AddLocation";
-// import { AddProvider } from "./pages/AddProvider";
+
 // import { Report } from "./pages/Report";
 // import { Donate } from "./pages/Donate";
 

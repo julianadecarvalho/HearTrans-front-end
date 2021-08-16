@@ -6,7 +6,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import ReviewResponse from "../models/review-response";
 
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
+
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location
 export interface Review {
@@ -51,7 +53,7 @@ export function AddProviderReview() {
   ) => {
     event.preventDefault();
     axios
-      .post(`${BACKEND_URL}/provider/reviews/${id}`, input)
+      .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
       .then(async (response) => {
         // const reviewData = [...review];
         // reviewData.push(response.data.review);

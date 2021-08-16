@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
 import styles from "./AddProvider.module.css";
-const BACKEND_URL = "http://heartrans-back.herokuapp.com";
+
+require("dotenv").config();
+const REACT_APP_BACKEND_URL = process.env.KEY;
 
 export interface Provider {
   fullName: string;
@@ -70,7 +72,7 @@ export function AddProvider(this: any) {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => {
     e.preventDefault();
     axios
-      .post(`${BACKEND_URL}/providers`, input)
+      .post(`${REACT_APP_BACKEND_URL}/providers`, input)
       .then(async (response) => {
         console.log(response);
         alert("Provider successfully added. Thank you!");
