@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
 import styles from "./AddReview.module.css";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import ReviewResponse from "../models/review-response";
+
+const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 // maybe prompt user if want to add review for location or provider then take to separate forms?
 // if separate forms then can link in the profile page to add review for provider or location
 export interface Review {
   contentWarnings: string[];
   rating: number;
-  review: string;
+  reviewBody: string;
 }
 export function AddProviderReview() {
   const [input, setInput] = useState<Review>({
     contentWarnings: [],
     rating: 0,
-    review: "",
+    reviewBody: "",
   });
 
   // handling tags input for content warnings
@@ -35,12 +40,28 @@ export function AddProviderReview() {
     });
   };
 
+  const stringyInput = JSON.stringify(input);
   // state for rating
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-
+  const { id } = useParams<{ id: string }>();
   // needs to add to database when click add location
-  const handleClick = (): void => {};
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement | MouseEvent>
+  ) => {
+    event.preventDefault();
+    axios
+      .post(`${BACKEND_URL}/provider/reviews/${id}`, input)
+      .then(async (response) => {
+        // const reviewData = [...review];
+        // reviewData.push(response.data.review);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        alert("Did you fill out the form completely");
+      });
+  };
   return (
     <div className={styles["add-review"]}>
       <div className="field">
@@ -84,7 +105,7 @@ export function AddProviderReview() {
           <textarea
             className="textarea"
             placeholder="My experience with..."
-            value={input.review}
+            value={input.reviewBody}
             onChange={handleChange}
             name="review"
           ></textarea>
