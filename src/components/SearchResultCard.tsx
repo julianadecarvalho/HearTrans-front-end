@@ -18,7 +18,7 @@ export const SearchResultCard: React.FC<IProps> = ({ result, count }) => {
             <section className={styles["business-info"]}>
               <h2 className="subtitle">
                 <Link to={`/provider/${result.id}`}>
-                  {count}. {result.fullName}, {result.titles.join()}
+                  {count}. {result.fullName}, {result.titles.join(", ")}
                 </Link>
               </h2>
               <AvgRating

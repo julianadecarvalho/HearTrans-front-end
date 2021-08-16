@@ -51,7 +51,7 @@ export function ProviderProfile() {
     <body>
       <section className="section is-small">
         <h1 className="title">
-          {provider.fullName}, {provider.titles.join()}
+          {provider.fullName}, {provider.titles.join(", ")}
         </h1>
         <hr></hr>
         <h2 className="subtitle">
