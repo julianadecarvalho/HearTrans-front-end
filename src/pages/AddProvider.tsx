@@ -24,8 +24,8 @@ export function AddProvider(this: any) {
     specialties: [],
     languages: [],
     services: [],
-    remoteVisits: null,
-    slidingScalePay: null,
+    remoteVisits: false,
+    slidingScalePay: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -67,16 +67,18 @@ export function AddProvider(this: any) {
   };
 
   // needs to add to database when click add location
-  const handleClick = () => {
-    return axios
-    .post(`${BACKEND_URL}/providers`, {input})
-    .then(async (response) => {
-    console.log(response);
-    })
-    .catch((error) => {
-      console.log("Error:", error);
-      alert("Did you fill out the form completely?")
-    });
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => {
+    e.preventDefault();
+    axios
+      .post(`${BACKEND_URL}/providers`, input)
+      .then(async (response) => {
+        console.log(response);
+        alert("Provider successfully added. Thank you!");
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        alert("Did you fill out the form completely?");
+      });
   };
   return (
     <div className={styles["add-provider"]}>

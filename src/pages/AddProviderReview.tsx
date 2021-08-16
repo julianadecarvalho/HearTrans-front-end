@@ -56,6 +56,7 @@ export function AddProviderReview() {
         // const reviewData = [...review];
         // reviewData.push(response.data.review);
         console.log(response);
+        alert("Provider Review successfully added. Thank you for your input!");
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -107,7 +108,7 @@ export function AddProviderReview() {
             placeholder="My experience with..."
             value={input.reviewBody}
             onChange={handleChange}
-            name="review"
+            name="reviewBody"
           ></textarea>
         </div>
       </div>
