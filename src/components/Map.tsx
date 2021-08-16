@@ -25,8 +25,8 @@ const Marker: React.FC<any> = ({ text }) => (
 const SimpleMap = () => {
   const { searchResults } = useContext(SearchContext);
   const renderList = () => {
-    return searchResults.map((result: ProviderResponse) => {
-      return result.locations.map((location: any, index) => {
+    return searchResults.map((result: ProviderResponse, index) => {
+      return result.locations.map((location: any) => {
         // return <Marker marker={location} />;
         // console.log(location.latitude);
         const locationIndex = index + 1;
@@ -34,7 +34,7 @@ const SimpleMap = () => {
           <Marker
             lat={location.latitude}
             lng={location.longitude}
-            text={result.id}
+            text={locationIndex}
           />
         );
       });

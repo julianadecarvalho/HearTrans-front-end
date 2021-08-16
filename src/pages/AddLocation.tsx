@@ -7,7 +7,6 @@ export function AddLocation() {
   const [input, setInput] = useState({
     locationName: "",
     address: "",
-    phone: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -18,16 +17,21 @@ export function AddLocation() {
   };
 
   // needs to add to database when click add location
-  const handleClick = () => {
-    return axios
-    .post(`${BACKEND_URL}/addlocation`, {input})
-    .then(async (response) => {
-    console.log(response);
-    })
-    .catch((error) => {
-      console.log("Error:", error);
-      alert("Did you fill out the form completely?")
-    });
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => {
+    e.preventDefault();
+    const params = "".concat(...Object.values(input));
+    axios
+      // either work for params, when dont do replaceAll it separates by  %20
+      // .post(`${BACKEND_URL}/locations/new/${params.replaceAll(" ", "+")}`)
+      .post(`${BACKEND_URL}/locations/new/${params}`)
+      .then(async (response) => {
+        alert("Location successfully added. Thank you!");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        alert("Did you fill out the form completely?");
+      });
   };
 
   return (
@@ -55,19 +59,6 @@ export function AddLocation() {
             value={input.address}
             onChange={handleChange}
             name="address"
-          />
-        </div>
-      </div>
-      <div className="field">
-        <label className="label is-large">Phone</label>
-        <div className="control">
-          <input
-            type="text"
-            placeholder="Phone"
-            className="input"
-            value={input.phone}
-            onChange={handleChange}
-            name="phone"
           />
         </div>
       </div>
