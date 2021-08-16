@@ -12,6 +12,6 @@ export default interface LocationResponse {
   readonly phone: string;
   readonly address: string;
   readonly googlePlaceId: string;
-  providers?: ProviderResponse[];
+  readonly providers: ProviderResponse[];
   readonly locationPoint: Point;
 }

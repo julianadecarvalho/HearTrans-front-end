@@ -8,6 +8,7 @@ import { Point } from "geojson";
 import axios from "axios";
 import LocationResponse from "../models/location-response";
 import ProviderResponse from "../models/provider-response";
+import { ProviderProfile } from "./ProviderProfile";
 
 const BACKEND_URL = "http://heartrans-back.herokuapp.com";
 
@@ -59,28 +60,28 @@ export function LocationProfile() {
       </h1>
       <hr></hr>
       <h2 className="subtitle">
+      {location.address}
       </h2>
+      <h2 className="subtitle">{location.phone}</h2>
       </section>
-      <section className="section is-small">
-        <h1 className="title">Address</h1>
-        <h2 className="subtitle">{location.address}
-          <hr></hr>
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Phone Number</h1>
-        <h2 className="subtitle">{location.phone}
-          <hr></hr>
-        </h2>
-      </section>
-      
+
+
       <section className="section is-small">
         <h1 className="title">List of Providers in this Location</h1>
         <h2 className="subtitle">
           <hr></hr>
-          {/* or could just map out list here */}
+          <div>
+            {location.providers.map((provider) => {
+              return (
+                <Link to={`/provider/${provider.id}`}>
+                  {provider.fullName}, {provider.titles}, ({provider.pronouns})
+                </Link>
+              );
+            })}
+          </div>
         </h2>
       </section>
     </body>
     );
 }
+
