@@ -47,6 +47,21 @@ export function ProviderProfile() {
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
   });
+
+  // delete this provider
+  const deleteProvider = (
+    e: React.MouseEvent<HTMLButtonElement | MouseEvent>
+  ) => {
+    axios
+      .delete(`${BACKEND_URL}/providers/${id}`)
+      .then((response) => {
+        alert(`Successfully deleted the provider: ${provider.id}`);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+        alert("LOLOL Couldn't Delete the Card, something went wrong!! 😖");
+      });
+  };
   return (
     <body>
       <section className="section is-small">
@@ -144,6 +159,11 @@ export function ProviderProfile() {
           <ReviewsList reviews={provider.reviews} />
         </h2>
       </section>
+      <footer>
+        <button className="button is-small" onClick={deleteProvider}>
+          Delete this provider
+        </button>
+      </footer>
     </body>
   );
 }
