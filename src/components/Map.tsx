@@ -45,7 +45,7 @@ const SimpleMap = () => {
       lat: 47.6062,
       lng: -122.332,
     },
-    zoom: 11,
+    zoom: 13,
   };
 
   return (

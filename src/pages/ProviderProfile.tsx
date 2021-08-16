@@ -90,6 +90,9 @@ export function ProviderProfile() {
             })}
           </div>
         </h2>
+        <Link to={`/addlocationtoprovider/${id}`}>
+          <button className="button is-medium">Add Location</button>
+        </Link>
       </section>
       <section className="section is-small">
         <h1 className="title">Languages</h1>
