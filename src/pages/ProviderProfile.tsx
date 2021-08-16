@@ -135,7 +135,7 @@ export function ProviderProfile() {
         <h1 className="title">Reviews</h1>
         <h2 className="subtitle">
           <hr></hr>
-          <Link to="/addproviderreview/:id">
+          <Link to={`/addproviderreview/${id}`}>
             <button className="button is-medium">Add Review</button>
           </Link>
           <ReviewsList reviews={provider.reviews} />

@@ -69,7 +69,7 @@ export function AddProvider(this: any) {
   // needs to add to database when click add location
   const handleClick = () => {
     return axios
-    .post(`${BACKEND_URL}/addprovider`, {input})
+    .post(`${BACKEND_URL}/providers`, {input})
     .then(async (response) => {
     console.log(response);
     })
