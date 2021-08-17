@@ -8,8 +8,6 @@ import { useParams } from "react-router-dom";
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-// maybe prompt user if want to add review for location or provider then take to separate forms?
-// if separate forms then can link in the profile page to add review for provider or location
 export interface Review {
   contentWarnings: string[];
   rating: number;
@@ -63,17 +61,6 @@ export function AddProviderReview() {
   return (
     <div className="container is-primary">
       <div className={`field ${styles["field-padding"]}`}>
-        <label className="label is-large">Content Warnings</label>
-        <div className="control">
-          <TagsInput
-            selectedTags={selectedTags}
-            tags={input.contentWarnings}
-            name="contentWarnings"
-          />
-        </div>
-      </div>
-
-      <div className="field">
         <label className="label is-large">Rating</label>
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
@@ -87,7 +74,7 @@ export function AddProviderReview() {
                 onChange={handleChange}
               />
               <FaStar
-                size={30}
+                size={43}
                 color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                 onMouseEnter={() => setHover(ratingValue)}
                 onMouseLeave={() => setHover(0)}
@@ -95,6 +82,17 @@ export function AddProviderReview() {
             </label>
           );
         })}
+      </div>
+
+      <div className={`field ${styles["field-padding"]}`}>
+        <label className="label is-large">Content Warnings</label>
+        <div className="control">
+          <TagsInput
+            selectedTags={selectedTags}
+            tags={input.contentWarnings}
+            name="contentWarnings"
+          />
+        </div>
       </div>
 
       <div className="field">
