@@ -14,7 +14,6 @@ export function NavBar(props: any) {
       <section className={`is-desktop ${styles["navbar-menu"]}`}>
         <div className="navbar-item">
           <SearchBar setNewCoords={props.setNewCoords} />
-          <SearchBar />
         </div>
       </section>
       <section className={styles.right}>
