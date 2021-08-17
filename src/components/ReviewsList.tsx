@@ -1,5 +1,6 @@
 import ReviewResponse from "../models/review-response";
 import { AvgRating } from "./AvgRating";
+import styles from "../pages/PaddingForForms.module.css"
 export interface IProps {
   reviews: ReviewResponse[];
 }
@@ -8,7 +9,7 @@ export const ReviewsList = ({ reviews }: IProps) => {
     return reviews.map((review) => {
       return (
         <li key={review.id} className="card">
-          <div className="card-content">
+          <div className={`card-content ${styles["review-padding"]}`}>
             <div className="content">
               <div className="tags is-grouped-multiline">
                 <p>{review.contentWarnings.length ? "CONTENT WARNINGS" : ""}</p>
