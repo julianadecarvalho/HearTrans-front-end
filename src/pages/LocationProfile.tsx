@@ -62,6 +62,7 @@ export function LocationProfile() {
   };
 
   console.log(location.latitude, location.longitude);
+  console.log(location);
   return (
     <div className="columns">
       <div className="column is-two-fifths">
@@ -76,7 +77,7 @@ export function LocationProfile() {
         </section>
 
         <section className="section is-small">
-          <h1 className="title">List of Providers in this Location</h1>
+          <h1 className="title">Providers at this location</h1>
           <h2 className="subtitle">
             <hr></hr>
             <div>
@@ -106,9 +107,14 @@ export function LocationProfile() {
         </footer>
       </div>
       <div className={`column ${styles["gmap"]}`}>
-        <SimpleMap
-          location={{ lat: location.latitude, lng: location.longitude }}
-        />
+        {location !== emptyLocation && (
+          <SimpleMap
+            location={{
+              lat: parseFloat(location.latitude),
+              lng: parseFloat(location.longitude),
+            }}
+          />
+        )}
       </div>
     </div>
   );

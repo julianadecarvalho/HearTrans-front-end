@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./AddReview.module.css";
+import styles from "./PaddingForForms.module.css";
 
 export function AddLocationReview() {
   const [input, setInput] = useState({
@@ -23,8 +23,8 @@ export function AddLocationReview() {
 
   const handleClick = (): void => {};
   return (
-    <div className={styles["add-review"]}>
-      <div className="field">
+    <div className="container is-primary">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Content Warning</label>
         <div className="control">
           <input

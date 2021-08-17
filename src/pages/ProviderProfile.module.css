@@ -2,3 +2,7 @@
   background: #f7a8b8;
   border: none;
 }
+
+.deletebutton-padding{
+  padding-left: 5rem;
+}
