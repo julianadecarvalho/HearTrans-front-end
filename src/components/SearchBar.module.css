@@ -6,8 +6,7 @@
 /* This changed the width and height of Google's autocomplete input field */
 input {
   min-width: 320px;
-  min-height: 36px;
-
+  min-height: 35px;
 }
 
 /* This changed the width on Google's autocomplete input field */
