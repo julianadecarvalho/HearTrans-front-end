@@ -61,8 +61,8 @@ export function AddProviderReview() {
       });
   };
   return (
-    <div className={styles["add-review"]}>
-      <div className="field">
+    <div className="container is-primary">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Content Warnings</label>
         <div className="control">
           <TagsInput

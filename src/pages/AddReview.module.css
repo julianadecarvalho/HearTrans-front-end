@@ -1,12 +1,8 @@
-.add-review {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 400px;
-  margin-left: 2rem;
-  margin-top: 1rem;
-}
-
 input[type="radio"] {
   display: none;
+}
+
+.field-padding{
+  margin-top: 2rem;
+  margin-bottom: 2rem !important;
 }
