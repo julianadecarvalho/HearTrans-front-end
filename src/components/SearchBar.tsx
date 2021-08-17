@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import styles from "./SearchBar.module.css";
-// import LocationAutocomplete from "../components/LocationAutocomplete";
 import { SearchContext } from "./SearchContext";
 import { Link } from "react-router-dom";
 import GooglePlacesAutocomplete, {
@@ -8,15 +7,8 @@ import GooglePlacesAutocomplete, {
   getLatLng,
 } from "react-google-places-autocomplete";
 
-// save search term in useState
-
-//copied from search results
-const onSearch = (searchTerm: string) => {
-  // api request with the seachterm
-  // setResults(/*result of the api request*/)
-};
-
 export function SearchBar(props: any) {
+  const { performSearch } = useContext(SearchContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [locationQuery, setLocationQuery] = useState({ lat: 0, lng: 0 });
   const viewData = (...data: any[]) => {
@@ -27,15 +19,6 @@ export function SearchBar(props: any) {
         setLocationQuery(latLng);
       });
   };
-  //new handlers for the search results
-  const { performSearch } = useContext(SearchContext);
-
-  //  testing out the location autocomplete
-  // const [value, setValue] = useState(null);
-  // const searchResultsHandler = () => {
-  //   //onClick (searchresults) for api call for get request
-  //   performSearch(searchQuery)
-  // };
 
   return (
     <div>
@@ -57,7 +40,6 @@ export function SearchBar(props: any) {
         <p className="control">
           <div className="button is-static is-medium">Near</div>
         </p>
-        {/* <LocationAutocomplete /> */}
         <p
           className={`${styles["css-yk16xz-control"]} ${styles["input-control"]} control`}
         >

@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { AssocProvidersList } from "../components/AssocProvidersList";
-import { AvgRating } from "../components/AvgRating";
-import { ReviewsList } from "../components/ReviewsList";
 import styles from "./LocationProfile.module.css";
 import { Link, useParams } from "react-router-dom";
-import { Point } from "geojson";
 import axios from "axios";
 import LocationResponse from "../models/location-response";
-import ProviderResponse from "../models/provider-response";
-import { ProviderProfile } from "./ProviderProfile";
 import SimpleMap from "../components/Map";
 
 require("dotenv").config();
@@ -32,13 +26,7 @@ export function LocationProfile() {
       coordinates: [0, 0],
     },
   };
-  const emptyLocationPromise: Promise<LocationResponse> = new Promise(function (
-    resolve,
-    reject
-  ) {
-    resolve(emptyLocation);
-  });
-
+  
   const { id } = useParams<{ id: string }>();
 
   const [location, setLocation] = useState<LocationResponse>(emptyLocation);
@@ -103,42 +91,20 @@ export function LocationProfile() {
             </div>
           </h2>
           <Link to={`/addprovidertolocation/${id}`}>
-            <button className="button is-medium">Add Provider</button>
+            <button className="button is-medium is-primary is-light">Add Provider</button>
           </Link>
         </section>
         <footer>
-          <button className="button is-small" onClick={deleteLocation}>
+          <button className="button is-small is-primary is-light" onClick={deleteLocation}>
             Delete this location
           </button>
         </footer>
       </div>
-      {/* possibly add custom css to column */}
-      {/* this simple map div is to try to render map in location */}
       <div className={`column ${styles["gmap"]}`}>
         <SimpleMap
           location={{ lat: location.latitude, lng: location.longitude }}
         />
       </div>
     </div>
-          <div>
-            {location.providers.map((provider) => {
-              return (
-                <Link to={`/provider/${provider.id}`}>
-                  {provider.fullName}, {provider.titles}, ({provider.pronouns})
-                </Link>
-              );
-            })}
-          </div>
-        </h2>
-        <Link to={`/addprovidertolocation/${id}`}>
-          <button className="button is-medium is-primary is-light">Add Provider</button>
-        </Link>
-      </section>
-      <footer>
-        <button className="button is-small is-primary is-light" onClick={deleteLocation}>
-          Delete this location
-        </button>
-      </footer>
-    </body>
   );
 }

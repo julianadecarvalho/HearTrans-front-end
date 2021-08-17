@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AddReview.module.css";
 
-// maybe prompt user if want to add review for location or provider then take to separate forms?
-// if separate forms then can link in the profile page to add review for provider or location
 export function AddLocationReview() {
   const [input, setInput] = useState({
     contentWarning: "",
@@ -23,7 +21,6 @@ export function AddLocationReview() {
     });
   };
 
-  // needs to add to database when click add location
   const handleClick = (): void => {};
   return (
     <div className={styles["add-review"]}>
@@ -43,7 +40,6 @@ export function AddLocationReview() {
       <div className="field">
         <label className="label is-large">Date</label>
         <div className="control">
-          {/* type date input? */}
           <input
             type="text"
             placeholder="Date"
@@ -56,7 +52,6 @@ export function AddLocationReview() {
       </div>
       <div className="field">
         <div className="control">
-          {/* make optional? */}
           <label className="label is-large">Provider</label>
           <input
             type="text"
@@ -68,7 +63,6 @@ export function AddLocationReview() {
           />
         </div>
       </div>
-      {/* Make optional? */}
       <label className="label is-large">Location</label>
       <input
         type="text"
@@ -91,7 +85,6 @@ export function AddLocationReview() {
           />
         </div>
       </div>
-      {/* type boolean? */}
       <div className="field">
         <label className="label is-large">Did they use correct pronouns?</label>
         <div className="control">
@@ -105,7 +98,6 @@ export function AddLocationReview() {
           />
         </div>
       </div>
-      {/* type boolean */}
       <div className="field">
         <label className="label is-large">
           Did they use your correct name?
@@ -121,7 +113,6 @@ export function AddLocationReview() {
           />
         </div>
       </div>
-      {/* type rating?? */}
       <div className="field">
         <label className="label is-large">Rating</label>
         <div className="control">

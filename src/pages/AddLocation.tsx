@@ -19,13 +19,10 @@ export function AddLocation() {
     });
   };
 
-  // needs to add to database when click add location
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => {
     e.preventDefault();
     const params = "".concat(...Object.values(input));
     axios
-      // either work for params, when dont do replaceAll it separates by  %20
-      // .post(`${REACT_APP_BACKEND_URL}/locations/new/${params.replaceAll(" ", "+")}`)
       .post(`${REACT_APP_BACKEND_URL}/locations/new/${params}`)
       .then(async (response) => {
         alert("Location successfully added. Thank you!");

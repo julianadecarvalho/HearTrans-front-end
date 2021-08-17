@@ -15,15 +15,10 @@ export type SearchContextType = {
 
 export const SearchContext = createContext({} as SearchContextType);
 
-// Defining a simple HOC component
 export const SearchContextProvider: React.FC = ({ children }) => {
   const [searchResults, setSearchResults] = useState<ProviderResponse[]>([]);
-  // pass in locationQuery here as parameter
   const performSearch = async (searchQuery: string, locationQuery: any) => {
-    // do the api call in
-    console.log("helo");
-    console.log(REACT_APP_BACKEND_URL);
-    return (
+        return (
       axios
         // uncomment this when the search location route is ready
         // .get(
@@ -47,7 +42,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         })
     );
   };
-  // comment
+  
   return (
     <SearchContext.Provider value={{ searchResults, performSearch }}>
       {children}
