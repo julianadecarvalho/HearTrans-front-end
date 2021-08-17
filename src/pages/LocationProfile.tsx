@@ -77,7 +77,7 @@ export function LocationProfile() {
         </section>
 
         <section className="section is-small">
-          <h1 className="title">List of Providers in this Location</h1>
+          <h1 className="title">Providers at this location</h1>
           <h2 className="subtitle">
             <hr></hr>
             <div>
