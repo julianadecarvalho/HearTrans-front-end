@@ -115,7 +115,7 @@ export function LocationProfile() {
       {/* this simple map div is to try to render map in location */}
       {/* <div className="gmap">
         <SimpleMap
-          center={{ lat: location.latitude, lng: location.longitude }}
+          location={{ lat: location.latitude, lng: location.longitude }}
         />
       </div> */}
     </div>
