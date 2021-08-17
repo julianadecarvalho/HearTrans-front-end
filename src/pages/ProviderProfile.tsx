@@ -98,9 +98,43 @@ export function ProviderProfile() {
           </h2>
         </section>
         <section className="section is-small">
-          <h1 className="title">Locations</h1>
+          <h1 className="title">Overview</h1>
+          <hr></hr>
           <h2 className="subtitle">
-            <hr></hr>
+            Languages:
+            <ul>
+              {provider.languages.map((language) => {
+                return <li>{language}</li>;
+              })}
+            </ul>
+          </h2>
+          <h2 className="subtitle">
+            Services:
+            <ul>
+              {provider.services.map((service) => {
+                return <li>{service}</li>;
+              })}
+            </ul>
+          </h2>
+          <h2 className="subtitle">
+            {/* color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"} */}
+            <ul>
+              <li>
+                {" "}
+                Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
+              </li>
+              <li>
+                {" "}
+                Sliding Scale Pay:{" "}
+                {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
+              </li>
+            </ul>
+          </h2>
+        </section>
+        <section className="section is-small">
+          <h1 className="title">Locations</h1>
+          <hr></hr>
+          <h2 className="subtitle">
             <div>
               {provider.locations.map((location) => {
                 return (
@@ -116,46 +150,6 @@ export function ProviderProfile() {
               Add Location
             </button>
           </Link>
-        </section>
-        <section className="section is-small">
-          <h1 className="title">Languages</h1>
-          <h2 className="subtitle">
-            <hr></hr>
-            <ul>
-              {provider.languages.map((language) => {
-                return <li>{language}</li>;
-              })}
-            </ul>
-          </h2>
-        </section>
-        <section className="section is-small">
-          <h1 className="title">Services</h1>
-          <h2 className="subtitle">
-            <hr></hr>
-            <ul>
-              {provider.services.map((service) => {
-                return <li>{service}</li>;
-              })}
-            </ul>
-          </h2>
-        </section>
-        <section className="section is-small">
-          <h1 className="title">Visits</h1>
-          <h2 className="subtitle">
-            <hr></hr>
-            {/* color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"} */}
-            <ul>
-              <li>
-                {" "}
-                Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
-              </li>
-              <li>
-                {" "}
-                Sliding Scale Pay:{" "}
-                {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
-              </li>
-            </ul>
-          </h2>
         </section>
       </div>
       <div className="column">
