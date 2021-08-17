@@ -26,7 +26,7 @@ export function LocationProfile() {
       coordinates: [0, 0],
     },
   };
-  
+
   const { id } = useParams<{ id: string }>();
 
   const [location, setLocation] = useState<LocationResponse>(emptyLocation);
@@ -91,11 +91,16 @@ export function LocationProfile() {
             </div>
           </h2>
           <Link to={`/addprovidertolocation/${id}`}>
-            <button className="button is-medium is-primary is-light">Add Provider</button>
+            <button className="button is-medium is-primary is-light">
+              Add Provider
+            </button>
           </Link>
         </section>
         <footer>
-          <button className="button is-small is-primary is-light" onClick={deleteLocation}>
+          <button
+            className="button is-small is-primary is-light"
+            onClick={deleteLocation}
+          >
             Delete this location
           </button>
         </footer>
