@@ -186,7 +186,7 @@ export function AddProvider(this: any) {
         />
       </div>
 
-      <button className="button is-primary is-light" onClick={handleClick}>
+      <button className={`button is-primary is-light ${styles["field-padding"]}`} onClick={handleClick}>
         Add Provider
       </button>
     </div>
