@@ -96,8 +96,7 @@ export function ProviderProfile() {
               })}
             </div>
           </h2>
-        </section>
-        <section className="section is-small">
+          <br></br>
           <h1 className="title">Overview</h1>
           <hr></hr>
           <h2 className="subtitle">
@@ -117,7 +116,6 @@ export function ProviderProfile() {
             </ul>
           </h2>
           <h2 className="subtitle">
-            {/* color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"} */}
             <ul>
               <li>
                 {" "}
@@ -130,8 +128,7 @@ export function ProviderProfile() {
               </li>
             </ul>
           </h2>
-        </section>
-        <section className="section is-small">
+          <br></br>
           <h1 className="title">Locations</h1>
           <hr></hr>
           <h2 className="subtitle">
@@ -151,6 +148,14 @@ export function ProviderProfile() {
             </button>
           </Link>
         </section>
+        <footer>
+          <button
+            className="button is-small is-primary is-light"
+            onClick={deleteProvider}
+          >
+            Delete this provider
+          </button>
+        </footer>
       </div>
       <div className="column">
         <section className="section is-small">
@@ -166,14 +171,6 @@ export function ProviderProfile() {
           </h2>
         </section>
       </div>
-      <footer>
-        <button
-          className="button is-small is-primary is-light"
-          onClick={deleteProvider}
-        >
-          Delete this provider
-        </button>
-      </footer>
     </div>
   );
 }
