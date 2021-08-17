@@ -12,9 +12,10 @@ export function NavBar(props: any) {
           <img src={logo} alt="heartrans-logo" />
         </a>
       </div>
-      <section className="navbar-menu">
+      <section className={`is-desktop ${styles["navbar-menu"]}`}>
         <div className="navbar-item">
           <SearchBar setNewCoords={props.setNewCoords} />
+          <SearchBar />
         </div>
       </section>
       <section className={styles.right}>

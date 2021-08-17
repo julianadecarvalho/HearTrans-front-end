@@ -18,7 +18,7 @@ export const AvgRating: React.FC<IProps> = ({ rating, len }: IProps) => {
           </label>
         );
       })}
-      <span>{len}</span>
+      <span>{len} Reviews</span>
     </div>
   );
 };

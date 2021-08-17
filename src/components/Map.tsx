@@ -8,7 +8,7 @@ const Marker: React.FC<any> = ({ text }) => (
   <div
     style={{
       color: "white",
-      background: "grey",
+      background: "rgb(44, 89, 235)",
       padding: "15px 10px",
       display: "inline-flex",
       textAlign: "center",

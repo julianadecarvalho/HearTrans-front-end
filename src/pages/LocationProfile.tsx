@@ -80,6 +80,7 @@ export function LocationProfile() {
         <section className="section is-small">
           <h1 className="title">{location.locationName}</h1>
           <hr></hr>
+
           <h2 className="subtitle">
             <a href={location.googleMapsUrl}>{location.address}</a>
           </h2>
@@ -119,5 +120,25 @@ export function LocationProfile() {
         />
       </div>
     </div>
+          <div>
+            {location.providers.map((provider) => {
+              return (
+                <Link to={`/provider/${provider.id}`}>
+                  {provider.fullName}, {provider.titles}, ({provider.pronouns})
+                </Link>
+              );
+            })}
+          </div>
+        </h2>
+        <Link to={`/addprovidertolocation/${id}`}>
+          <button className="button is-medium is-primary is-light">Add Provider</button>
+        </Link>
+      </section>
+      <footer>
+        <button className="button is-small is-primary is-light" onClick={deleteLocation}>
+          Delete this location
+        </button>
+      </footer>
+    </body>
   );
 }

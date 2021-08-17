@@ -148,7 +148,7 @@ export function AddLocationReview() {
           />
         </div>
       </div>
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Review
       </button>
     </div>

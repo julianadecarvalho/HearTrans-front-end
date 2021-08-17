@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./AddLocation.module.css";
+import styles from "./PaddingForForms.module.css"
+
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -37,8 +38,8 @@ export function AddLocationToProvider() {
   };
 
   return (
-    <div className={styles["add-location"]}>
-      <div className="field">
+    <div className="container is-primary">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Location ID</label>
         <div className="control">
           <input
@@ -51,7 +52,7 @@ export function AddLocationToProvider() {
           />
         </div>
       </div>
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Location to Provider
       </button>
     </div>

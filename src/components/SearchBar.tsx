@@ -45,7 +45,7 @@ export function SearchBar(props: any) {
         </p>
         <p className="control">
           <input
-            className={`input is-medium ${styles["input-control"]}`}
+            className={`input is-medium is-desktop ${styles["input-control"]}`}
             type="text"
             placeholder="doctors, clinics, specialities..."
             value={searchQuery}
