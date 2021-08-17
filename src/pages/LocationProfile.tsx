@@ -97,7 +97,7 @@ export function LocationProfile() {
             </button>
           </Link>
         </section>
-        <footer>
+        <footer className={styles["deletebutton-padding"]}>
           <button
             className="button is-small is-primary is-light"
             onClick={deleteLocation}
