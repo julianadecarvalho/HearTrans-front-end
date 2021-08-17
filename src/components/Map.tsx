@@ -22,8 +22,9 @@ const Marker: React.FC<any> = ({ text }) => (
   </div>
 );
 
-const SimpleMap = () => {
+const SimpleMap = (props: any) => {
   const { searchResults } = useContext(SearchContext);
+
   const renderList = () => {
     return searchResults.map((result: ProviderResponse, index) => {
       return result.locations.map((location: any) => {
@@ -47,7 +48,7 @@ const SimpleMap = () => {
     },
     zoom: 13,
   };
-
+  console.log(props.location);
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: "100%", width: "100%" }}>
@@ -57,13 +58,24 @@ const SimpleMap = () => {
         }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
+        center={props.center || props.location || defaultProps.center}
       >
         {/* <Marker lat={47.6062} lng={-122.332} text="My Marker" /> */}
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
 
         {/* <div>{AnotherReactComponent}</div> */}
-
-        {renderList()}
+        {/* {renderList()} */}
+        {/* the ternary was to try to get the map working in location profile */}
+        {/* ansel's edits here */}
+        {props.location ? (
+          <Marker
+            lat={props.location.lat}
+            lng={props.location.lng}
+            text="office"
+          />
+        ) : (
+          renderList()
+        )}
       </GoogleMapReact>
     </div>
   );

@@ -18,7 +18,7 @@ function* generator() {
   }
 }
 
-export function SearchResults() {
+export function SearchResults(props: any) {
   const { searchResults } = useContext(SearchContext);
 
   const renderList = (): JSX.Element[] => {
@@ -43,7 +43,7 @@ export function SearchResults() {
         </article>
       </div>
       <div className="column is-flexible">
-        <SimpleMap />
+        <SimpleMap center={props.center} />
       </div>
     </div>
   );
