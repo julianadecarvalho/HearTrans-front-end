@@ -49,6 +49,8 @@ const SimpleMap = (props: any) => {
     zoom: 13,
   };
   console.log(props.location);
+  const center = props.center || props.location || defaultProps.center;
+  console.log(center);
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: "100%", width: "100%" }}>
@@ -58,7 +60,7 @@ const SimpleMap = (props: any) => {
         }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
-        center={props.center || props.location || defaultProps.center}
+        center={center}
       >
         {/* <Marker lat={47.6062} lng={-122.332} text="My Marker" /> */}
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
@@ -80,5 +82,5 @@ const SimpleMap = (props: any) => {
     </div>
   );
 };
-
+// center={props.center || props.location || defaultProps.center}
 export default SimpleMap;
