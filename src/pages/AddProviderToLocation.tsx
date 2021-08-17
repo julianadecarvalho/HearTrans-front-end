@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./AddLocation.module.css";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -37,7 +36,7 @@ export function AddProviderToLocation() {
   };
 
   return (
-    <div className={styles["add-location"]}>
+    <div className="conatiner is-primary">
       <div className="field">
         <label className="label is-large">Location ID</label>
         <div className="control">
@@ -51,7 +50,7 @@ export function AddProviderToLocation() {
           />
         </div>
       </div>
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Provider to Location
       </button>
     </div>

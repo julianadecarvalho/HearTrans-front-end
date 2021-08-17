@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import styles from "./AddLocation.module.css";
+
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -37,7 +37,7 @@ export function AddLocation() {
   };
 
   return (
-    <div className={styles["add-location"]}>
+    <div className="container is-primary">
       <div className="field">
         <label className="label is-large">Location Name</label>
         <div className="control">
@@ -64,7 +64,7 @@ export function AddLocation() {
           />
         </div>
       </div>
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Location
       </button>
     </div>

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
-import styles from "./AddProvider.module.css";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -83,7 +82,7 @@ export function AddProvider(this: any) {
       });
   };
   return (
-    <div className={styles["add-provider"]}>
+    <div className="container is-primary">
       <div className="field">
         <label className="label is-large">Provider Full Name</label>
         <div className="control">
@@ -186,7 +185,7 @@ export function AddProvider(this: any) {
         />
       </div>
 
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Provider
       </button>
     </div>

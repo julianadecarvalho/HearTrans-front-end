@@ -111,7 +111,7 @@ export function ProviderProfile() {
           </div>
         </h2>
         <Link to={`/addlocationtoprovider/${id}`}>
-          <button className="button is-medium">Add Location</button>
+          <button className="button is-medium is-primary is-light">Add Location</button>
         </Link>
       </section>
       <section className="section is-small">
@@ -159,13 +159,13 @@ export function ProviderProfile() {
         <h2 className="subtitle">
           <hr></hr>
           <Link to={`/addproviderreview/${id}`}>
-            <button className="button is-medium">Add Review</button>
+            <button className="button is-medium is-primary is-light">Add Review</button>
           </Link>
           <ReviewsList reviews={provider.reviews} />
         </h2>
       </section>
       <footer>
-        <button className="button is-small" onClick={deleteProvider}>
+        <button className="button is-small is-primary is-light" onClick={deleteProvider}>
           Delete this provider
         </button>
       </footer>
