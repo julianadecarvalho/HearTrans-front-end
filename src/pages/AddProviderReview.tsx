@@ -4,7 +4,6 @@ import styles from "./AddReview.module.css";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import ReviewResponse from "../models/review-response";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -42,8 +41,6 @@ export function AddProviderReview() {
     });
   };
 
-  const stringyInput = JSON.stringify(input);
-  // state for rating
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const { id } = useParams<{ id: string }>();
@@ -55,8 +52,6 @@ export function AddProviderReview() {
     axios
       .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
       .then(async (response) => {
-        // const reviewData = [...review];
-        // reviewData.push(response.data.review);
         console.log(response);
         alert("Provider Review successfully added. Thank you for your input!");
       })

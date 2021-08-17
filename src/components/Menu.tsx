@@ -1,6 +1,4 @@
-import React from "react";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import * as GoIcons from "react-icons/go";
 import * as BiIcons from "react-icons/bi";
 

@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-// import { Props } from "../pages/AddProvider";
+import { useState } from "react";
 
-// export interface IProps {
-//   rating: number;
-// }
 export const TagsInput = (props: any) => {
   const [tags, setTags] = useState<string[]>(props.tags);
   const removeTags = (indexToRemove: any) => {

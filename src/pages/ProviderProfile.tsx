@@ -23,12 +23,6 @@ export function ProviderProfile() {
     locations: [],
     reviews: [],
   };
-  const emptyProviderPromise: Promise<ProviderResponse> = new Promise(function (
-    resolve,
-    reject
-  ) {
-    resolve(emptyProvider);
-  });
   const { id } = useParams<{ id: string }>();
   // api call here to get provider by id data
   // axios.get('link'). then

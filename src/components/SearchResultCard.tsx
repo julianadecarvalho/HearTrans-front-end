@@ -47,7 +47,6 @@ export const SearchResultCard: React.FC<IProps> = ({ result, count }) => {
                   );
                 })}
               </p>
-              {/* <p>{locationIndex}</p> */}
             </section>
           </div>
         </div>

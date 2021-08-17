@@ -19,13 +19,10 @@ export function AddLocationToProvider() {
     });
   };
 
-  // needs to add to database when click add location
   const { id } = useParams<{ id: string }>();
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => {
     e.preventDefault();
     axios
-      // either work for params, when dont do replaceAll it separates by  %20
-      // .post(`${REACT_APP_BACKEND_URL}/locations/new/${params.replaceAll(" ", "+")}`)
       .patch(`${REACT_APP_BACKEND_URL}/providers/${id}/${input.locationId}`)
       .then(async (response) => {
         alert("Location successfully added to provider. Thank you!");

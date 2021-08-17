@@ -1,4 +1,3 @@
-import React from "react";
 import ReviewResponse from "../models/review-response";
 import { AvgRating } from "./AvgRating";
 export interface IProps {
@@ -12,7 +11,6 @@ export const ReviewsList = ({ reviews }: IProps) => {
           <div className="card-content">
             <div className="content">
               <div className="tags is-grouped-multiline">
-                {/* how to only show content warnings label when there are content warnings */}
                 <p>{review.contentWarnings.length ? "CONTENT WARNINGS" : ""}</p>
                 {review.contentWarnings.map((contentWarning) => {
                   return (
