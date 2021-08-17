@@ -26,7 +26,7 @@ export function LocationProfile() {
       coordinates: [0, 0],
     },
   };
-  
+
   const { id } = useParams<{ id: string }>();
 
   const [location, setLocation] = useState<LocationResponse>(emptyLocation);
@@ -62,6 +62,7 @@ export function LocationProfile() {
   };
 
   console.log(location.latitude, location.longitude);
+  console.log(location);
   return (
     <div className="columns">
       <div className="column is-two-fifths">
@@ -76,7 +77,7 @@ export function LocationProfile() {
         </section>
 
         <section className="section is-small">
-          <h1 className="title">List of Providers in this Location</h1>
+          <h1 className="title">Providers at this location</h1>
           <h2 className="subtitle">
             <hr></hr>
             <div>
@@ -91,19 +92,29 @@ export function LocationProfile() {
             </div>
           </h2>
           <Link to={`/addprovidertolocation/${id}`}>
-            <button className="button is-medium is-primary is-light">Add Provider</button>
+            <button className="button is-medium is-primary is-light">
+              Add Provider
+            </button>
           </Link>
         </section>
         <footer>
-          <button className="button is-small is-primary is-light" onClick={deleteLocation}>
+          <button
+            className="button is-small is-primary is-light"
+            onClick={deleteLocation}
+          >
             Delete this location
           </button>
         </footer>
       </div>
       <div className={`column ${styles["gmap"]}`}>
-        <SimpleMap
-          location={{ lat: location.latitude, lng: location.longitude }}
-        />
+        {location !== emptyLocation && (
+          <SimpleMap
+            location={{
+              lat: parseFloat(location.latitude),
+              lng: parseFloat(location.longitude),
+            }}
+          />
+        )}
       </div>
     </div>
   );
