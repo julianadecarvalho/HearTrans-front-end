@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./PaddingForForms.module.css"
 
 
 require("dotenv").config();
@@ -38,7 +39,7 @@ export function AddLocationToProvider() {
 
   return (
     <div className="container is-primary">
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Location ID</label>
         <div className="control">
           <input
