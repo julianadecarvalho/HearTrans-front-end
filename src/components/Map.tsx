@@ -64,8 +64,9 @@ const SimpleMap = (props: any) => {
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}
 
         {/* <div>{AnotherReactComponent}</div> */}
-
-        {props.renderList ? renderList() : null}
+        {renderList()}
+        {/* the ternary was to try to get the map working in location profile */}
+        {/* {props.renderList ? renderList() : null} */}
       </GoogleMapReact>
     </div>
   );

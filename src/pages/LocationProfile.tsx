@@ -111,11 +111,13 @@ export function LocationProfile() {
           </button>
         </footer>
       </div>
-      <div className="column is-flexible">
+      {/* possibly add custom css to column */}
+      {/* this simple map div is to try to render map in location */}
+      {/* <div className="gmap">
         <SimpleMap
           center={{ lat: location.latitude, lng: location.longitude }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
