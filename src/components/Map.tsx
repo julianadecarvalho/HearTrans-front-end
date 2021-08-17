@@ -22,8 +22,9 @@ const Marker: React.FC<any> = ({ text }) => (
   </div>
 );
 
-const SimpleMap = () => {
+const SimpleMap = (props: any) => {
   const { searchResults } = useContext(SearchContext);
+  console.log(props.center);
   const renderList = () => {
     return searchResults.map((result: ProviderResponse, index) => {
       return result.locations.map((location: any) => {
@@ -57,6 +58,7 @@ const SimpleMap = () => {
         }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
+        center={props.center}
       >
         {/* <Marker lat={47.6062} lng={-122.332} text="My Marker" /> */}
         {/* <Marker lat={47.6205} lng={-122.3493} text="My Marker" /> */}

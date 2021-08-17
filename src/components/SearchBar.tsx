@@ -3,7 +3,11 @@ import styles from "./SearchBar.module.css";
 // import LocationAutocomplete from "../components/LocationAutocomplete";
 import { SearchContext } from "./SearchContext";
 import { Link } from "react-router-dom";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import GooglePlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-google-places-autocomplete";
+
 // save search term in useState
 
 //copied from search results
@@ -12,9 +16,17 @@ const onSearch = (searchTerm: string) => {
   // setResults(/*result of the api request*/)
 };
 
-export function SearchBar() {
+export function SearchBar(props: any) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [locationQuery, setLocationQuery] = useState(null);
+  const [locationQuery, setLocationQuery] = useState({ lat: 0, lng: 0 });
+  const viewData = (...data: any[]) => {
+    geocodeByAddress(data[0].label)
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => {
+        props.setNewCoords(latLng);
+        setLocationQuery(latLng);
+      });
+  };
   //new handlers for the search results
   const { performSearch } = useContext(SearchContext);
 
@@ -25,7 +37,6 @@ export function SearchBar() {
   //   performSearch(searchQuery)
   // };
 
-  console.log({ searchQuery });
   return (
     <div>
       <div className="field has-addons">
@@ -52,9 +63,12 @@ export function SearchBar() {
         >
           <GooglePlacesAutocomplete
             apiKey={`${process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE}`}
+            autocompletionRequest={{
+              types: ["geocode"],
+            }}
             selectProps={{
               locationQuery,
-              onChange: setLocationQuery,
+              onChange: viewData,
             }}
           />
         </p>
