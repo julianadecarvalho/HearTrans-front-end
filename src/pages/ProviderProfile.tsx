@@ -71,83 +71,86 @@ export function ProviderProfile() {
     <div className="columns">
       <div className="column">
         <section className="section is-small">
-          <h1 className="title">
-            {provider.fullName}, {provider.titles.join(", ")}
-          </h1>
-          <hr></hr>
-          <h2 className="subtitle">
-            Pronouns: ({provider.pronouns})<br></br>
-            Other Names: {provider.otherNames.join()}
-          </h2>
-          <h2>
-            <AvgRating
-              rating={provider.avgRating}
-              len={provider.reviews.length}
-            />
-            <div className="tags is-grouped-multiline">
-              {provider.specialties.map((speciality) => {
-                return (
-                  <span
-                    className={`tag is-medium is-rounded ${styles["speciality-tag"]}`}
-                  >
-                    {speciality}
-                  </span>
-                );
-              })}
-            </div>
-          </h2>
-          <br></br>
-          <h1 className="title">Overview</h1>
-          <hr></hr>
-          <h2 className="subtitle">
-            Languages:
-            <ul>
-              {provider.languages.map((language) => {
-                return <li>{language}</li>;
-              })}
-            </ul>
-          </h2>
-          <h2 className="subtitle">
-            Services:
-            <ul>
-              {provider.services.map((service) => {
-                return <li>{service}</li>;
-              })}
-            </ul>
-          </h2>
-          <h2 className="subtitle">
-            <ul>
-              <li>
-                {" "}
-                Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
-              </li>
-              <li>
-                {" "}
-                Sliding Scale Pay:{" "}
-                {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
-              </li>
-            </ul>
-          </h2>
-          <br></br>
-          <h1 className="title">Locations</h1>
-          <hr></hr>
-          <h2 className="subtitle">
-            <div>
-              {provider.locations.map((location) => {
-                return (
-                  <Link to={`/location/${location.id}`}>
-                    {location.locationName}
-                  </Link>
-                );
-              })}
-            </div>
-          </h2>
-          <Link to={`/addlocationtoprovider/${id}`}>
-            <button className="button is-medium is-primary is-light">
-              Add Location
-            </button>
-          </Link>
+          <div className="box">
+            <h1 className="title">
+              {provider.fullName}, {provider.titles.join(", ")}
+            </h1>
+            <hr></hr>
+            <h2 className="subtitle">
+              Pronouns: ({provider.pronouns})<br></br>
+              Other Names: {provider.otherNames.join()}
+            </h2>
+            <h2>
+              <AvgRating
+                rating={provider.avgRating}
+                len={provider.reviews.length}
+              />
+              <div className="tags is-grouped-multiline">
+                {provider.specialties.map((speciality) => {
+                  return (
+                    <span
+                      className={`tag is-medium is-rounded ${styles["speciality-tag"]}`}
+                    >
+                      {speciality}
+                    </span>
+                  );
+                })}
+              </div>
+            </h2>
+            <br></br>
+            <h1 className="title">Overview</h1>
+            <hr></hr>
+            <h2 className="subtitle">
+              Languages:
+              <ul>
+                {provider.languages.map((language) => {
+                  return <li>{language}</li>;
+                })}
+              </ul>
+            </h2>
+            <h2 className="subtitle">
+              Services:
+              <ul>
+                {provider.services.map((service) => {
+                  return <li>{service}</li>;
+                })}
+              </ul>
+            </h2>
+            <h2 className="subtitle">
+              <ul>
+                <li>
+                  {" "}
+                  Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
+                </li>
+                <li>
+                  {" "}
+                  Sliding Scale Pay:{" "}
+                  {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
+                </li>
+              </ul>
+            </h2>
+            <br></br>
+            <h1 className="title">Locations</h1>
+            <hr></hr>
+            <h2 className="subtitle">
+              <div>
+                {provider.locations.map((location) => {
+                  return (
+                    <Link to={`/location/${location.id}`}>
+                      {location.locationName}
+                    </Link>
+                  );
+                })}
+              </div>
+            </h2>
+            <Link to={`/addlocationtoprovider/${id}`}>
+              <button className="button is-medium is-primary is-light">
+                Add Location
+              </button>
+            </Link>
+          </div>
         </section>
+
         <footer>
           <button
             className="button is-small is-primary is-light"
@@ -160,14 +163,15 @@ export function ProviderProfile() {
       <div className="column">
         <section className="section is-small">
           <h1 className="title">Reviews</h1>
-          <hr></hr>
+          {/* <hr></hr> */}
+          <br></br>
           <h2 className="subtitle">
+            <ReviewsList reviews={provider.reviews} />
             <Link to={`/addproviderreview/${id}`}>
               <button className="button is-medium is-primary is-light">
                 Add Review
               </button>
             </Link>
-            <ReviewsList reviews={provider.reviews} />
           </h2>
         </section>
       </div>
