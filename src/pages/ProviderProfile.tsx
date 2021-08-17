@@ -68,107 +68,118 @@ export function ProviderProfile() {
   };
 
   return (
-    <body>
-      <section className="section is-small">
-        <h1 className="title">
-          {provider.fullName}, {provider.titles.join(", ")}
-        </h1>
-        <hr></hr>
-        <h2 className="subtitle">
-          Pronouns: ({provider.pronouns})<br></br>
-          Other Names: {provider.otherNames.join()}
-        </h2>
-        <h2>
-          <AvgRating
-            rating={provider.avgRating}
-            len={provider.reviews.length}
-          />
-          <div className="tags is-grouped-multiline">
-            {provider.specialties.map((speciality) => {
-              return (
-                <span
-                  className={`tag is-medium is-rounded ${styles["speciality-tag"]}`}
-                >
-                  {speciality}
-                </span>
-              );
-            })}
-          </div>
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Locations</h1>
-        <h2 className="subtitle">
+    <div className="columns">
+      <div className="column">
+        <section className="section is-small">
+          <h1 className="title">
+            {provider.fullName}, {provider.titles.join(", ")}
+          </h1>
           <hr></hr>
-          <div>
-            {provider.locations.map((location) => {
-              return (
-                <Link to={`/location/${location.id}`}>
-                  {location.locationName}
-                </Link>
-              );
-            })}
-          </div>
-        </h2>
-        <Link to={`/addlocationtoprovider/${id}`}>
-          <button className="button is-medium is-primary is-light">Add Location</button>
-        </Link>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Languages</h1>
-        <h2 className="subtitle">
-          <hr></hr>
-          <ul>
-            {provider.languages.map((language) => {
-              return <li>{language}</li>;
-            })}
-          </ul>
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Services</h1>
-        <h2 className="subtitle">
-          <hr></hr>
-          <ul>
-            {provider.services.map((service) => {
-              return <li>{service}</li>;
-            })}
-          </ul>
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Visits</h1>
-        <h2 className="subtitle">
-          <hr></hr>
-          {/* color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"} */}
-          <ul>
-            <li>
-              {" "}
-              Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
-            </li>
-            <li>
-              {" "}
-              Sliding Scale Pay:{" "}
-              {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
-            </li>
-          </ul>
-        </h2>
-      </section>
-      <section className="section is-small">
-        <h1 className="title">Reviews</h1>
-        <h2 className="subtitle">
-          <hr></hr>
-          <Link to={`/addproviderreview/${id}`}>
-            <button className="button is-medium is-primary is-light">Add Review</button>
+          <h2 className="subtitle">
+            Pronouns: ({provider.pronouns})<br></br>
+            Other Names: {provider.otherNames.join()}
+          </h2>
+          <h2>
+            <AvgRating
+              rating={provider.avgRating}
+              len={provider.reviews.length}
+            />
+            <div className="tags is-grouped-multiline">
+              {provider.specialties.map((speciality) => {
+                return (
+                  <span
+                    className={`tag is-medium is-rounded ${styles["speciality-tag"]}`}
+                  >
+                    {speciality}
+                  </span>
+                );
+              })}
+            </div>
+          </h2>
+        </section>
+        <section className="section is-small">
+          <h1 className="title">Locations</h1>
+          <h2 className="subtitle">
+            <hr></hr>
+            <div>
+              {provider.locations.map((location) => {
+                return (
+                  <Link to={`/location/${location.id}`}>
+                    {location.locationName}
+                  </Link>
+                );
+              })}
+            </div>
+          </h2>
+          <Link to={`/addlocationtoprovider/${id}`}>
+            <button className="button is-medium is-primary is-light">
+              Add Location
+            </button>
           </Link>
-          <ReviewsList reviews={provider.reviews} />
-        </h2>
-      </section>
+        </section>
+        <section className="section is-small">
+          <h1 className="title">Languages</h1>
+          <h2 className="subtitle">
+            <hr></hr>
+            <ul>
+              {provider.languages.map((language) => {
+                return <li>{language}</li>;
+              })}
+            </ul>
+          </h2>
+        </section>
+        <section className="section is-small">
+          <h1 className="title">Services</h1>
+          <h2 className="subtitle">
+            <hr></hr>
+            <ul>
+              {provider.services.map((service) => {
+                return <li>{service}</li>;
+              })}
+            </ul>
+          </h2>
+        </section>
+        <section className="section is-small">
+          <h1 className="title">Visits</h1>
+          <h2 className="subtitle">
+            <hr></hr>
+            {/* color={ratingValue <= parseInt(rating) ? "#ffc107" : "#e4e5e9"} */}
+            <ul>
+              <li>
+                {" "}
+                Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
+              </li>
+              <li>
+                {" "}
+                Sliding Scale Pay:{" "}
+                {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
+              </li>
+            </ul>
+          </h2>
+        </section>
+      </div>
+      <div className="column">
+        <section className="section is-small">
+          <h1 className="title">Reviews</h1>
+          <hr></hr>
+          <h2 className="subtitle">
+            <Link to={`/addproviderreview/${id}`}>
+              <button className="button is-medium is-primary is-light">
+                Add Review
+              </button>
+            </Link>
+            <ReviewsList reviews={provider.reviews} />
+          </h2>
+        </section>
+      </div>
       <footer>
-        <button className="button is-small is-primary is-light" onClick={deleteProvider}>
+        <button
+          className="button is-small is-primary is-light"
+          onClick={deleteProvider}
+        >
           Delete this provider
         </button>
       </footer>
-    </body>
+    </div>
   );
 }
