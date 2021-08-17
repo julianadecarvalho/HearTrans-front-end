@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import styles from "./SearchBar.module.css";
-import LocationAutocomplete from "../components/LocationAutocomplete";
+// import LocationAutocomplete from "../components/LocationAutocomplete";
 import { SearchContext } from "./SearchContext";
 import { Link } from "react-router-dom";
-
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 // save search term in useState
 
 //copied from search results
@@ -14,10 +14,12 @@ const onSearch = (searchTerm: string) => {
 
 export function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [locationQuery, setLocation] = useState("");
+  const [locationQuery, setLocationQuery] = useState(null);
   //new handlers for the search results
   const { performSearch } = useContext(SearchContext);
 
+  //  testing out the location autocomplete
+  // const [value, setValue] = useState(null);
   // const searchResultsHandler = () => {
   //   //onClick (searchresults) for api call for get request
   //   performSearch(searchQuery)
@@ -44,9 +46,23 @@ export function SearchBar() {
         <p className="control">
           <div className="button is-static is-medium">Near</div>
         </p>
-        <LocationAutocomplete />
+        {/* <LocationAutocomplete /> */}
+        <p
+          className={`${styles["css-yk16xz-control"]} ${styles["input-control"]} control`}
+        >
+          <GooglePlacesAutocomplete
+            apiKey={`${process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE}`}
+            selectProps={{
+              locationQuery,
+              onChange: setLocationQuery,
+            }}
+          />
+        </p>
         <button className={`button is-medium ${styles["search-button"]}`}>
-          <Link to="/search" onClick={() => performSearch(searchQuery)}>
+          <Link
+            to="/search"
+            onClick={() => performSearch(searchQuery, locationQuery)}
+          >
             <span className="icon is-small">
               <i className="fas fa-search-location"></i>
             </span>
