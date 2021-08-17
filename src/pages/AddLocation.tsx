@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import styles from "./AddLocation.module.css";
+import styles from "./PaddingForForms.module.css"
+
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -37,8 +38,8 @@ export function AddLocation() {
   };
 
   return (
-    <div className={styles["add-location"]}>
-      <div className="field">
+    <div className="container is-primary">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Location Name</label>
         <div className="control">
           <input
@@ -51,7 +52,7 @@ export function AddLocation() {
           />
         </div>
       </div>
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Address</label>
         <div className="control">
           <input
@@ -64,7 +65,7 @@ export function AddLocation() {
           />
         </div>
       </div>
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-light" onClick={handleClick}>
         Add Location
       </button>
     </div>

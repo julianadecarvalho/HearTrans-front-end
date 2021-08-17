@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { TagsInput } from "../components/TagsInput";
-import styles from "./AddProvider.module.css";
+import styles from "./PaddingForForms.module.css"
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -83,8 +83,8 @@ export function AddProvider(this: any) {
       });
   };
   return (
-    <div className={styles["add-provider"]}>
-      <div className="field">
+    <div className="container is-primary">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Provider Full Name</label>
         <div className="control">
           <input
@@ -97,7 +97,7 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Other Names</label>
         <div className="control">
           <TagsInput
@@ -107,7 +107,7 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Provider's Pronouns</label>
         <div className="control">
           <input
@@ -120,7 +120,7 @@ export function AddProvider(this: any) {
           />
         </div>
       </div>
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Titles</label>
         <div className="control">
           <TagsInput
@@ -131,7 +131,7 @@ export function AddProvider(this: any) {
         </div>
       </div>
 
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Specialties</label>
         <div className="control">
           <TagsInput
@@ -153,7 +153,7 @@ export function AddProvider(this: any) {
         </div>
       </div>
 
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="label is-large">Services</label>
         <div className="control">
           <TagsInput
@@ -164,7 +164,7 @@ export function AddProvider(this: any) {
         </div>
       </div>
 
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="checkbox">Remote Visits</label>
         <input
           type="checkbox"
@@ -175,7 +175,7 @@ export function AddProvider(this: any) {
         />
       </div>
 
-      <div className="field">
+      <div className={`field ${styles["field-padding"]}`}>
         <label className="checkbox">Sliding Scale Pay</label>
         <input
           type="checkbox"
@@ -186,7 +186,7 @@ export function AddProvider(this: any) {
         />
       </div>
 
-      <button className="button" onClick={handleClick}>
+      <button className={`button is-primary is-light ${styles["field-padding"]}`} onClick={handleClick}>
         Add Provider
       </button>
     </div>
