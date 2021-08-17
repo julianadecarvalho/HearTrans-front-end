@@ -9,6 +9,7 @@ import axios from "axios";
 import LocationResponse from "../models/location-response";
 import ProviderResponse from "../models/provider-response";
 import { ProviderProfile } from "./ProviderProfile";
+import SimpleMap from "../components/Map";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -71,40 +72,50 @@ export function LocationProfile() {
         alert("LOLOL Couldn't Delete the Location, something went wrong!! 😖");
       });
   };
-  return (
-    <body>
-      <section className="section is-small">
-        <h1 className="title">{location.locationName}</h1>
-        <hr></hr>
-        <h2 className="subtitle">
-          <a href={location.googleMapsUrl}>{location.address}</a>
-        </h2>
-        <h2 className="subtitle">{location.phone}</h2>
-      </section>
 
-      <section className="section is-small">
-        <h1 className="title">List of Providers in this Location</h1>
-        <h2 className="subtitle">
+  console.log(location.latitude, location.longitude);
+  return (
+    <div className="columns">
+      <div className="column is-two-fifths">
+        <section className="section is-small">
+          <h1 className="title">{location.locationName}</h1>
           <hr></hr>
-          <div>
-            {location.providers.map((provider) => {
-              return (
-                <Link to={`/provider/${provider.id}`}>
-                  {provider.fullName}, {provider.titles}, ({provider.pronouns})
-                </Link>
-              );
-            })}
-          </div>
-        </h2>
-        <Link to={`/addprovidertolocation/${id}`}>
-          <button className="button is-medium">Add Provider</button>
-        </Link>
-      </section>
-      <footer>
-        <button className="button is-small" onClick={deleteLocation}>
-          Delete this location
-        </button>
-      </footer>
-    </body>
+          <h2 className="subtitle">
+            <a href={location.googleMapsUrl}>{location.address}</a>
+          </h2>
+          <h2 className="subtitle">{location.phone}</h2>
+        </section>
+
+        <section className="section is-small">
+          <h1 className="title">List of Providers in this Location</h1>
+          <h2 className="subtitle">
+            <hr></hr>
+            <div>
+              {location.providers.map((provider) => {
+                return (
+                  <Link to={`/provider/${provider.id}`}>
+                    {provider.fullName}, {provider.titles}, ({provider.pronouns}
+                    )
+                  </Link>
+                );
+              })}
+            </div>
+          </h2>
+          <Link to={`/addprovidertolocation/${id}`}>
+            <button className="button is-medium">Add Provider</button>
+          </Link>
+        </section>
+        <footer>
+          <button className="button is-small" onClick={deleteLocation}>
+            Delete this location
+          </button>
+        </footer>
+      </div>
+      <div className="column is-flexible">
+        <SimpleMap
+          center={{ lat: location.latitude, lng: location.longitude }}
+        />
+      </div>
+    </div>
   );
 }

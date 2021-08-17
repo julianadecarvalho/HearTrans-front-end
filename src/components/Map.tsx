@@ -24,7 +24,7 @@ const Marker: React.FC<any> = ({ text }) => (
 
 const SimpleMap = (props: any) => {
   const { searchResults } = useContext(SearchContext);
-  console.log(props.center);
+
   const renderList = () => {
     return searchResults.map((result: ProviderResponse, index) => {
       return result.locations.map((location: any) => {
@@ -65,7 +65,7 @@ const SimpleMap = (props: any) => {
 
         {/* <div>{AnotherReactComponent}</div> */}
 
-        {renderList()}
+        {props.renderList ? renderList() : null}
       </GoogleMapReact>
     </div>
   );
