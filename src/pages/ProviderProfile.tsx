@@ -69,8 +69,8 @@ export function ProviderProfile() {
             </h1>
             <hr></hr>
             <h2 className="subtitle">
-              Pronouns: ({provider.pronouns})<br></br>
-              Other Names: {provider.otherNames.join()}
+              <strong> Pronouns: </strong> ({provider.pronouns})<br></br>
+              <strong> Other Names: </strong> {provider.otherNames.join()}
             </h2>
             <h2>
               <AvgRating
