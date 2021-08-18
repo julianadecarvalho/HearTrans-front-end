@@ -63,7 +63,7 @@ export function ProviderProfile() {
 
   return (
     <div className="columns">
-      <div className="column is-two-fifths">
+      <div className="column is-4 is-two-fifths is-offset-1">
         <section className="section is-small">
           <div className="box">
             <h1 className="title">
@@ -154,10 +154,9 @@ export function ProviderProfile() {
           </button>
         </footer>
       </div>
-      <div className="column">
+      <div className="column is-half">
         <section className="section is-small">
           <h1 className="title">Reviews</h1>
-          {/* <hr></hr> */}
           <br></br>
           <h2 className="subtitle">
             <ReviewsList reviews={provider.reviews} />

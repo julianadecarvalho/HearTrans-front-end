@@ -65,7 +65,7 @@ export function LocationProfile() {
   console.log(location);
   return (
     <div className="columns">
-      <div className="column is-two-fifths">
+      <div className="column is-half">
         <section className="section is-small">
           <h1 className="title">{location.locationName}</h1>
           <hr></hr>
