@@ -74,7 +74,11 @@ export function LocationProfile() {
               {location.address}
             </a>
           </h2>
-          <h2 className="subtitle">{location.phone}</h2>
+          <h2 className="subtitle">
+            <a href={`tel:${location.phone.replace(/\s/g, "")}`}>
+              {location.phone}
+            </a>
+          </h2>
           <a href={location.locationUrl} target="_blank" rel="noreferrer">
             <button className="button is-medium is-primary is-light">
               Website
