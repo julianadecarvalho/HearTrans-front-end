@@ -158,6 +158,13 @@ export function ProviderProfile() {
         <section className="section is-small">
           <h1 className="title">Reviews</h1>
           <br></br>
+          {provider.reviews.length ? (
+            ""
+          ) : (
+            <h3 className="subtitle">
+              This provider has no reviews yet. Be the first to review! 📝{" "}
+            </h3>
+          )}
           <h2 className="subtitle">
             <ReviewsList reviews={provider.reviews} />
             <Link to={`/addproviderreview/${id}`}>
