@@ -65,7 +65,7 @@ export function ProviderProfile() {
   return (
     <div className="container">
       <div className="columns">
-        <div className="column is-half">
+        <div className="column is-flexible">
           <section className="section is-small">
             {/* <div className="box"> */}
             <h1 className="title">
@@ -148,7 +148,7 @@ export function ProviderProfile() {
           </section>
         </div>
 
-        <div className="column is-flexible">
+        <div className="column is-half">
           <section className="section">
             {/* <section className="section is-small"> */}
             <div className="box">
@@ -173,6 +173,7 @@ export function ProviderProfile() {
           <ReviewsList reviews={provider.reviews} />
         </h2>
       </div>
+
       <footer className={styles["deletebutton-padding"]}>
         <button
           className="button is-small is-danger is-light"
