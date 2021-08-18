@@ -8,7 +8,6 @@ import { NavBar } from "./components/NavBar";
 import { SearchContextProvider } from "./components/SearchContext";
 import { AddProvider } from "./pages/AddProvider";
 import { AddLocation } from "./pages/AddLocation";
-import { AddProviderReview } from "./pages/AddProviderReview";
 import { AddLocationReview } from "./pages/AddLocationReview";
 import { AddLocationToProvider } from "./pages/AddLocationToProvider";
 import { AddProviderToLocation } from "./pages/AddProviderToLocation";
@@ -39,7 +38,6 @@ function App() {
           <Route path="/location/:id" component={LocationProfile} />
           <Route path="/addprovider" component={AddProvider} />
           <Route path="/addlocation" component={AddLocation} />
-          <Route path="/addproviderreview/:id" component={AddProviderReview} />
           <Route path="/addlocationreview/:id" component={AddLocationReview} />
           <Route
             path="/addlocationtoprovider/:id"

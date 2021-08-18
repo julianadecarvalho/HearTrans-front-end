@@ -5,6 +5,7 @@ import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
+import { AddProviderReviewForm } from "./AddProviderReview";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -42,7 +43,7 @@ export function ProviderProfile() {
         console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  }, []);
+  }, [provider, id]);
 
   // delete this provider
   const deleteProvider = (
@@ -156,8 +157,12 @@ export function ProviderProfile() {
       </div>
       <div className="column is-half">
         <section className="section is-small">
-          <h1 className="title">Reviews</h1>
+          <h1 className="title">Write Review</h1>
+          <hr></hr>
+          <AddProviderReviewForm />
           <br></br>
+          <h1 className="title">Reviews</h1>
+          <hr></hr>
           {provider.reviews.length ? (
             ""
           ) : (
@@ -167,11 +172,6 @@ export function ProviderProfile() {
           )}
           <h2 className="subtitle">
             <ReviewsList reviews={provider.reviews} />
-            <Link to={`/addproviderreview/${id}`}>
-              <button className="button is-medium is-primary is-light">
-                Add Review
-              </button>
-            </Link>
           </h2>
         </section>
       </div>
