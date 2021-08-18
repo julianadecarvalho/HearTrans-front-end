@@ -9,6 +9,8 @@
   align-items: center;
   /* margin: var(--element-spacing); */
   background: rgb(44, 89, 235);
+  min-width: fit-content;
+  min-height: 78px;
 }
 
 /* every direct descenday of class left*/
