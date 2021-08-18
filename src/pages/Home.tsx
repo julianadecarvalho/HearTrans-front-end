@@ -5,9 +5,9 @@ export function Home() {
     <div className="container is-primary">
       <section className="section is-section-padding-large">
         <h1 className="title is-1">Mission</h1>
-        <p className="subtitle is-3">Our mission is to help transgender people find medical providers 
-        and locations. We wanted to make sure that people can leave reviews so that others will know 
-        if they can go to that place. </p>
+        <p className="subtitle is-3">Our mission is to help transgender, intersex, and gender nonconforming individuals find medical providers 
+        and locations. Our team hopes this app finds a way to fill the gap that exist in the community when it comes to healthcare resource for trans folks. 
+        We wanted to make sure the community is able share their knowledge and experience by leaving reviews so that others will know where to go. </p>
       </section>
       <section className="section is-section-padding-large">
         <h1 className="title is-1">The HearTrans Web Application</h1>
@@ -20,9 +20,8 @@ export function Home() {
       <section className="section is-section-padding-large">
         <h1 className="title is-1">About Us</h1>
         <p className="subtitle is-3">Hi!!</p>
-        <p className="subtitle is-3">Welcome to our website! We are programming students at 
-        The Ada Developers Academy and this is our capstone project. Please be gentle with our creation, 
-        but also have fun exploring it.</p>
+        <p className="subtitle is-3">Welcome to our website! This is a capstone project created by 4 Computer Engineer Students at Ada Developers Academy. Please be gentle with our creation, but also have fun exploring it.
+        </p>
       </section>
       <section className="section is-section-padding-large">
         <h1 className="title is-1">Important!</h1>
