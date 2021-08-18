@@ -13,7 +13,7 @@ export interface Review {
   rating: number;
   reviewBody: string;
 }
-export function AddProviderReview() {
+export function AddProviderReviewForm() {
   const [input, setInput] = useState<Review>({
     contentWarnings: [],
     rating: 0,
@@ -51,7 +51,7 @@ export function AddProviderReview() {
       .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
       .then(async (response) => {
         console.log(response);
-        alert("Provider Review successfully added. Thank you for your input!");
+        // alert("Provider Review successfully added. Thank you for your input!");
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -74,7 +74,7 @@ export function AddProviderReview() {
                 onChange={handleChange}
               />
               <FaStar
-                size={43}
+                size={30}
                 color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                 onMouseEnter={() => setHover(ratingValue)}
                 onMouseLeave={() => setHover(0)}
