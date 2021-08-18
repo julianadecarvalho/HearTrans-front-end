@@ -1,17 +1,15 @@
 .input-control {
-  min-width: 320px;
+  min-width: 490px;
   min-height: 38px;
 }
 
-
 input {
-  min-width: 320px;
+  min-width: 280px;
   min-height: 35px;
 }
 
-
 .css-yk16xz-control {
-  min-width: 300px;
+  min-width: 488px;
 }
 
 :global(.button).search-button {
