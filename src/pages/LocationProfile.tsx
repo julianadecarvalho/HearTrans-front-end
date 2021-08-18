@@ -65,7 +65,7 @@ export function LocationProfile() {
   console.log(location);
   return (
     <div className="columns">
-      <div className="column is-two-fifths">
+      <div className="column is-half">
         <section className="section is-small">
           <h1 className="title">{location.locationName}</h1>
           <hr></hr>
@@ -78,8 +78,8 @@ export function LocationProfile() {
 
         <section className="section is-small">
           <h1 className="title">Providers at this location</h1>
+          <hr></hr>
           <h2 className="subtitle">
-            <hr></hr>
             <div>
               {location.providers.map((provider) => {
                 return (
@@ -99,7 +99,7 @@ export function LocationProfile() {
         </section>
         <footer className={styles["deletebutton-padding"]}>
           <button
-            className="button is-small is-primary is-light"
+            className="button is-small is-danger is-light"
             onClick={deleteLocation}
           >
             Delete this location

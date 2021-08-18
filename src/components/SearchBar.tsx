@@ -24,7 +24,9 @@ export function SearchBar(props: any) {
     <div>
       <div className="field has-addons">
         <p className="control">
-          <button className={"button is-static is-medium"}>Search</button>
+          <div className="button is-static is-medium is-info is-light">
+            Search
+          </div>
         </p>
         <p className="control">
           <input
@@ -38,7 +40,9 @@ export function SearchBar(props: any) {
           />
         </p>
         <p className="control">
-          <div className="button is-static is-medium">Near</div>
+          <div className="button is-static is-medium is-info is-light">
+            Near
+          </div>
         </p>
         <p
           className={`${styles["css-yk16xz-control"]} ${styles["input-control"]} control`}

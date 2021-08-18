@@ -36,7 +36,7 @@ export const SearchResultCard: React.FC<IProps> = ({ result, count }) => {
                   );
                 })}
               </div>
-              <p>
+              <h5 className="is-title">
                 Locations:
                 <br></br>
                 {result.locations.map((location) => {
@@ -46,7 +46,7 @@ export const SearchResultCard: React.FC<IProps> = ({ result, count }) => {
                     </Link>
                   );
                 })}
-              </p>
+              </h5>
             </section>
           </div>
         </div>
