@@ -5,7 +5,7 @@ import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
-import { AddProviderReviewForm } from "./AddProviderReview";
+import { AddProviderReviewForm } from "../components/AddProviderReview";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -25,10 +25,6 @@ export function ProviderProfile() {
     reviews: [],
   };
   const { id } = useParams<{ id: string }>();
-  // api call here to get provider by id data
-  // axios.get('link'). then
-  // put everything in useEffect
-  //maybe if statement to see if it's defined
   const [provider, setProvider] = useState<ProviderResponse>(emptyProvider);
 
   useEffect(() => {
@@ -63,17 +59,18 @@ export function ProviderProfile() {
   };
 
   return (
-    <div className="columns">
-      <div className="column is-4 is-two-fifths is-offset-1">
-        <section className="section is-small">
-          <div className="box">
+    <div className="container">
+      <div className="columns">
+        <div className="column is-flexible">
+          <section className="section is-small">
+            {/* <div className="box"> */}
             <h1 className="title">
               {provider.fullName}, {provider.titles.join(", ")}
             </h1>
             <hr></hr>
             <h2 className="subtitle">
-              Pronouns: ({provider.pronouns})<br></br>
-              Other Names: {provider.otherNames.join()}
+              <strong> Pronouns: </strong> ({provider.pronouns})<br></br>
+              <strong> Other Names: </strong> {provider.otherNames.join()}
             </h2>
             <h2>
               <AvgRating
@@ -96,7 +93,7 @@ export function ProviderProfile() {
             <h1 className="title">Overview</h1>
             <hr></hr>
             <h2 className="subtitle">
-              Languages:
+              <strong> Languages: </strong>{" "}
               <ul>
                 {provider.languages.map((language) => {
                   return <li>{language}</li>;
@@ -104,25 +101,21 @@ export function ProviderProfile() {
               </ul>
             </h2>
             <h2 className="subtitle">
-              Services:
+              <strong> Services: </strong>{" "}
               <ul>
                 {provider.services.map((service) => {
                   return <li>{service}</li>;
                 })}
               </ul>
             </h2>
+            {/* <h2 className="subtitle"> */}
             <h2 className="subtitle">
-              <ul>
-                <li>
-                  {" "}
-                  Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
-                </li>
-                <li>
-                  {" "}
-                  Sliding Scale Pay:{" "}
-                  {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
-                </li>
-              </ul>
+              <strong> Remote Visits: </strong>{" "}
+              {provider.remoteVisits === true ? "Yes" : "No"}
+            </h2>
+            <h2 className="subtitle">
+              <strong> Sliding Scale Pay: </strong>{" "}
+              {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
             </h2>
             <br></br>
             <h1 className="title">Locations</h1>
@@ -143,38 +136,44 @@ export function ProviderProfile() {
                 Add Location
               </button>
             </Link>
-          </div>
-        </section>
+            {/* </div> */}
+          </section>
+        </div>
 
-        <footer className={styles["deletebutton-padding"]}>
-          <button
-            className="button is-small is-danger is-light"
-            onClick={deleteProvider}
-          >
-            Delete this provider
-          </button>
-        </footer>
+        <div className="column is-half">
+          <section className="section">
+            {/* <section className="section is-small"> */}
+            <div className="box">
+              <h1 className="title">Write a Review</h1>
+              <hr></hr>
+              <AddProviderReviewForm />
+            </div>
+          </section>
+        </div>
       </div>
-      <div className="column is-half">
-        <section className="section is-small">
-          <h1 className="title">Write Review</h1>
-          <hr></hr>
-          <AddProviderReviewForm />
-          <br></br>
-          <h1 className="title">Reviews</h1>
-          <hr></hr>
-          {provider.reviews.length ? (
-            ""
-          ) : (
-            <h3 className="subtitle">
-              This provider has no reviews yet. Be the first to review! 📝{" "}
-            </h3>
-          )}
-          <h2 className="subtitle">
-            <ReviewsList reviews={provider.reviews} />
-          </h2>
-        </section>
+      <div className="column is-flexible">
+        <h1 className="title">Reviews</h1>
+        <hr></hr>
+        {provider.reviews.length ? (
+          ""
+        ) : (
+          <h3 className="subtitle">
+            This provider has no reviews yet. Be the first to review! 📝{" "}
+          </h3>
+        )}
+        <h2 className="subtitle">
+          <ReviewsList reviews={provider.reviews} />
+        </h2>
       </div>
+
+      <footer>
+        <button
+          className="button is-small is-danger is-light"
+          onClick={deleteProvider}
+        >
+          Delete this provider
+        </button>
+      </footer>
     </div>
   );
 }

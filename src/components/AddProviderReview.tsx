@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TagsInput } from "../components/TagsInput";
+import { TagsInput } from "./TagsInput";
 import styles from "./AddReview.module.css";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";

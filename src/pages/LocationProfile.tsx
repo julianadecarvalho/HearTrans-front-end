@@ -69,11 +69,17 @@ export function LocationProfile() {
         <section className="section is-small">
           <h1 className="title">{location.locationName}</h1>
           <hr></hr>
-
           <h2 className="subtitle">
-            <a href={location.googleMapsUrl}>{location.address}</a>
+            <a href={location.googleMapsUrl} target="_blank" rel="noreferrer">
+              {location.address}
+            </a>
           </h2>
           <h2 className="subtitle">{location.phone}</h2>
+          <a href={location.locationUrl} target="_blank" rel="noreferrer">
+            <button className="button is-medium is-primary is-light">
+              Website
+            </button>
+          </a>
         </section>
 
         <section className="section is-small">
