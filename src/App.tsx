@@ -13,9 +13,6 @@ import { AddLocationReview } from "./pages/AddLocationReview";
 import { AddLocationToProvider } from "./pages/AddLocationToProvider";
 import { AddProviderToLocation } from "./pages/AddProviderToLocation";
 
-// import { Report } from "./pages/Report";
-// import { Donate } from "./pages/Donate";
-
 export interface Coords {
   lat: number;
   lng: number;
@@ -53,9 +50,6 @@ function App() {
             component={AddProviderToLocation}
           />
           <Route path="/" component={Home} />
-          {/* 
-          <Route path="/report" component={Report} />
-          <Route path="/donate" component={Donate} /> */}
         </Switch>
       </Router>
     </SearchContextProvider>
