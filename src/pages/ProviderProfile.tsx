@@ -174,7 +174,7 @@ export function ProviderProfile() {
         </h2>
       </div>
 
-      <footer className={styles["deletebutton-padding"]}>
+      <footer>
         <button
           className="button is-small is-danger is-light"
           onClick={deleteProvider}
