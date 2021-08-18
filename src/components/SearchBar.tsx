@@ -10,6 +10,7 @@ import GooglePlacesAutocomplete, {
 export function SearchBar(props: any) {
   const { performSearch } = useContext(SearchContext);
   const [searchQuery, setSearchQuery] = useState("");
+  const [locationTerm, setLocationTerm] = useState("");
   const [locationQuery, setLocationQuery] = useState({ lat: 0, lng: 0 });
   const viewData = (...data: any[]) => {
     geocodeByAddress(data[0].label)
@@ -47,21 +48,34 @@ export function SearchBar(props: any) {
         <p
           className={`${styles["css-yk16xz-control"]} ${styles["input-control"]} control`}
         >
-          <GooglePlacesAutocomplete
-            apiKey={`${process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE}`}
-            autocompletionRequest={{
-              types: ["geocode"],
-            }}
-            selectProps={{
-              locationQuery,
-              onChange: viewData,
-            }}
-          />
+          <label>
+            <input
+              className={`input is-medium is-desktop ${styles["input-control"]}`}
+              type="text"
+              placeholder="location"
+              value={locationTerm}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+              }}
+            />
+            <GooglePlacesAutocomplete
+              apiKey={`${process.env.REACT_APP_API_KEY_GOOGLE_AUTOCOMPLETE}`}
+              autocompletionRequest={{
+                types: ["geocode"],
+              }}
+              selectProps={{
+                locationQuery,
+                onChange: viewData,
+              }}
+            />
+          </label>
         </p>
         <button className={`button is-medium ${styles["search-button"]}`}>
           <Link
             to="/search"
-            onClick={() => performSearch(searchQuery, locationQuery)}
+            onClick={() =>
+              performSearch(searchQuery, locationQuery, locationTerm)
+            }
           >
             <span className="icon is-small">
               <i className="fas fa-search-location"></i>

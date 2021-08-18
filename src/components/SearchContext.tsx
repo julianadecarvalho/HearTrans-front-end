@@ -9,6 +9,8 @@ export type SearchContextType = {
   searchResults: ProviderResponse[];
   performSearch: (
     searchQuery: string,
+    locationTerm: string,
+    locationQuery: any
     value: any
   ) => Promise<ProviderResponse[]>;
 };
@@ -17,8 +19,12 @@ export const SearchContext = createContext({} as SearchContextType);
 
 export const SearchContextProvider: React.FC = ({ children }) => {
   const [searchResults, setSearchResults] = useState<ProviderResponse[]>([]);
-  const performSearch = async (searchQuery: string, locationQuery: any) => {
-        return (
+  const performSearch = async (
+    searchQuery: string,
+    locationQuery: any,
+    locationTerm: string
+  ) => {
+    return (
       axios
         // uncomment this when the search location route is ready
         // .get(
@@ -27,7 +33,9 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         //   )}/${encodeURI(locationQuery)}`
         // )
         .get(
-          `${REACT_APP_BACKEND_URL}/providers/query/${encodeURI(searchQuery)}}`
+          `${REACT_APP_BACKEND_URL}/providers/query/${encodeURI(
+            searchQuery + " " + locationTerm
+          )}}`
         )
         .then(async (response) => {
           const data: ProviderResponse[] = await response.data
@@ -42,7 +50,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         })
     );
   };
-  
+
   return (
     <SearchContext.Provider value={{ searchResults, performSearch }}>
       {children}
