@@ -78,8 +78,8 @@ export function LocationProfile() {
 
         <section className="section is-small">
           <h1 className="title">Providers at this location</h1>
+          <hr></hr>
           <h2 className="subtitle">
-            <hr></hr>
             <div>
               {location.providers.map((provider) => {
                 return (
@@ -99,7 +99,7 @@ export function LocationProfile() {
         </section>
         <footer>
           <button
-            className="button is-small is-primary is-light"
+            className="button is-small is-danger is-light"
             onClick={deleteLocation}
           >
             Delete this location

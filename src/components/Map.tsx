@@ -32,17 +32,18 @@ const Marker: React.FC<any> = ({ text, name }) => {
       <div
         className="title"
         style={{
-          background: "rgb(44, 89, 235)",
-          padding: "4px 10px",
+          // background: "rgb(44, 89, 235)",
+          padding: "4px 10px 4px 10px",
           justifyContent: "center",
           textAlign: "center",
           alignItems: "center",
-          borderRadius: "50%",
+          borderRadius: "10%",
           display: "inline-block",
-          color: "white",
-          fontSize: "20px",
+          color: "rgb(44, 89, 235)",
+          // color: "blue",
+          fontSize: "30px",
           fontFamily: "unset",
-          width: "70px",
+          width: "50px",
           height: "70px",
         }}
       >
