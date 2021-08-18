@@ -63,10 +63,11 @@ export function ProviderProfile() {
   };
 
   return (
-    <div className="columns">
-      <div className="column is-4 is-two-fifths is-offset-1">
-        <section className="section is-small">
-          <div className="box">
+    <div className="container">
+      <div className="columns">
+        <div className="column is-half">
+          <section className="section is-small">
+            {/* <div className="box"> */}
             <h1 className="title">
               {provider.fullName}, {provider.titles.join(", ")}
             </h1>
@@ -143,38 +144,43 @@ export function ProviderProfile() {
                 Add Location
               </button>
             </Link>
-          </div>
-        </section>
+            {/* </div> */}
+          </section>
+        </div>
 
-        <footer className={styles["deletebutton-padding"]}>
-          <button
-            className="button is-small is-danger is-light"
-            onClick={deleteProvider}
-          >
-            Delete this provider
-          </button>
-        </footer>
+        <div className="column is-flexible">
+          <section className="section">
+            {/* <section className="section is-small"> */}
+            <div className="box">
+              <h1 className="title">Write a Review</h1>
+              <hr></hr>
+              <AddProviderReviewForm />
+            </div>
+          </section>
+        </div>
       </div>
-      <div className="column is-half">
-        <section className="section is-small">
-          <h1 className="title">Write Review</h1>
-          <hr></hr>
-          <AddProviderReviewForm />
-          <br></br>
-          <h1 className="title">Reviews</h1>
-          <hr></hr>
-          {provider.reviews.length ? (
-            ""
-          ) : (
-            <h3 className="subtitle">
-              This provider has no reviews yet. Be the first to review! 📝{" "}
-            </h3>
-          )}
-          <h2 className="subtitle">
-            <ReviewsList reviews={provider.reviews} />
-          </h2>
-        </section>
+      <div className="column is-flexible">
+        <h1 className="title">Reviews</h1>
+        <hr></hr>
+        {provider.reviews.length ? (
+          ""
+        ) : (
+          <h3 className="subtitle">
+            This provider has no reviews yet. Be the first to review! 📝{" "}
+          </h3>
+        )}
+        <h2 className="subtitle">
+          <ReviewsList reviews={provider.reviews} />
+        </h2>
       </div>
+      <footer className={styles["deletebutton-padding"]}>
+        <button
+          className="button is-small is-danger is-light"
+          onClick={deleteProvider}
+        >
+          Delete this provider
+        </button>
+      </footer>
     </div>
   );
 }
