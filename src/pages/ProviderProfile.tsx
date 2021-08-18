@@ -5,7 +5,7 @@ import styles from "./ProviderProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
-import { AddProviderReviewForm } from "./AddProviderReview";
+import { AddProviderReviewForm } from "../components/AddProviderReview";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -25,10 +25,6 @@ export function ProviderProfile() {
     reviews: [],
   };
   const { id } = useParams<{ id: string }>();
-  // api call here to get provider by id data
-  // axios.get('link'). then
-  // put everything in useEffect
-  //maybe if statement to see if it's defined
   const [provider, setProvider] = useState<ProviderResponse>(emptyProvider);
 
   useEffect(() => {
@@ -97,7 +93,7 @@ export function ProviderProfile() {
             <h1 className="title">Overview</h1>
             <hr></hr>
             <h2 className="subtitle">
-              Languages:
+              <strong> Languages: </strong>{" "}
               <ul>
                 {provider.languages.map((language) => {
                   return <li>{language}</li>;
@@ -105,25 +101,21 @@ export function ProviderProfile() {
               </ul>
             </h2>
             <h2 className="subtitle">
-              Services:
+              <strong> Services: </strong>{" "}
               <ul>
                 {provider.services.map((service) => {
                   return <li>{service}</li>;
                 })}
               </ul>
             </h2>
+            {/* <h2 className="subtitle"> */}
             <h2 className="subtitle">
-              <ul>
-                <li>
-                  {" "}
-                  Remote Visits: {provider.remoteVisits === true ? "Yes" : "No"}
-                </li>
-                <li>
-                  {" "}
-                  Sliding Scale Pay:{" "}
-                  {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
-                </li>
-              </ul>
+              <strong> Remote Visits: </strong>{" "}
+              {provider.remoteVisits === true ? "Yes" : "No"}
+            </h2>
+            <h2 className="subtitle">
+              <strong> Sliding Scale Pay: </strong>{" "}
+              {provider.slidingScalePay === true ? "Yes" : "No"}{" "}
             </h2>
             <br></br>
             <h1 className="title">Locations</h1>
