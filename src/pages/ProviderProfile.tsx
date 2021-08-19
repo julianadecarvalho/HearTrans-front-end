@@ -42,7 +42,7 @@ export function ProviderProfile() {
         console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  }, [reviewList]);
+  }, [provider]);
 
   // delete this provider
   const deleteProvider = (
@@ -77,7 +77,7 @@ export function ProviderProfile() {
         console.log("Error:", error);
         alert("Did you fill out the form completely");
       });
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   return (
