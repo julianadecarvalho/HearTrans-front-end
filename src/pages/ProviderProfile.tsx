@@ -39,10 +39,10 @@ export function ProviderProfile() {
       })
       .catch((error) => {
         console.log("Error:", error);
-        console.log(provider);
+        // console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  }, [provider]);
+  }, []);
 
   // delete this provider
   const deleteProvider = (
@@ -68,9 +68,9 @@ export function ProviderProfile() {
       .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
       .then(async (response) => {
         console.log(response);
-        const reviews = [...reviewList];
-        reviews.push(response.data);
-        setReviewList(reviews);
+        // const reviews = [...provider.reviews];
+        // provider.reviews.push(response.data);
+        setReviewList(provider.reviews);
         // alert("Provider Review successfully added. Thank you for your input!");
       })
       .catch((error) => {
@@ -184,7 +184,8 @@ export function ProviderProfile() {
           </h3>
         )}
         <h2 className="subtitle">
-          <ReviewsList reviews={provider.reviews} />
+          {/* <ReviewsList reviews={provider.reviews} /> */}
+          <ReviewsList reviews={reviewList} />
         </h2>
       </div>
 

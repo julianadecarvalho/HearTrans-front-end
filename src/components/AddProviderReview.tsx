@@ -46,7 +46,7 @@ export function AddProviderReviewForm(props: any) {
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement | MouseEvent>
   ) => {
-    // event.preventDefault();
+    event.preventDefault();
     // axios
     //   .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
     //   .then(async (response) => {
@@ -58,11 +58,11 @@ export function AddProviderReviewForm(props: any) {
     //     alert("Did you fill out the form completely");
     //   });
     props.postReview(input);
-    setInput({
-      contentWarnings: [],
-      rating: 0,
-      reviewBody: "",
-    });
+    // setInput({
+    //   contentWarnings: [],
+    //   rating: 0,
+    //   reviewBody: "",
+    // });
   };
   return (
     <div className="container is-primary">

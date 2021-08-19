@@ -9,12 +9,28 @@ export interface IProps {
 export const ReviewsList = ({ reviews }: IProps) => {
   const renderList = (): JSX.Element[] => {
     return reviews.map((review) => {
+      const warnings: undefined | string[] = review.contentWarnings;
       return (
         <li key={review.id} className="card">
           <div className={`card-content ${styles["review-padding"]}`}>
             <div className="content">
-              {review.contentWarnings.length ? <h4>CONTENT WARNINGS:</h4> : ""}
-              <div className="tags is-grouped-multiline">
+              {warnings ? (
+                <div>
+                  <h4>CONTENT WARNINGS:</h4>
+                  <div className="tags is-grouped-multiline">
+                    {review.contentWarnings.map((contentWarning) => {
+                      return (
+                        <span className="tag is-medium is-rounded is-danger">
+                          {contentWarning}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              {/* <div className="tags is-grouped-multiline">
                 {review.contentWarnings.map((contentWarning) => {
                   return (
                     <span className="tag is-medium is-rounded is-danger">
@@ -22,7 +38,7 @@ export const ReviewsList = ({ reviews }: IProps) => {
                     </span>
                   );
                 })}
-              </div>
+              </div> */}
               <div className="field">
                 {[...Array(5)].map((star, i) => {
                   const ratingValue = i + 1;
