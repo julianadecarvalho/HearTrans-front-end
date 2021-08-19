@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ProviderResponse from "../models/provider-response";
 import { AddProviderReviewForm } from "../components/AddProviderReview";
+import ReviewResponse from "../models/review-response";
 
 require("dotenv").config();
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -26,6 +27,7 @@ export function ProviderProfile() {
   };
   const { id } = useParams<{ id: string }>();
   const [provider, setProvider] = useState<ProviderResponse>(emptyProvider);
+  const [reviewList, setReviewList] = useState<ReviewResponse[]>([]);
 
   useEffect(() => {
     axios
@@ -33,13 +35,14 @@ export function ProviderProfile() {
       .then(async (response) => {
         const data: ProviderResponse = await response.data.providerDict;
         setProvider(data);
+        setReviewList(data.reviews);
       })
       .catch((error) => {
         console.log("Error:", error);
         console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  }, [provider]);
+  }, [reviewList]);
 
   // delete this provider
   const deleteProvider = (
@@ -56,6 +59,25 @@ export function ProviderProfile() {
         console.log("Error: ", error);
         alert("LOLOL Couldn't Delete the Provider, something went wrong!! 😖");
       });
+  };
+
+  // post Review
+  const postReview = (input: any) => {
+    // event.preventDefault();
+    axios
+      .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
+      .then(async (response) => {
+        console.log(response);
+        const reviews = [...reviewList];
+        reviews.push(response.data);
+        setReviewList(reviews);
+        // alert("Provider Review successfully added. Thank you for your input!");
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        alert("Did you fill out the form completely");
+      });
+    window.location.reload(false);
   };
 
   return (
@@ -146,7 +168,7 @@ export function ProviderProfile() {
             <div className="box">
               <h1 className="title">Write a Review</h1>
               <hr></hr>
-              <AddProviderReviewForm />
+              <AddProviderReviewForm postReview={postReview} />
             </div>
           </section>
         </div>

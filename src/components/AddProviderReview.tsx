@@ -13,7 +13,7 @@ export interface Review {
   rating: number;
   reviewBody: string;
 }
-export function AddProviderReviewForm() {
+export function AddProviderReviewForm(props: any) {
   const [input, setInput] = useState<Review>({
     contentWarnings: [],
     rating: 0,
@@ -46,17 +46,23 @@ export function AddProviderReviewForm() {
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement | MouseEvent>
   ) => {
-    event.preventDefault();
-    axios
-      .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
-      .then(async (response) => {
-        console.log(response);
-        // alert("Provider Review successfully added. Thank you for your input!");
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-        alert("Did you fill out the form completely");
-      });
+    // event.preventDefault();
+    // axios
+    //   .post(`${REACT_APP_BACKEND_URL}/provider/reviews/${id}`, input)
+    //   .then(async (response) => {
+    //     console.log(response);
+    //     // alert("Provider Review successfully added. Thank you for your input!");
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error:", error);
+    //     alert("Did you fill out the form completely");
+    //   });
+    props.postReview(input);
+    setInput({
+      contentWarnings: [],
+      rating: 0,
+      reviewBody: "",
+    });
   };
   return (
     <div className="container is-primary">
