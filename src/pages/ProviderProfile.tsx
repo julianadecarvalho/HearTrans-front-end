@@ -39,7 +39,7 @@ export function ProviderProfile() {
         console.log(provider);
         alert("ooopsie Daisy, couldn't get your provider information!! 😖 ");
       });
-  }, [provider]);
+  }, []);
 
   // delete this provider
   const deleteProvider = (

@@ -58,6 +58,10 @@ export function AddProviderReviewForm() {
         alert("Did you fill out the form completely");
       });
   };
+
+  // hard refresh page onClick
+  const refreshPage = (): void => window.location.reload(false);
+
   return (
     <div className="container is-primary">
       <div className={`field ${styles["field-padding"]}`}>
@@ -108,7 +112,13 @@ export function AddProviderReviewForm() {
         </div>
       </div>
 
-      <button className="button is-primary is-light" onClick={handleClick}>
+      <button
+        className="button is-primary is-light"
+        onClick={function (event) {
+          handleClick(event);
+          refreshPage();
+        }}
+      >
         Add Review
       </button>
     </div>
