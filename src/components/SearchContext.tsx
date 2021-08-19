@@ -10,8 +10,8 @@ export type SearchContextType = {
   performSearch: (
     searchQuery: string,
     locationTerm: string,
+    // locationQuery: any
     locationQuery: any
-    value: any
   ) => Promise<ProviderResponse[]>;
 };
 

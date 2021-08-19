@@ -55,7 +55,7 @@ export function SearchBar(props: any) {
               placeholder="location"
               value={locationTerm}
               onChange={(e) => {
-                setSearchQuery(e.target.value);
+                setLocationTerm(e.target.value);
               }}
             />
             <GooglePlacesAutocomplete
@@ -74,7 +74,7 @@ export function SearchBar(props: any) {
           <Link
             to="/search"
             onClick={() =>
-              performSearch(searchQuery, locationQuery, locationTerm)
+              performSearch(searchQuery, locationTerm, locationQuery)
             }
           >
             <span className="icon is-small">
